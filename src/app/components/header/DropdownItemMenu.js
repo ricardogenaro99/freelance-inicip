@@ -47,7 +47,7 @@ const Container = styled.div`
 
     &:hover {
       background-color: var(--color-primary);
-      color: var(--color-white-pure);
+      color: var(--color-white);
     }
   }
 
@@ -56,7 +56,7 @@ const Container = styled.div`
     flex-direction: column;
 
     * {
-      color: var(--color-white-pure);
+      color: var(--color-white);
     }
 
     .dropdown_activator {
@@ -69,7 +69,7 @@ const Container = styled.div`
       padding-right: var(--padding-item-menu-movil-x);
 
       &.active {
-        color: var(--color-white-pure);
+        color: var(--color-white);
       }
     }
 

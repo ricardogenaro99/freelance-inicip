@@ -22,7 +22,7 @@ const NavLinkStyle = styled(NavLink)`
     }
     &:hover,
     &.active {
-      color: var(--color-white-pure);
+      color: var(--color-white);
       background-color: var(--color-secondary);
       border-left: 4px solid var(--color-sub-secondary);
     }

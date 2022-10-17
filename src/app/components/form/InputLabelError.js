@@ -17,7 +17,7 @@ const ContainerInputLabel = styled.label`
   border: var(--border-gray);
   padding: 8px 16px;
   gap: var(--gap-s);
-  background-color: var(--color-white-pure);
+  background-color: var(--color-white);
   span {
     color: var(--color-gray);
     font-size: var(--font-size-s);
