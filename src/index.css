@@ -48,8 +48,8 @@
 	--padding-global-y: 24px;
 	--padding-global: var(--padding-global-y) var(--padding-global-x);
 	--padding-header: 0 var(--padding-global-x);
-	--padding-footer: 24px var(--padding-global-x);
-  --padding-item-menu-movil-x: 32px;
+	--padding-footer: 48px var(--padding-global-x);
+	--padding-item-menu-movil-x: 32px;
 	--padding-item-menu-movil-y: 16px;
 	--padding-item-menu-movil: var(--padding-item-menu-movil-y)
 		var(--padding-item-menu-movil-x);
@@ -57,6 +57,7 @@
 
 body {
 	background-color: #00000042;
+	background-color: var(--color-white);
 }
 
 * {

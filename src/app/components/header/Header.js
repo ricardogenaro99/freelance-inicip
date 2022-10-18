@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useWindowDimensions } from "../../hooks";
+import { PATHS } from "../../routes";
 import { device, valuePx } from "../../utils/generalBreakpoints";
 import BurgerComponent from "./BurgerComponent";
 import DropdownItemMenu from "./DropdownItemMenu";
@@ -21,6 +22,10 @@ const Container = styled.header`
 
 		display: flex;
 		align-items: center;
+
+		box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+		-webkit-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
 
 		.header {
 			width: 100%;
@@ -85,18 +90,18 @@ function Header() {
 
 	const itemsNosotros = [
 		{
-			slug: "presentacion",
+			path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.presentacion.path}`,
 			anchor: "Presentación",
 		},
 		{
-			slug: "equipo",
+			path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.equipo.path}`,
 			anchor: "Equipo",
 		},
 	];
 
 	const itemsInvestigaciones = [
 		{
-			slug: "publicaciones",
+			path: `${PATHS.investigaciones.path}/${PATHS.investigaciones.children.publicaciones.path}`,
 			anchor: "Publicaciones",
 		},
 	];
@@ -125,7 +130,11 @@ function Header() {
 			<div>
 				<div className="header">
 					<section>
-						<Link to="/" className="title-quena">
+						<Link
+							to="/"
+							className="title-quena"
+							onClick={() => setOpenMenu(false)}
+						>
 							LOGO
 						</Link>
 						{watchMenu && (

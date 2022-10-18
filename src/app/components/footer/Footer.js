@@ -13,18 +13,19 @@ const Container = styled.footer`
 		display: grid;
 		justify-content: center;
 		align-items: center;
-		padding: var(--padding-footer);
 	}
 
 	.sections {
 		grid-template-columns: repeat(3, 1fr);
 		gap: var(--gap-big);
 		background-color: var(--color-sub-primary);
+		padding: var(--padding-footer);
 	}
 
 	.copys {
 		background-color: var(--color-primary);
 		text-align: center;
+		padding: 18px var(--padding-global-x);
 	}
 
 	@media ${device.tabletS} {
