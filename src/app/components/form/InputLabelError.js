@@ -33,7 +33,7 @@ function InputLabelError({ label, name, type = "text", error }) {
         <span>{label}</span>
         <input id={id} name={name} type={type} />
       </ContainerInputLabel>
-      {error && <span className='error'>{error}</span>}
+      {error && <span className="error">{error}</span>}
     </Container>
   );
 }

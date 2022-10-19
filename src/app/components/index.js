@@ -12,5 +12,5 @@ export {
   FormCard,
   ButtonRectangleRadius,
   ButtonRectangle,
-  Footer
+  Footer,
 };
