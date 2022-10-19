@@ -26,8 +26,8 @@ const Container = styled.div`
 function FormCard({ title, children }) {
   return (
     <Container>
-      <h3 className='title-card'>{title}</h3>
-      <div className='content'>{children}</div>
+      <h3 className="title-card">{title}</h3>
+      <div className="content">{children}</div>
     </Container>
   );
 }
