@@ -12,6 +12,7 @@ const Container = styled.header`
 	* {
 		transition: all var(--transition);
 	}
+	width: 100%;
 	> div {
 		background: var(--color-white-pure);
 		height: var(--header-height);

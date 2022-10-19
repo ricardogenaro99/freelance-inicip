@@ -40,8 +40,8 @@ function Footer() {
 		<Container>
 			<div className="sections">
 				<SectionFooter title="Ubicación">
-					Av. Universitaria 1801 San Miguel, 15088 Lima - Perú Casetas -
-					Pabellón de Estudios Generales Letras
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, optio
+					labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit iste
 				</SectionFooter>
 				<SectionFooter title="Contacto">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, optio

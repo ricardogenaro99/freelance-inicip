@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 
-  @media ${device.tabletS} {
-		*{
-      text-align: center;
-    }
+	@media ${device.tabletS} {
+		* {
+			text-align: center;
+		}
 	}
 `;
 
