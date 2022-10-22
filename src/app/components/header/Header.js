@@ -14,7 +14,7 @@ const Container = styled.header`
   }
   width: 100%;
   > div {
-    background: var(--color-white-pure);
+    background: var(--color-white);
     height: var(--header-height);
     width: 100%;
     position: fixed;

@@ -31,7 +31,7 @@ const Container = styled.div`
   }
 
   .dropdown_item_list {
-    background: var(--color-white-pure);
+    background: var(--color-white);
     margin: 0;
     z-index: 10000;
     position: absolute;

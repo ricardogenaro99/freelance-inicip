@@ -1,15 +1,22 @@
 :root {
   --header-height: 76px;
   --item-menu-height: 70px;
-
+  /* 
   --color-primary: #6543fb;
   --color-sub-primary: #6e59f8;
-  --color-secondary: #4d2ce0;
+  --color-secondary: #4d2ce0; */
+
+  --color-primary: #2e8a3a;
+  --color-sub-primary: #539c5d;
+  --color-secondary: #0c7208;
+
   --color-sub-secondary: #e0bf2c;
 
-  --color-white: #e0e7ff;
+  /* --color-primary-soft: #e0e7ff; */
+  --color-primary-soft: #f0fff4;
+
   --color-white-soft: #f3f6ff;
-  --color-white-pure: #fff;
+  --color-white: #fff;
 
   --color-gray: #b0b0b0;
   --color-black: #333333;
@@ -28,7 +35,8 @@
   --transition: 0.15s ease;
 
   --border-gray: 1px solid var(--color-gray);
-  --border-white: 1.5px solid var(--color-white);
+  --border-primary-soft: 1.5px solid var(--color-primary-soft);
+  --border-primary: 1.5px solid var(--color-primary);
 
   --font-size-s: 14px;
   --font-size-m: 16px;
@@ -39,10 +47,10 @@
 
   --gap-s: 3px;
   --gap-m: 8px;
-  --gap-l: 12px;
-  --gap-xl: 16px;
-  --gap-xxl: 24px;
-  --gap-big: 32px;
+  --gap-l: 16px;
+  --gap-xl: 24px;
+  --gap-xxl: 32px;
+  --gap-big: 64px;
 
   --padding-global-x: 4%;
   --padding-global-y: 24px;

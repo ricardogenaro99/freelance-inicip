@@ -7,6 +7,7 @@ import {
   Inicio,
   NotFound,
   Presentacion,
+  Publicacion,
   Publicaciones,
 } from "../pages";
 import { PATHS } from "../routes";
@@ -39,10 +40,10 @@ function Main() {
               />
             </Route>
             <Route path={PATHS.investigaciones.path}>
-              <Route
-                path={PATHS.investigaciones.children.publicaciones.path}
-                element={<Publicaciones />}
-              />
+              <Route path={PATHS.investigaciones.children.publicaciones.path}>
+                <Route index element={<Publicaciones />} />
+                <Route path=":id" element={<Publicacion />} />
+              </Route>
             </Route>
             <Route path={PATHS.contacto.path} element={<Contacto />} />
             <Route path="*" element={<NotFound />} />
