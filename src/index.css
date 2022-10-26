@@ -52,7 +52,7 @@
   --gap-xxl: 32px;
   --gap-big: 64px;
 
-  --padding-global-x: 4%;
+  --padding-global-x: 6%;
   --padding-global-y: 24px;
   --padding-global: var(--padding-global-y) var(--padding-global-x);
   --padding-header: 0 var(--padding-global-x);

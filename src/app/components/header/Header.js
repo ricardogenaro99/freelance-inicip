@@ -136,7 +136,7 @@ function Header() {
               className="title-quena"
               onClick={() => setOpenMenu(false)}
             >
-              LOGO
+              INICIP
             </Link>
             {watchMenu && (
               <BurgerComponent onClick={handleClickMenu} openMenu={openMenu} />

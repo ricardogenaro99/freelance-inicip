@@ -18,7 +18,7 @@ const Container = styled.main`
   padding: var(--padding-global);
 
   > .main-content {
-    max-width: 1920px;
+    max-width: 1200px;
     width: 100%;
   }
 `;
