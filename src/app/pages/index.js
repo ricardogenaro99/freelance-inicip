@@ -6,4 +6,12 @@ import Equipo from "./nosotros/Equipo";
 import Presentacion from "./nosotros/Presentacion";
 import NotFound from "./NotFound";
 
-export { Inicio, Equipo, Presentacion, Publicaciones,Publicacion, Contacto, NotFound };
+export {
+  Inicio,
+  Equipo,
+  Presentacion,
+  Publicaciones,
+  Publicacion,
+  Contacto,
+  NotFound,
+};

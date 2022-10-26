@@ -11,7 +11,7 @@ const Container = styled.div`
   gap: var(--gap-l);
   padding: 10px 15px;
 
-  background: var( --color-primary-soft);
+  background: var(--color-primary-soft);
   border: 1px solid var(--color-sub-primary);
   border-radius: 2px;
 
