@@ -39,7 +39,7 @@ function Equipo() {
       }
     };
 
-    return () => getData();
+    getData();
   }, []);
 
   return (
