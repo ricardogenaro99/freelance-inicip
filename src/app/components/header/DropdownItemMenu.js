@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { IoIosArrowDown } from 'react-icons/io';
-import NavLinkComponent from './NavLinkComponent';
-import { device, valuePx } from '../../utils/generalBreakpoints';
-import { useWindowDimensions } from '../../hooks';
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { IoIosArrowDown } from "react-icons/io";
+import NavLinkComponent from "./NavLinkComponent";
+import { device, valuePx } from "../../utils/generalBreakpoints";
+import { useWindowDimensions } from "../../hooks";
 
 const Container = styled.div`
   position: relative;
@@ -31,12 +31,14 @@ const Container = styled.div`
   }
 
   .dropdown_item_list {
-    background: var(--color-white-pure);
+    background: var(--color-white);
     margin: 0;
     z-index: 10000;
     position: absolute;
-    box-shadow: 0 0 2px 0 var(--color-gray);
-    border-radius: 5px;
+    box-shadow: 0px 2px 9px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 2px 9px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 2px 9px 3px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-global);
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -47,7 +49,7 @@ const Container = styled.div`
 
     &:hover {
       background-color: var(--color-primary);
-      color: var(--color-white-pure);
+      color: var(--color-white);
     }
   }
 
@@ -56,7 +58,7 @@ const Container = styled.div`
     flex-direction: column;
 
     * {
-      color: var(--color-white-pure);
+      color: var(--color-white);
     }
 
     .dropdown_activator {
@@ -69,7 +71,7 @@ const Container = styled.div`
       padding-right: var(--padding-item-menu-movil-x);
 
       &.active {
-        color: var(--color-white-pure);
+        color: var(--color-white);
       }
     }
 
@@ -95,9 +97,9 @@ const Container = styled.div`
 
 function DropdownItemMenu({
   items = [],
-  dropdownTitle = '',
+  dropdownTitle = "",
   onClickItem,
-  openMenu
+  openMenu,
 }) {
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
@@ -122,7 +124,7 @@ function DropdownItemMenu({
   };
 
   const keyHandler = (event) => {
-    if (event.key === 'Escape' && isOpen) {
+    if (event.key === "Escape" && isOpen) {
       closeDropDown();
     }
   };
@@ -144,9 +146,9 @@ function DropdownItemMenu({
 
   useEffect(() => {
     setIsLocation(
-      location.pathname.split('/').includes(dropdownTitle.toLowerCase())
+      location.pathname.split("/").includes(dropdownTitle.toLowerCase())
     );
-  }, [location]);
+  }, [dropdownTitle, location]);
 
   useEffect(() => {
     if (widthWindow > valuePx.tabletL && firstOpenResponse) {
@@ -155,7 +157,7 @@ function DropdownItemMenu({
     if (widthWindow <= valuePx.tabletL && !firstOpenResponse) {
       setFirstOpenResponse(true);
     }
-  }, [widthWindow]);
+  }, [firstOpenResponse, widthWindow]);
 
   useEffect(() => {
     if (!openMenu) {
@@ -172,18 +174,19 @@ function DropdownItemMenu({
   useEffect(() => {
     if (widthWindow > valuePx.tabletL) {
       if (isOpen) {
-        dropdownListRef.current.querySelector('a').focus();
-        document.addEventListener('mousedown', clickOutsideHandler);
+        dropdownListRef.current.querySelector("a").focus();
+        document.addEventListener("mousedown", clickOutsideHandler);
       } else {
-        document.addEventListener('mousedown', clickOutsideHandler);
+        document.addEventListener("mousedown", clickOutsideHandler);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
     <Container onKeyUp={keyHandler}>
       <button
-        className={`dropdown_activator ${isLocation && 'active'}`}
+        className={`dropdown_activator ${isLocation && "active"}`}
         aria-haspopup="true"
         aria-controls={dropdownTitle}
         onClick={clickHandler}
@@ -191,7 +194,7 @@ function DropdownItemMenu({
       >
         <span>{dropdownTitle}</span>
         <IoIosArrowDown
-          style={isOpen && { transform: 'rotate(180deg)' }}
+          style={isOpen && { transform: "rotate(180deg)" }}
           color="var(--color-primary)"
           size="22px"
         />
@@ -202,7 +205,7 @@ function DropdownItemMenu({
             <li className="item_list" key={index}>
               <NavLinkComponent
                 label={item.anchor}
-                path={`${dropdownTitle.toLowerCase()}/${item.slug}`}
+                path={item.path}
                 onClick={() => closeDropDown()}
                 level={2}
               />

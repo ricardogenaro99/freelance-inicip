@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useWindowDimensions } from "../../hooks";
+import { PATHS } from "../../routes";
 import { device, valuePx } from "../../utils/generalBreakpoints";
 import BurgerComponent from "./BurgerComponent";
 import DropdownItemMenu from "./DropdownItemMenu";
 import NavLinkComponent from "./NavLinkComponent";
 
-const Container = styled.div`
+const Container = styled.header`
   * {
     transition: all var(--transition);
   }
-  header {
-    background: var(--color-white-pure);
+  width: 100%;
+  > div {
+    background: var(--color-white);
     height: var(--header-height);
     width: 100%;
     position: fixed;
@@ -22,10 +24,14 @@ const Container = styled.div`
     display: flex;
     align-items: center;
 
+    box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+
     .header {
       width: 100%;
       justify-content: space-between;
-      padding: 0 var(--padding-global-x);
+      padding: var(--padding-header);
       display: flex;
       align-items: center;
       section,
@@ -78,27 +84,27 @@ const Container = styled.div`
 `;
 
 function Header() {
-  const [openMenu, setOpenMenu] = useState(true);
-  const [watchMenu, setWatchMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
+  const [watchMenu, setWatchMenu] = useState(false);
 
   const { widthWindow } = useWindowDimensions();
 
   const itemsNosotros = [
     {
-      slug: "presentacion",
-      anchor: "Presentación"
+      path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.presentacion.path}`,
+      anchor: "Presentación",
     },
     {
-      slug: "equipo",
-      anchor: "Equipo"
-    }
+      path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.equipo.path}`,
+      anchor: "Equipo",
+    },
   ];
 
   const itemsInvestigaciones = [
     {
-      slug: "publicaciones",
-      anchor: "Publicaciones"
-    }
+      path: `${PATHS.investigaciones.path}/${PATHS.investigaciones.children.publicaciones.path}`,
+      anchor: "Publicaciones",
+    },
   ];
 
   useEffect(() => {
@@ -122,11 +128,15 @@ function Header() {
 
   return (
     <Container openMenu={openMenu}>
-      <header>
-        <div className='header'>
+      <div>
+        <div className="header">
           <section>
-            <Link to='/' className='title-quena'>
-              LOGO
+            <Link
+              to="/"
+              className="title-quena"
+              onClick={() => setOpenMenu(false)}
+            >
+              INICIP
             </Link>
             {watchMenu && (
               <BurgerComponent onClick={handleClickMenu} openMenu={openMenu} />
@@ -134,25 +144,25 @@ function Header() {
           </section>
           <nav>
             <DropdownItemMenu
-              dropdownTitle='Nosotros'
+              dropdownTitle="Nosotros"
               items={itemsNosotros}
               onClickItem={handleClickMenu}
               openMenu={openMenu}
             />
             <DropdownItemMenu
-              dropdownTitle='Investigaciones'
+              dropdownTitle="Investigaciones"
               items={itemsInvestigaciones}
               onClickItem={handleClickMenu}
               openMenu={openMenu}
             />
             <NavLinkComponent
-              label='Contacto'
+              label="Contacto"
               onClick={handleClickMenu}
               openMenu={openMenu}
             />
           </nav>
         </div>
-      </header>
+      </div>
     </Container>
   );
 }

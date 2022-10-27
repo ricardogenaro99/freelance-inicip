@@ -5,8 +5,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-big);
-  background: var(--color-white-pure);
-  border: var(--border-white);
+  background: var(--color-white);
+  border: var(--border-primary-soft);
   padding: 32px;
   width: 100%;
   max-width: 650px;
@@ -26,8 +26,8 @@ const Container = styled.div`
 function FormCard({ title, children }) {
   return (
     <Container>
-      <h3 className='title-card'>{title}</h3>
-      <div className='content'>{children}</div>
+      <h3 className="title-card">{title}</h3>
+      <div className="content">{children}</div>
     </Container>
   );
 }

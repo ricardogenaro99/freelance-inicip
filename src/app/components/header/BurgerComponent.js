@@ -76,9 +76,9 @@ function BurgerComponent({ onClick, openMenu }) {
   return (
     <Container openMenu={openMenu} onClick={onClick}>
       <div>
-        <span className='top' />
-        <span className='middle' />
-        <span className='bottom' />
+        <span className="top" />
+        <span className="middle" />
+        <span className="bottom" />
       </div>
     </Container>
   );
