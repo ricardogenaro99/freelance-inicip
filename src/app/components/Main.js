@@ -18,7 +18,8 @@ const Container = styled.main`
   padding: var(--padding-global);
 
   > .main-content {
-    max-width: 1200px;
+    padding: var(--padding-global);
+    /* max-width: 1200px; */
     width: 100%;
   }
 `;

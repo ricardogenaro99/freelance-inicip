@@ -52,7 +52,7 @@ function Footer() {
           ullam iure explicabo numquam est, dolor sit enim, cum expedita nisi
         </SectionFooter>
       </div>
-      <div className="copys">© 2022 Ricardo Genaro – All rights reserved.</div>
+      <div className="copys">© 2022 INICIP – All rights reserved.</div>
     </Container>
   );
 }

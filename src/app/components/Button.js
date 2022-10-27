@@ -13,14 +13,9 @@ export const ButtonRectangle = styled.button`
   align-items: center;
   cursor: pointer;
   transition: var(--transition);
+  border-radius: var(--border-radius-global);
 
   &:hover {
     background-color: var(--color-secondary);
   }
 `;
-
-export const ButtonRectangleRadius = styled(ButtonRectangle)`
-  border-radius: 32px;
-`;
-
-export const ButtonController = styled.div``;

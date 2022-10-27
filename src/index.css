@@ -1,14 +1,14 @@
 :root {
   --header-height: 76px;
   --item-menu-height: 70px;
-  /* 
+  
   --color-primary: #6543fb;
   --color-sub-primary: #6e59f8;
-  --color-secondary: #4d2ce0; */
+  --color-secondary: #4d2ce0;
 
-  --color-primary: #2e8a3a;
-  --color-sub-primary: #539c5d;
-  --color-secondary: #0c7208;
+  --color-primary: #044d36;
+  --color-sub-primary: #176d52;
+  --color-secondary: #00442f;
 
   --color-sub-secondary: #e0bf2c;
 
@@ -42,7 +42,7 @@
   --font-size-m: 16px;
   --font-size-l: 18px;
   --font-size-xl: 24px;
-  --font-size-xxl: 32px;
+  --font-size-xxl: 30px;
   --font-size-big: 64px;
 
   --gap-s: 3px;
@@ -61,6 +61,8 @@
   --padding-item-menu-movil-y: 16px;
   --padding-item-menu-movil: var(--padding-item-menu-movil-y)
     var(--padding-item-menu-movil-x);
+
+  --border-radius-global: 2px;
 }
 
 body {
