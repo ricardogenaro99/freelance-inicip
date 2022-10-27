@@ -4,6 +4,7 @@ import image from "../../../assets/images.jpg";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 import { useLocation, useNavigate } from "react-router-dom";
+import parse, { domToReact } from "html-react-parser";
 
 const Container = styled.div`
   display: grid;
@@ -56,7 +57,7 @@ function Publicaciones() {
             image={e.image}
             handleClick={() => handleClick(e.id)}
           >
-            {e.content}
+            {parse(e.content)}
           </CardBasic>
         ))}
       </Container>
