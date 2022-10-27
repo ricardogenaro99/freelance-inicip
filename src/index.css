@@ -1,10 +1,10 @@
 :root {
-  --header-height: 76px;
+  --header-height: 86px;
   --item-menu-height: 70px;
 
-  --color-primary: #6543fb;
+  /* --color-primary: #6543fb;
   --color-sub-primary: #6e59f8;
-  --color-secondary: #4d2ce0;
+  --color-secondary: #4d2ce0; */
 
   --color-primary: #044d36;
   --color-sub-primary: #176d52;
@@ -71,7 +71,7 @@ body {
 }
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: var(--font-size-m);
   padding: 0;
   margin: 0;

@@ -6,7 +6,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
-
+  gap: var(--gap-m);
   @media ${device.tabletS} {
     * {
       text-align: center;
