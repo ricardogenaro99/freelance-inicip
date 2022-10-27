@@ -10,7 +10,7 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     gap: ${(props) => props.gap};
-    padding: 0 .7%;
+    padding: 0 0.7%;
   }
 `;
 
