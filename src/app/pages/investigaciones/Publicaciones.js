@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CardBasic, SectionBasic } from "../../components";
 import image from "../../../assets/images.jpg";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: grid;
@@ -16,33 +17,48 @@ const Container = styled.div`
   } */
 `;
 
+const initData = [
+  {
+    id: 1,
+    title: "Static post 1",
+    image,
+    content: `<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad mluptas nulla pariatur?</p>`,
+  },
+  {
+    id: 2,
+    title: "Static post 2",
+    image,
+    content: `<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>`,
+  },
+];
+
 function Publicaciones() {
+  const [publicaciones, setPublicaciones] = useState([]);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (id = "") => {
+    navigate(`${location.pathname}/${id}`);
+  };
+
+  useEffect(() => {
+    setPublicaciones(initData);
+  }, []);
+
   return (
     <SectionBasic title="Publicaciones">
       <Container>
-        <CardBasic id="1" title="Static post 1" image={image}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus odit
-          alias aperiam tempora. Delectus a ducimus eos libero officiis nobis,
-          mollitia repudiandae eligendi? Fuga dolorem, repudiandae iure
-          assumenda eaque ea? Minus sunt placeat amet omnis. Voluptates
-          molestiae esse explicabo sapiente, distinctio tenetur blanditiis
-          obcaecati qui, quo, ipsum neque dicta quasi rerum! Incidunt natus
-          consectetur, veritatis nesciunt minima exercitationem magni? Nisi
-          commodi ullam iure quia quidem, dolorem quam nam quos unde corrupti
-          blanditiis recusandae nemo doloremque magnam consequuntur eius dolor.
-          Aspernatur asperiores accusantium ratione molestiae molestias,
-          corporis quam maxime natus? Odit, maiores! Magni assumenda quas modi
-          natus, vitae iste officiis molestias sit, dignissimos non aliquam esse
-          nemo minima accusantium libero veritatis voluptatum. Tempore nobis
-          labore inventore commodi. Commodi dolor ad culpa labore necessitatibus
-          corrupti ratione sed unde earum totam aperiam consectetur perspiciatis
-          illo quas, eius,
-        </CardBasic>
-
-        <CardBasic id="2" title="Static post 2" image={image}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus quod
-          corrupti, nesciunt laboriosam tempore
-        </CardBasic>
+        {publicaciones.map((e) => (
+          <CardBasic
+            key={e.id}
+            id={e.id}
+            title={e.title}
+            image={e.image}
+            handleClick={() => handleClick(e.id)}
+          >
+            {e.content}
+          </CardBasic>
+        ))}
       </Container>
     </SectionBasic>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 import { ButtonRectangle } from "../Button";
@@ -16,7 +15,7 @@ const Container = styled.div`
   background: var(--color-white-pure);
   border-radius: var(--border-radius-global);
 
-  box-shadow: 0px 0px 10px -1px rgb(163 160 163);
+  box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.18);
 
   .image-container {
     display: flex;
@@ -27,6 +26,7 @@ const Container = styled.div`
     img {
       object-fit: cover;
       width: 100%;
+      height: 100%;
     }
   }
 
@@ -36,6 +36,11 @@ const Container = styled.div`
     gap: var(--gap-m);
     position: relative;
     overflow: hidden;
+
+    .title-card{
+      font-size: var(--font-size-l);
+    }
+
     .button-watch {
       position: absolute;
       bottom: 0;
@@ -54,25 +59,20 @@ const Container = styled.div`
   }
 `;
 
-function CardBasic({ id, title = "", image = "", children }) {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(id);
-  };
-
+function CardBasic({ id, title = "", image = "", children, handleClick }) {
   return (
     <Container>
       <div className="image-container">
         <img src={image} alt={title} />
       </div>
       <div className="body-container">
-        <h5>{title}</h5>
+        <h5 className="title-card">{title}</h5>
         {children}
-
-        <ButtonRectangle className="button-watch" onClick={handleClick}>
-          Ver más
-        </ButtonRectangle>
+        {handleClick && (
+          <ButtonRectangle className="button-watch" onClick={handleClick}>
+            Ver más
+          </ButtonRectangle>
+        )}
       </div>
     </Container>
   );

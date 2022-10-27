@@ -4,11 +4,8 @@ import { SectionBasic, SubSectionBasic } from "../../components";
 
 function Presentacion() {
   return (
-    <SectionBasic
-      title="Presentacion"
-      image={portadaPresentacion}
-    >
-      <SubSectionBasic title="QUIÉNES SOMOS">
+    <SectionBasic title="Presentacion" image={portadaPresentacion}>
+      <SubSectionBasic title="Quiénes somos">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere
         animi hic aut perferendis exercitationem perspiciatis eaque earum
         voluptatibus quia corporis iure, ducimus fugiat quo quibusdam alias
@@ -35,7 +32,7 @@ function Presentacion() {
         quisquam aut repudiandae eius perferendis hic, consequatur ex maxime?
       </SubSectionBasic>
 
-      <SubSectionBasic title="MISIÓN">
+      <SubSectionBasic title="Misión">
         La Policía Nacional del Perú es una institución del Estado que tiene por
         misión garantizar, mantener y restablecer el orden interno, prestar
         protección y ayuda a las personas y a la comunidad, garantizar el
@@ -46,7 +43,7 @@ function Presentacion() {
         cultura de paz y de respeto a los derechos humanos.
       </SubSectionBasic>
 
-      <SubSectionBasic title="VISIÓN">
+      <SubSectionBasic title="Visión">
         Policía moderna, eficiente y cohesionada al servicio de la sociedad y
         del Estado, comprometida con una cultura de paz, con vocación de
         servicio y reconocida por su respeto irrestricto a la persona, los
@@ -54,7 +51,7 @@ function Presentacion() {
         comunidad, por su honestidad, disciplina y liderazgo de sus miembros.
       </SubSectionBasic>
 
-      <SubSectionBasic title="ESTRUCTURA ORGANIZACIONAL">
+      <SubSectionBasic title="Estructura organizacional">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
         praesentium enim vero cupiditate quis corrupti sunt consequuntur vitae
         incidunt quam ratione deserunt, velit facere quidem non officiis fugiat
