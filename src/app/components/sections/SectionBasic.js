@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.section`
   display: flex;
@@ -16,33 +17,46 @@ const Container = styled.section`
 
 const Title = styled.h4`
   font-size: var(--font-size-xxl);
+  color: var(--color-primary);
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: var(--cover-image-height);
   position: relative;
+  overflow: hidden;
   > img {
-    position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 10;
     object-fit: cover;
   }
 
   .title-container {
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 100;
+    position: absolute;
+    top: 0;
     background: linear-gradient(
       to left,
       rgba(0, 0, 0, 0.3),
       var(--color-primary)
     );
+    width: 100%;
     height: 100%;
-    padding: 0 3%;
-    color: var(--color-white);
+    > * {
+      color: var(--color-white) ;
+    }
+    > * {
+      padding: 0 3%;
+    }
+  }
+
+  @media ${device.tabletS} {
+    height: auto;
+
+    .title-container {
+      height: calc(100% - 4px);
+    }
   }
 `;
 

@@ -1,6 +1,7 @@
 :root {
   --header-height: 86px;
   --item-menu-height: 70px;
+  --cover-image-height: 380px;
 
   /* --color-primary: #6543fb;
   --color-sub-primary: #6e59f8;
@@ -42,7 +43,7 @@
   --font-size-m: 16px;
   --font-size-l: 18px;
   --font-size-xl: 24px;
-  --font-size-xxl: 30px;
+  --font-size-xxl: 32px;
   --font-size-big: 64px;
 
   --gap-s: 3px;
@@ -52,8 +53,8 @@
   --gap-xxl: 32px;
   --gap-big: 64px;
 
-  --padding-global-x: 6%;
-  --padding-global-y: 24px;
+  --padding-global-x: 8%;
+  --padding-global-y: 36px;
   --padding-global: var(--padding-global-y) var(--padding-global-x);
   --padding-header: 0 var(--padding-global-x);
   --padding-footer: 48px var(--padding-global-x);
