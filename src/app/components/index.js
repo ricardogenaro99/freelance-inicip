@@ -8,6 +8,7 @@ import InputLabelError from "./form/InputLabelError";
 import Header from "./header/Header";
 import Main from "./Main";
 import SectionBasic from "./sections/SectionBasic";
+import SectionWithCarousel from "./sections/SectionWithCarousel";
 import SubSectionBasic from "./sections/SubSectionBasic";
 
 export {
@@ -22,4 +23,5 @@ export {
   SubSectionBasic,
   ButtonBackToTop,
   CarouselItem,
+  SectionWithCarousel,
 };

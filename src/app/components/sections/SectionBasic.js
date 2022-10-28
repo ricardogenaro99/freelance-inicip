@@ -1,19 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
-
-const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xxl);
-
-  .section-content {
-    display: flex;
-    flex-direction: column;
-    gap: ${(props) => props.gap};
-    padding: 0 0.7%;
-  }
-`;
+import { SectionContainerStyle } from "./styles";
 
 const Title = styled.h4`
   font-size: var(--font-size-xxl);
@@ -81,10 +69,10 @@ function SectionBasic({ title, image, children, gap = "var(--gap-xl)" }) {
   };
 
   return (
-    <Container gap={gap}>
+    <SectionContainerStyle gap={gap}>
       {renderSectionHeader()}
       <div className="section-content">{children}</div>
-    </Container>
+    </SectionContainerStyle>
   );
 }
 

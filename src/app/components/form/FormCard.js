@@ -6,7 +6,6 @@ const Container = styled.div`
   flex-direction: column;
   gap: var(--gap-big);
   background: var(--color-white);
-  border: var(--border-primary-soft);
   padding: 32px;
   width: 100%;
   max-width: 650px;

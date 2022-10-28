@@ -3,40 +3,22 @@
   --item-menu-height: 70px;
   --cover-image-height: 380px;
 
-  /* --color-primary: #6543fb;
-  --color-sub-primary: #6e59f8;
-  --color-secondary: #4d2ce0; */
-
   --color-primary: #044d36;
   --color-sub-primary: #176d52;
   --color-secondary: #00442f;
 
-  --color-sub-secondary: #e0bf2c;
-
-  /* --color-primary-soft: #e0e7ff; */
-  --color-primary-soft: #f0fff4;
-
-  --color-white-soft: #f3f6ff;
+  --color-yellow: #e0bf2c;
   --color-white: #fff;
-
   --color-gray: #b0b0b0;
   --color-black: #333333;
-
-  --color-ocupado: #ffaaa5;
-  --color-ocupado-text: #d43737;
-
-  --color-no-disponible: #c4c4c4;
-  --color-no-disponible-text: #7c7c7c;
-
-  --color-disponible: #3db34480;
-  --color-disponible-text: #2b8430;
-
-  --color-tool-tip: #353535b2;
+  --color-red: #ff726b;
+  --color-red-text: #d43737;
+  --color-disabled: #c4c4c4;
+  --color-disabled-text: #646464;
 
   --transition: 0.15s ease;
 
   --border-gray: 1px solid var(--color-gray);
-  --border-primary-soft: 1.5px solid var(--color-primary-soft);
   --border-primary: 1.5px solid var(--color-primary);
 
   --font-size-s: 14px;
@@ -72,7 +54,7 @@ body {
 }
 
 * {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: var(--font-size-m);
   padding: 0;
   margin: 0;
