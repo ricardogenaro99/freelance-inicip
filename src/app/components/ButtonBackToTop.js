@@ -16,7 +16,7 @@ const Container = styled.button`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 30px;
+  bottom: 50px;
   right: 20px;
   border: 1px solid var(--color-primary);
   &:hover {
