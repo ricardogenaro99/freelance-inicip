@@ -15,7 +15,7 @@ const Container = styled.div`
   background: var(--color-white-pure);
   border-radius: var(--border-radius-global);
 
-  box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.1);
 
   .image-container {
     display: flex;
@@ -37,7 +37,7 @@ const Container = styled.div`
     position: relative;
     overflow: hidden;
 
-    .title-card{
+    .title-card {
       font-size: var(--font-size-l);
     }
 

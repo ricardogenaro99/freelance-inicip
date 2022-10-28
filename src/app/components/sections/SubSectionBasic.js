@@ -13,10 +13,15 @@ const Container = styled.section`
   }
 `;
 
+const Title = styled.h5`
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+`;
+
 function SubSectionBasic({ title, children, gap = "var(--gap-s)" }) {
   return (
     <Container gap={gap}>
-      <h5>{title}</h5>
+      {title && <Title>{title}</Title>}
       <div className="subsection-content">{children}</div>
     </Container>
   );

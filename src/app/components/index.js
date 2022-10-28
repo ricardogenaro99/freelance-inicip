@@ -1,5 +1,6 @@
 import { ButtonRectangle } from "./Button";
 import CardBasic from "./cards/CardBasic";
+import CarouselItem from "./carousel/CarouselItem";
 import Footer from "./footer/Footer";
 import FormCard from "./form/FormCard";
 import InputLabelError from "./form/InputLabelError";
@@ -18,4 +19,5 @@ export {
   SectionBasic,
   CardBasic,
   SubSectionBasic,
+  CarouselItem,
 };
