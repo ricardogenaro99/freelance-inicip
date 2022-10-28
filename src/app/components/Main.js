@@ -11,6 +11,7 @@ import {
   Publicaciones,
 } from "../pages";
 import { PATHS } from "../routes";
+import { size } from "../utils/generalBreakpoints";
 
 const Container = styled.main`
   display: flex;
@@ -18,8 +19,7 @@ const Container = styled.main`
   padding: var(--padding-global);
 
   > .main-content {
-    padding: var(--padding-global);
-    /* max-width: 1200px; */
+    max-width: ${size.laptopM};
     width: 100%;
   }
 `;
