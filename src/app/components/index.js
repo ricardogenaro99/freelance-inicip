@@ -1,4 +1,5 @@
 import { ButtonRectangle } from "./Button";
+import ButtonBackToTop from "./ButtonBackToTop";
 import CardBasic from "./cards/CardBasic";
 import CarouselItem from "./carousel/CarouselItem";
 import Footer from "./footer/Footer";
@@ -19,5 +20,6 @@ export {
   SectionBasic,
   CardBasic,
   SubSectionBasic,
+  ButtonBackToTop,
   CarouselItem,
 };
