@@ -24,7 +24,7 @@ const NavLinkStyle = styled(NavLink)`
     &.active {
       color: var(--color-white);
       background-color: var(--color-secondary);
-      border-left: 4px solid var(--color-sub-secondary);
+      border-left: 4px solid var(--color-yellow);
     }
   }
 `;
