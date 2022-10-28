@@ -7,7 +7,7 @@ const Container = styled.div`
   gap: var(--gap-m);
 
   .error {
-    color: var(--color-ocupado-text);
+    color: var(--color-red-text);
   }
 `;
 
