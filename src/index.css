@@ -87,3 +87,7 @@ a {
 li {
   text-decoration: none;
 }
+
+button {
+  cursor: pointer;
+}

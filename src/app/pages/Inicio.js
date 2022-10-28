@@ -1,16 +1,15 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import styled from "styled-components";
+
 import {
   carousel_1,
   carousel_2,
   carousel_3,
-  carousel_4
+  carousel_4,
 } from "../../assets/carousel";
-import { CarouselItem, SectionBasic, SubSectionBasic } from "../components";
 
-const Container = styled.div``;
+import { CarouselItem, SectionBasic } from "../components";
 
 function Inicio() {
   return (
@@ -35,9 +34,7 @@ function Inicio() {
         laborum delectus in dolorum nisi molestiae enim quisquam suscipit.
         Repellat, itaque?
       </p>
-      <SectionBasic title='Últimas Publicaciones'>
-
-      </SectionBasic>
+      <SectionBasic title="Últimas Publicaciones"></SectionBasic>
     </SectionBasic>
   );
 }

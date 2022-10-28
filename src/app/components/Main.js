@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import {
   Contacto,
@@ -24,6 +24,15 @@ const Container = styled.main`
   }
 `;
 function Main() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname]);
+
   return (
     <Container>
       <div className="main-content">

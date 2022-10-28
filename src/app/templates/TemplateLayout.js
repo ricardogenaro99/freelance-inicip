@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Footer, Header, Main } from "../components";
+import { Footer, Header, Main, ButtonBackToTop } from "../components";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -11,12 +11,14 @@ const Container = styled.div`
   justify-items: center;
   justify-items: stretch;
 `;
+
 function TemplateLayout() {
   return (
     <Container>
       <Header />
       <Main />
       <Footer />
+      <ButtonBackToTop />
     </Container>
   );
 }

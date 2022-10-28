@@ -11,7 +11,6 @@ export const ButtonRectangle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   transition: var(--transition);
   border-radius: var(--border-radius-global);
 
