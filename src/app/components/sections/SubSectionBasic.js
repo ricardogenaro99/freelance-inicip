@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SubSectionContainerStyle } from "./styles";
+import { ContainerSubSectionStyle } from "./styles";
 
 const Title = styled.h5`
   font-size: var(--font-size-xl);
@@ -9,10 +9,10 @@ const Title = styled.h5`
 
 function SubSectionBasic({ title, children, gap = "var(--gap-s)" }) {
   return (
-    <SubSectionContainerStyle gap={gap}>
+    <ContainerSubSectionStyle gap={gap}>
       {title && <Title>{title}</Title>}
       <div className="subsection-content">{children}</div>
-    </SubSectionContainerStyle>
+    </ContainerSubSectionStyle>
   );
 }
 

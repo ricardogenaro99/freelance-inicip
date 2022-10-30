@@ -10,7 +10,7 @@ const Container = styled.div`
   gap: var(--gap-l);
   padding: 25px 30px;
 
-  max-height: 280px;
+  max-height: 230px;
 
   background: var(--color-white-pure);
   border-radius: var(--border-radius-global);
