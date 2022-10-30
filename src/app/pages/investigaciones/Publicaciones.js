@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { CardBasic, SectionBasic } from "../../components";
-import image from "../../../assets/images.jpg";
-import styled from "styled-components";
-import { device } from "../../utils/generalBreakpoints";
 import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import image from "../../../assets/images.jpg";
+import { portadaPublicaciones } from "../../../assets/portadas";
+import { CardBasic, SectionBasic } from "../../components";
+import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;
@@ -46,7 +47,7 @@ function Publicaciones() {
   }, []);
 
   return (
-    <SectionBasic title="Publicaciones">
+    <SectionBasic title="Publicaciones" image={portadaPublicaciones}>
       <Container>
         {publicaciones.map((e) => (
           <CardBasic

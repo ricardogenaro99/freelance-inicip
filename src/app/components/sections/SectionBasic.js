@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
-import { SectionContainerStyle } from "./styles";
+import { ContainerSectionStyle } from "./styles";
 
 const Title = styled.h4`
   font-size: var(--font-size-xxl);
@@ -69,10 +69,10 @@ function SectionBasic({ title, image, children, gap = "var(--gap-xl)" }) {
   };
 
   return (
-    <SectionContainerStyle gap={gap}>
+    <ContainerSectionStyle gap={gap}>
       {renderSectionHeader()}
       <div className="section-content">{children}</div>
-    </SectionContainerStyle>
+    </ContainerSectionStyle>
   );
 }
 

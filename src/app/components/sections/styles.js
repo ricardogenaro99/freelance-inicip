@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SectionContainerStyle = styled.section`
+export const ContainerSectionStyle = styled.section`
   display: flex;
   flex-direction: column;
   gap: var(--gap-xxl);
@@ -13,7 +13,7 @@ export const SectionContainerStyle = styled.section`
   }
 `;
 
-export const SubSectionContainerStyle = styled.section`
+export const ContainerSubSectionStyle = styled.section`
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);

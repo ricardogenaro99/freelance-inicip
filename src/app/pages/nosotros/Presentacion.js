@@ -1,6 +1,29 @@
 import React from "react";
+import styled from "styled-components";
+import { trianglifyLowres } from "../../../assets/extras";
 import { portadaPresentacion } from "../../../assets/portadas";
 import { SectionBasic, SubSectionBasic } from "../../components";
+import { device } from "../../utils/generalBreakpoints";
+
+const ContainerMisionVision = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--gap-xl);
+  padding: var(--padding-global);
+  background-image: ${(props) => `url(${props.image})`};
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .vl {
+    border: 2px solid var(--color-secondary);
+  }
+
+  @media ${device.tabletL} {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auro 1fr;
+  }
+`;
 
 function Presentacion() {
   return (
@@ -32,24 +55,27 @@ function Presentacion() {
         quisquam aut repudiandae eius perferendis hic, consequatur ex maxime?
       </SubSectionBasic>
 
-      <SubSectionBasic title="Misión">
-        La Policía Nacional del Perú es una institución del Estado que tiene por
-        misión garantizar, mantener y restablecer el orden interno, prestar
-        protección y ayuda a las personas y a la comunidad, garantizar el
-        cumplimiento de las leyes y la seguridad del patrimonio público y
-        privado, prevenir, investigar y combatir la delincuencia; vigilar y
-        controlar las fronteras; con el propósito de defender a la sociedad y a
-        las personas, a fin de permitir su pleno desarrollo, en el marco de una
-        cultura de paz y de respeto a los derechos humanos.
-      </SubSectionBasic>
-
-      <SubSectionBasic title="Visión">
-        Policía moderna, eficiente y cohesionada al servicio de la sociedad y
-        del Estado, comprometida con una cultura de paz, con vocación de
-        servicio y reconocida por su respeto irrestricto a la persona, los
-        derechos humanos, la Constitución y las leyes, por su integración con la
-        comunidad, por su honestidad, disciplina y liderazgo de sus miembros.
-      </SubSectionBasic>
+      <ContainerMisionVision image={trianglifyLowres}>
+        <SubSectionBasic title="Misión">
+          La Policía Nacional del Perú es una institución del Estado que tiene
+          por misión garantizar, mantener y restablecer el orden interno,
+          prestar protección y ayuda a las personas y a la comunidad, garantizar
+          el cumplimiento de las leyes y la seguridad del patrimonio público y
+          privado, prevenir, investigar y combatir la delincuencia; vigilar y
+          controlar las fronteras; con el propósito de defender a la sociedad y
+          a las personas, a fin de permitir su pleno desarrollo, en el marco de
+          una cultura de paz y de respeto a los derechos humanos.
+        </SubSectionBasic>
+        <div className="vl"></div>
+        <SubSectionBasic title="Visión">
+          Policía moderna, eficiente y cohesionada al servicio de la sociedad y
+          del Estado, comprometida con una cultura de paz, con vocación de
+          servicio y reconocida por su respeto irrestricto a la persona, los
+          derechos humanos, la Constitución y las leyes, por su integración con
+          la comunidad, por su honestidad, disciplina y liderazgo de sus
+          miembros.
+        </SubSectionBasic>
+      </ContainerMisionVision>
 
       <SubSectionBasic title="Estructura organizacional">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
