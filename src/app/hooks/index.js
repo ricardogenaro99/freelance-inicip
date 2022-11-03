@@ -1,3 +1,4 @@
+import useScrollPosition from "./useScrollPosition ";
 import useWindowDimensions from "./useWindowDimensions";
 
-export { useWindowDimensions };
+export { useWindowDimensions, useScrollPosition };

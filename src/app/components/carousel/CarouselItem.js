@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
-  height: var(--cover-image-height);
+  height: ${(props) =>
+    props.carouselFullHeight ? "100vh" : "var(--cover-image-height)"};
   img {
     object-fit: cover;
     width: 100%;
@@ -11,13 +12,13 @@ const Container = styled.div`
   }
 
   @media ${device.tabletS} {
-    height: auto;
+    height: ${(props) => (props.carouselFullHeight ? "100vh" : "auto")};
   }
 `;
 
-function CarouselItem({ image, legend }) {
+function CarouselItem({ image, legend, carouselFullHeight }) {
   return (
-    <Container>
+    <Container carouselFullHeight={carouselFullHeight}>
       <img src={image} alt="carousel" />
       {legend && <p className="legend">{legend}</p>}
     </Container>

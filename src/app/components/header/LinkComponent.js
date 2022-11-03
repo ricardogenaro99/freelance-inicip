@@ -9,10 +9,6 @@ const NavLinkStyle = styled(NavLink)`
   align-items: center;
   font-weight: inherit;
 
-  &.active {
-    color: ${(props) => props.coloractive};
-  }
-
   @media ${device.tabletL} {
     height: var(--item-menu-height);
     span {
@@ -30,15 +26,12 @@ const NavLinkStyle = styled(NavLink)`
   }
 `;
 
-function NavLinkComponent({ path, label, onClick, level = 1 }) {
+function LinkComponent({ path, label, onClick, level = 1 }) {
   const { coloractive } = useThemeHeader();
   return (
     <div>
       <NavLinkStyle
         to={path || label.toLowerCase()}
-        className={(navData) =>
-          navData.isActive && path !== "/" ? "active" : undefined
-        }
         onClick={onClick}
         level={level}
         coloractive={coloractive}
@@ -49,4 +42,4 @@ function NavLinkComponent({ path, label, onClick, level = 1 }) {
   );
 }
 
-export default NavLinkComponent;
+export default LinkComponent;

@@ -11,17 +11,10 @@ import {
   Publicaciones,
 } from "../pages";
 import { PATHS } from "../routes";
-import { size } from "../utils/generalBreakpoints";
 
 const Container = styled.main`
   display: flex;
   justify-content: center;
-  padding: var(--padding-global);
-
-  > .main-content {
-    max-width: ${size.laptopM};
-    width: 100%;
-  }
 `;
 function Main() {
   const location = useLocation();
@@ -35,31 +28,29 @@ function Main() {
 
   return (
     <Container>
-      <div className="main-content">
-        <Routes>
-          <Route path="/">
-            <Route index element={<Inicio />} />
-            <Route path={PATHS.nosotros.path}>
-              <Route
-                path={PATHS.nosotros.children.presentacion.path}
-                element={<Presentacion />}
-              />
-              <Route
-                path={PATHS.nosotros.children.equipo.path}
-                element={<Equipo />}
-              />
-            </Route>
-            <Route path={PATHS.investigaciones.path}>
-              <Route path={PATHS.investigaciones.children.publicaciones.path}>
-                <Route index element={<Publicaciones />} />
-                <Route path=":id" element={<Publicacion />} />
-              </Route>
-            </Route>
-            <Route path={PATHS.contacto.path} element={<Contacto />} />
-            <Route path="*" element={<NotFound />} />
+      <Routes>
+        <Route path="/">
+          <Route index element={<Inicio />} />
+          <Route path={PATHS.nosotros.path}>
+            <Route
+              path={PATHS.nosotros.children.presentacion.path}
+              element={<Presentacion />}
+            />
+            <Route
+              path={PATHS.nosotros.children.equipo.path}
+              element={<Equipo />}
+            />
           </Route>
-        </Routes>
-      </div>
+          <Route path={PATHS.investigaciones.path}>
+            <Route path={PATHS.investigaciones.children.publicaciones.path}>
+              <Route index element={<Publicaciones />} />
+              <Route path=":id" element={<Publicacion />} />
+            </Route>
+          </Route>
+          <Route path={PATHS.contacto.path} element={<Contacto />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </Container>
   );
 }

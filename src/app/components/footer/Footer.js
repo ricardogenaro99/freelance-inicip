@@ -18,7 +18,7 @@ const Container = styled.footer`
   .sections {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-big);
-    background-color: var(--color-sub-primary);
+    background-color: var(--color-secondary);
     padding: var(--padding-footer);
   }
 

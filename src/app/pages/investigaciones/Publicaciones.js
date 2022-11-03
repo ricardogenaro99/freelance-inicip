@@ -4,6 +4,7 @@ import styled from "styled-components";
 import image from "../../../assets/images.jpg";
 import { portadaPublicaciones } from "../../../assets/portadas";
 import { CardBasic, SectionBasic } from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
@@ -37,17 +38,26 @@ function Publicaciones() {
   const [publicaciones, setPublicaciones] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  const { resetTheme } = useThemeHeader();
 
-  const handleClick = (id = "") => {
-    navigate(`${location.pathname}/${id}`);
-  };
+  useEffect(() => {
+    resetTheme();
+  }, [resetTheme]);
 
   useEffect(() => {
     setPublicaciones(initData);
   }, []);
 
+  const handleClick = (id = "") => {
+    navigate(`${location.pathname}/${id}`);
+  };
+
   return (
-    <SectionBasic title="Publicaciones" image={portadaPublicaciones}>
+    <SectionBasic
+      title="Publicaciones"
+      image={portadaPublicaciones}
+      isMainContent
+    >
       <Container>
         {publicaciones.map((e) => (
           <CardBasic

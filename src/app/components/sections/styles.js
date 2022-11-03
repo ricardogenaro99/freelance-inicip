@@ -1,26 +1,70 @@
 import styled from "styled-components";
+import { size } from "../../utils/generalBreakpoints";
 
-export const ContainerSectionStyle = styled.section`
+const ContainerBasicStyle = styled.section`
   display: flex;
   flex-direction: column;
-  gap: var(--gap-xxl);
+  width: 100%;
+  > .main-content {
+    padding: var(--padding-global);
+    margin: 0 auto;
+  }
+`;
 
+export const ContainerSectionStyle = styled(ContainerBasicStyle)`
+  gap: ${(props) => (props.isMainContent ? "0" : "var(--gap-xxl)")};
+  ${(props) =>
+    props.sectionFullHeight &&
+    `transform: translateY(calc(var(--header-height) * -1));`}
   .section-content {
     display: flex;
     flex-direction: column;
     gap: ${(props) => props.gap};
     padding: 0 0.2%;
+    max-width: ${(props) => (props.isMainContent ? size.laptopM : "none")};
   }
 `;
 
-export const ContainerSubSectionStyle = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-m);
-
+export const ContainerSubSectionStyle = styled(ContainerBasicStyle)`
+  gap: ${(props) => (props.isMainContent ? "0" : "var(--gap-m)")};
   .subsection-content {
     display: flex;
     flex-direction: column;
     gap: ${(props) => props.gap};
+    max-width: ${(props) => (props.isMainContent ? size.laptopM : "none")};
+  }
+`;
+
+export const Title = styled.h4`
+  font-size: var(--font-size-xxl);
+  color: var(--color-primary);
+`;
+
+export const ImagesContainer = styled.div`
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background: ${(props) =>
+      props.background ||
+      "linear-gradient(to left, rgba(0, 0, 0, 0.3), #13271d)"};
+    width: 100%;
+    height: 100%;
+    > * {
+      color: var(--color-white);
+    }
+    > * {
+      padding: 0 var(--padding-global-x);
+    }
   }
 `;

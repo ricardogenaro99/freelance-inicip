@@ -1,9 +1,10 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { portadaEquipo } from "../../../assets/portadas";
 import { CardBasic, SectionBasic } from "../../components";
-import styled from "styled-components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
-import axios from "axios";
 
 const Container = styled.div`
   display: grid;
@@ -19,6 +20,11 @@ const Container = styled.div`
 
 function Equipo() {
   const [equipo, setEquipo] = useState([]);
+  const { resetTheme } = useThemeHeader();
+
+  useEffect(() => {
+    resetTheme();
+  }, [resetTheme]);
 
   useEffect(() => {
     const getData = async () => {
@@ -43,7 +49,7 @@ function Equipo() {
   }, []);
 
   return (
-    <SectionBasic title="Equipo" image={portadaEquipo}>
+    <SectionBasic title="Equipo" image={portadaEquipo} isMainContent>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam
         laboriosam deserunt eum alias repellat nobis a quod? Itaque fugit

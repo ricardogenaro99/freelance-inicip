@@ -7,11 +7,22 @@ const Title = styled.h5`
   color: var(--color-primary);
 `;
 
-function SubSectionBasic({ title, children, gap = "var(--gap-s)" }) {
+function SubSectionBasic({
+  title,
+  children,
+  gap = "var(--gap-s)",
+  isMainContent = false,
+}) {
   return (
-    <ContainerSubSectionStyle gap={gap}>
+    <ContainerSubSectionStyle isMainContent={isMainContent} gap={gap}>
       {title && <Title>{title}</Title>}
-      <div className="subsection-content">{children}</div>
+      {isMainContent ? (
+        <div className="main-content">
+          <div className="subsection-content">{children}</div>
+        </div>
+      ) : (
+        <div className="subsection-content">{children}</div>
+      )}
     </ContainerSubSectionStyle>
   );
 }

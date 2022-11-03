@@ -3,18 +3,22 @@
   --item-menu-height: 70px;
   --cover-image-height: 320px;
 
-  --color-primary: #044d36;
-  --color-sub-primary: #176d52;
-  --color-secondary: #00442f;
+  /* --color-primary: #044d36; */
+  --color-primary: #1b5074;
 
-  --color-yellow: #e0bf2c;
+  /* --color-sub-primary: #097548; */
+  --color-sub-primary: #415346;
+
+  --color-secondary: #1f6d60;
+
+  --color-orange: #f39418;
+  --color-yellow: #e9bc28;
   --color-white: #fff;
   --color-gray: #b0b0b0;
-  --color-black: #333333;
+  --color-black: #000000;
+  --color-dark: #1e1e1e;
   --color-red: #ff726b;
   --color-red-text: #d43737;
-  --color-disabled: #c4c4c4;
-  --color-disabled-text: #646464;
 
   --transition: 0.15s ease;
 

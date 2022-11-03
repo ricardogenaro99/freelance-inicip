@@ -1,3 +1,1 @@
-import TemplateLayout from "./TemplateLayout";
-
-export { TemplateLayout };
+export * from "./TemplateLayout";

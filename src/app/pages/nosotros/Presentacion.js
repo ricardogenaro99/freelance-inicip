@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { trianglifyLowres } from "../../../assets/extras";
 import { portadaPresentacion } from "../../../assets/portadas";
 import { SectionBasic, SubSectionBasic } from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
 
 const ContainerMisionVision = styled.div`
@@ -26,8 +27,18 @@ const ContainerMisionVision = styled.div`
 `;
 
 function Presentacion() {
+  const { resetTheme } = useThemeHeader();
+
+  useEffect(() => {
+    resetTheme();
+  }, [resetTheme]);
+
   return (
-    <SectionBasic title="Presentacion" image={portadaPresentacion}>
+    <SectionBasic
+      title="Presentacion"
+      image={portadaPresentacion}
+      isMainContent
+    >
       <SubSectionBasic title="Quiénes somos">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere
         animi hic aut perferendis exercitationem perspiciatis eaque earum
