@@ -2,14 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const size = "40px";
+const color = "var(--color-sub-primary)";
 
 const Container = styled.button`
   width: ${size};
   height: ${size};
-  background-color: var(--color-primary);
+  background: ${color};
   color: #fff;
   border-radius: 100%;
-  box-shadow: 2px 2px 3px var(--color-secondary);
+  box-shadow: 0px 0px 6px -1px var(--color-dark);
   z-index: 10;
   transition: 0.27s;
   display: flex;
@@ -18,9 +19,9 @@ const Container = styled.button`
   position: fixed;
   bottom: 50px;
   right: 20px;
-  border: 1px solid var(--color-primary);
+  border: 1px solid ${color};
   &:hover {
-    box-shadow: 0px 0px 8px 1px var(--color-sub-primary);
+    box-shadow: 0px 0px 5px 2px var(--color-dark);
   }
 
   .arrow-up {

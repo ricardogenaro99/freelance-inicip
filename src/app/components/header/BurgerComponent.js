@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 
 const openStyle = `
   span.top {
@@ -50,7 +51,7 @@ const Container = styled.button`
       position: absolute;
       width: 40px;
       height: 7px;
-      background: var(--color-primary);
+      background: ${(props) => props.coloractive};
       border-radius: 100px;
       display: inline-block;
       left: 0;
@@ -73,8 +74,9 @@ const Container = styled.button`
 `;
 
 function BurgerComponent({ onClick, openMenu }) {
+  const { coloractive } = useThemeHeader();
   return (
-    <Container openMenu={openMenu} onClick={onClick}>
+    <Container openMenu={openMenu} onClick={onClick} coloractive={coloractive}>
       <div>
         <span className="top" />
         <span className="middle" />

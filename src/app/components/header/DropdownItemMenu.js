@@ -1,21 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { IoIosArrowDown } from "react-icons/io";
-import NavLinkComponent from "./NavLinkComponent";
-import { device, valuePx } from "../../utils/generalBreakpoints";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
+import { device, valuePx } from "../../utils/generalBreakpoints";
+import NavLinkComponent from "./NavLinkComponent";
 
 const Container = styled.div`
   position: relative;
   display: inline-block;
-
+  color: inherit;
   * {
     font-weight: inherit;
   }
 
   .dropdown_activator {
-    background-color: inherit;
+    background: inherit;
     border: none;
     height: 100%;
     display: flex;
@@ -25,8 +26,9 @@ const Container = styled.div`
     cursor: pointer;
     width: 100%;
     gap: var(--gap-s);
+    color: inherit;
     &.active {
-      color: var(--color-primary);
+      color: ${(props) => props.coloractive};
     }
   }
 
@@ -46,9 +48,9 @@ const Container = styled.div`
 
   .item_list a {
     padding: var(--padding-item-menu-movil);
-
+    color: var(--color-black);
     &:hover {
-      background-color: var(--color-primary);
+      background: var(--color-primary);
       color: var(--color-white);
     }
   }
@@ -103,14 +105,12 @@ function DropdownItemMenu({
 }) {
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isLocation, setIsLocation] = useState(false);
   const [firstOpenResponse, setFirstOpenResponse] = useState(false);
-
   const location = useLocation();
-
   const { widthWindow } = useWindowDimensions();
+  const { coloractive } = useThemeHeader();
 
   const clickHandler = () => {
     setIsOpen(!isOpen);
@@ -184,7 +184,7 @@ function DropdownItemMenu({
   }, [isOpen]);
 
   return (
-    <Container onKeyUp={keyHandler}>
+    <Container onKeyUp={keyHandler} coloractive={coloractive}>
       <button
         className={`dropdown_activator ${isLocation && "active"}`}
         aria-haspopup="true"
@@ -195,7 +195,7 @@ function DropdownItemMenu({
         <span>{dropdownTitle}</span>
         <IoIosArrowDown
           style={isOpen && { transform: "rotate(180deg)" }}
-          color="var(--color-primary)"
+          color={coloractive}
           size="22px"
         />
       </button>

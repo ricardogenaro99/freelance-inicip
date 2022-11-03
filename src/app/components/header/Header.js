@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import { PATHS } from "../../routes";
 import { device, valuePx } from "../../utils/generalBreakpoints";
@@ -11,10 +12,11 @@ import NavLinkComponent from "./NavLinkComponent";
 const Container = styled.header`
   * {
     transition: all var(--transition);
+    transition-duration: 0.1s;
   }
   width: 100%;
   > div {
-    background: var(--color-white);
+    background: ${(props) => props.background};
     height: var(--header-height);
     width: 100%;
     position: fixed;
@@ -24,9 +26,13 @@ const Container = styled.header`
     display: flex;
     align-items: center;
 
-    box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+    ${(props) =>
+      props.hasShadow &&
+      `
+     box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.15);
+    `}
 
     .header {
       width: 100%;
@@ -43,12 +49,13 @@ const Container = styled.header`
       nav {
         gap: var(--gap-xxl);
         font-weight: 600;
+        color: ${(props) => props.color};
       }
 
       section {
         .title-quena {
           font-size: var(--font-size-xxl);
-          color: var(--color-primary);
+          color: ${(props) => props.coloractive};
           font-weight: 900;
         }
       }
@@ -89,6 +96,8 @@ function Header() {
 
   const { widthWindow } = useWindowDimensions();
 
+  const { color, background, coloractive, hasShadow } = useThemeHeader();
+
   const itemsNosotros = [
     {
       path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.presentacion.path}`,
@@ -127,7 +136,13 @@ function Header() {
   };
 
   return (
-    <Container openMenu={openMenu}>
+    <Container
+      openMenu={openMenu}
+      color={color}
+      background={background}
+      coloractive={coloractive}
+      hasShadow={hasShadow}
+    >
       <div>
         <div className="header">
           <section>
@@ -143,6 +158,12 @@ function Header() {
             )}
           </section>
           <nav>
+            <NavLinkComponent
+              label="Inicio"
+              path="/"
+              onClick={handleClickMenu}
+              openMenu={openMenu}
+            />
             <DropdownItemMenu
               dropdownTitle="Nosotros"
               items={itemsNosotros}

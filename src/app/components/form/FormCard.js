@@ -13,7 +13,7 @@ const Container = styled.div`
   .title-card {
     font-weight: 800;
     font-size: var(--font-size-xl);
-    color: var(--color-black);
+    color: var(--color-dark);
   }
 
   .content {

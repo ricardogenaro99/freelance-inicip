@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
 
 const NavLinkStyle = styled(NavLink)`
@@ -9,7 +10,7 @@ const NavLinkStyle = styled(NavLink)`
   font-weight: inherit;
 
   &.active {
-    color: var(--color-secondary);
+    color: ${(props) => props.coloractive};
   }
 
   @media ${device.tabletL} {
@@ -24,19 +25,23 @@ const NavLinkStyle = styled(NavLink)`
     &.active {
       color: var(--color-white);
       background-color: var(--color-secondary);
-      border-left: 4px solid var(--color-yellow);
+      border-left: 4px solid var(--color-orange);
     }
   }
 `;
 
 function NavLinkComponent({ path, label, onClick, level = 1 }) {
+  const { coloractive } = useThemeHeader();
   return (
     <div>
       <NavLinkStyle
         to={path || label.toLowerCase()}
-        className={(navData) => (navData.isActive ? "active" : "")}
+        className={(navData) =>
+          navData.isActive && path !== "/" ? "active" : undefined
+        }
         onClick={onClick}
         level={level}
+        coloractive={coloractive}
       >
         <span>{label}</span>
       </NavLinkStyle>
