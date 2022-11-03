@@ -7,6 +7,7 @@ import { PATHS } from "../../routes";
 import { device, valuePx } from "../../utils/generalBreakpoints";
 import BurgerComponent from "./BurgerComponent";
 import DropdownItemMenu from "./DropdownItemMenu";
+import LinkComponent from "./LinkComponent";
 import NavLinkComponent from "./NavLinkComponent";
 
 const Container = styled.header`
@@ -158,7 +159,7 @@ function Header() {
             )}
           </section>
           <nav>
-            <NavLinkComponent
+            <LinkComponent
               label="Inicio"
               path="/"
               onClick={handleClickMenu}
