@@ -14,6 +14,8 @@ import { useScrollPosition } from "../hooks";
 
 const countingBoxSize = "150px";
 
+const TitleCarouselContainer = styled.div``;
+
 const CountingBoxContainer = styled.div`
   display: flex;
   gap: var(--gap-m) var(--gap-l);
@@ -79,12 +81,24 @@ function Inicio() {
   }, [configTheme, initTheme]);
 
   useEffect(() => {
-    if (scrollPosition > 250) {
+    if (scrollPosition > 280) {
       resetTheme();
     } else {
       initTheme();
     }
   }, [initTheme, resetTheme, scrollPosition]);
+
+  const renderTitlecontent = () => {
+    return (
+      <TitleCarouselContainer>
+        <div>Lorem, ipsum dolor.</div>
+        <div>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi,
+          similique!
+        </div>
+      </TitleCarouselContainer>
+    );
+  };
 
   return (
     <SectionWithCarousel
@@ -92,6 +106,8 @@ function Inicio() {
       carouselFullHeight
       background="linear-gradient(to top, rgba(0, 0, 0, 0.3), var(--color-dark))"
       isMainContent
+      asTitle="div"
+      // title={renderTitlecontent()}
     >
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum doloremque

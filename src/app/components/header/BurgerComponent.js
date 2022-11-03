@@ -75,6 +75,7 @@ const Container = styled.button`
 
 function BurgerComponent({ onClick, openMenu }) {
   const { coloractive } = useThemeHeader();
+
   return (
     <Container openMenu={openMenu} onClick={onClick} coloractive={coloractive}>
       <div>

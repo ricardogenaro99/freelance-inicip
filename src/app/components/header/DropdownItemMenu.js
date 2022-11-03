@@ -105,10 +105,10 @@ function DropdownItemMenu({
 }) {
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isLocation, setIsLocation] = useState(false);
   const [firstOpenResponse, setFirstOpenResponse] = useState(false);
-  const location = useLocation();
   const { widthWindow } = useWindowDimensions();
   const { coloractive } = useThemeHeader();
 
@@ -196,7 +196,7 @@ function DropdownItemMenu({
         <IoIosArrowDown
           style={isOpen && { transform: "rotate(180deg)" }}
           color={coloractive}
-          size="22px"
+          size="16px"
         />
       </button>
       {isOpen && (
