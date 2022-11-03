@@ -13,7 +13,7 @@ import NavLinkComponent from "./NavLinkComponent";
 const Container = styled.header`
   * {
     transition: all var(--transition);
-    transition-duration: 0.1s;
+    transition-duration: 0.13s;
   }
   width: 100%;
   > div {
@@ -81,7 +81,7 @@ const Container = styled.header`
             props.openMenu ? "translateX(0)" : "translateX(150vw)"};
           color: var(--color-white);
           font-weight: 600;
-
+          background: var(--color-sub-primary);
           * {
             width: 100%;
           }
@@ -94,9 +94,7 @@ const Container = styled.header`
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [watchMenu, setWatchMenu] = useState(false);
-
   const { widthWindow } = useWindowDimensions();
-
   const { color, background, coloractive, hasShadow } = useThemeHeader();
 
   const itemsNosotros = [

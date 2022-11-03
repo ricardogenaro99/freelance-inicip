@@ -32,6 +32,7 @@ const NavLinkStyle = styled(NavLink)`
 
 function NavLinkComponent({ path, label, onClick, level = 1 }) {
   const { coloractive } = useThemeHeader();
+
   return (
     <div>
       <NavLinkStyle

@@ -16,6 +16,7 @@ function SectionWithCarousel({
   carouselFullHeight = false,
   title,
   background,
+  asTitle,
 }) {
   return (
     <ContainerSectionStyle
@@ -44,7 +45,7 @@ function SectionWithCarousel({
           ))}
         </Carousel>
         <div className="title-container">
-          <Title>{title}</Title>
+          <Title as={asTitle}>{title}</Title>
         </div>
       </CarouselContainer>
 

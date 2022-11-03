@@ -7,11 +7,11 @@
   --color-primary: #1b5074;
 
   /* --color-sub-primary: #097548; */
-  --color-sub-primary: #415346;
+  --color-sub-primary: #366d92;
 
   --color-secondary: #1f6d60;
 
-  --color-orange: #f39418;
+  --color-orange: #fc9b1d;
   --color-yellow: #e9bc28;
   --color-white: #fff;
   --color-gray: #b0b0b0;
@@ -50,7 +50,7 @@
   --padding-item-menu-movil: var(--padding-item-menu-movil-y)
     var(--padding-item-menu-movil-x);
 
-  --border-radius-global: 2px;
+  --border-radius-global: 3px;
 }
 
 body {
