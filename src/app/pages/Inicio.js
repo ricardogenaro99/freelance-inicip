@@ -8,13 +8,69 @@ import {
   carousel_3,
   carousel_4,
 } from "../../assets/carousel";
+import { logo } from "../../assets/logos";
 import { SectionBasic, SectionWithCarousel } from "../components";
 import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../hooks";
+import { device } from "../utils/generalBreakpoints";
 
 const countingBoxSize = "150px";
 
-const TitleCarouselContainer = styled.div``;
+const StaticContentContainer = styled.div`
+  margin: auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-big);
+
+  > .static-content-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+      object-fit: cover;
+      width: 100%;
+      max-width: 380px;
+    }
+  }
+
+  > .static-content-right {
+    font-size: 2.3em;
+    padding-right: 8%;
+  }
+  @media ${device.tabletL} {
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    gap: var(--gap-xxl);
+    > .static-content-left {
+      > img {
+        max-width: 320px;
+      }
+    }
+    > .static-content-right {
+      text-align: center;
+      font-size: 2.2em;
+      padding: 0 5%;
+    }
+  }
+
+  @media ${device.mobileL} {
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    gap: var(--gap-xl);
+    > .static-content-left {
+      > img {
+        max-width: 280px;
+      }
+    }
+    > .static-content-right {
+      text-align: center;
+      font-size: 1.7em;
+      padding: 0 5%;
+    }
+  }
+`;
 
 const CountingBoxContainer = styled.div`
   display: flex;
@@ -88,15 +144,17 @@ function Inicio() {
     }
   }, [initTheme, resetTheme, scrollPosition]);
 
-  const renderTitlecontent = () => {
+  const renderStaticContent = () => {
     return (
-      <TitleCarouselContainer>
-        <div>Lorem, ipsum dolor.</div>
-        <div>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi,
-          similique!
+      <StaticContentContainer>
+        <div className="static-content-left">
+          <img src={logo} alt="logo" />
         </div>
-      </TitleCarouselContainer>
+
+        <h5 className="static-content-right">
+          El INICIP, forma parte de la Escuela de Posgrado de la PNP
+        </h5>
+      </StaticContentContainer>
     );
   };
 
@@ -104,10 +162,9 @@ function Inicio() {
     <SectionWithCarousel
       images={images}
       carouselFullHeight
-      background="linear-gradient(to top, rgba(0, 0, 0, 0.3), var(--color-dark))"
+      background="linear-gradient(to top, rgba(0, 0, 0, 0.5), var(--color-dark))"
       isMainContent
-      asTitle="div"
-      // title={renderTitlecontent()}
+      staticContent={renderStaticContent()}
     >
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum doloremque

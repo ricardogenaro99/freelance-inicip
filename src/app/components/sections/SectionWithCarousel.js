@@ -15,8 +15,8 @@ function SectionWithCarousel({
   isMainContent = false,
   carouselFullHeight = false,
   title,
+  staticContent,
   background,
-  asTitle,
 }) {
   return (
     <ContainerSectionStyle
@@ -34,6 +34,7 @@ function SectionWithCarousel({
           infiniteLoop
           showThumbs={false}
           showStatus={false}
+          showArrows={false}
         >
           {images.map((e, i) => (
             <CarouselItem
@@ -44,8 +45,9 @@ function SectionWithCarousel({
             />
           ))}
         </Carousel>
-        <div className="title-container">
-          <Title as={asTitle}>{title}</Title>
+
+        <div className="static-container">
+          {title ? <Title>{title}</Title> : staticContent}
         </div>
       </CarouselContainer>
 

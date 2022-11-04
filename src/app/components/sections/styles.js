@@ -50,7 +50,7 @@ export const ImagesContainer = styled.div`
     object-fit: cover;
   }
 
-  .title-container {
+  .static-container {
     display: flex;
     align-items: center;
     position: absolute;
