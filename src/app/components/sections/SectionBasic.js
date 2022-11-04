@@ -25,7 +25,7 @@ function SectionBasic({
     return (
       <ImageContainer>
         <img src={image} alt="front" />
-        <div className="title-container">
+        <div className="static-container">
           <Title>{title}</Title>
         </div>
       </ImageContainer>
