@@ -40,7 +40,7 @@ export const Title = styled.h4`
   color: var(--color-primary);
 `;
 
-export const ImagesContainer = styled.div`
+export const ContainerImages = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;

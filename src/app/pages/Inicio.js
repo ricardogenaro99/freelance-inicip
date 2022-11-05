@@ -36,8 +36,9 @@ const StaticContentContainer = styled.div`
   }
 
   > .static-content-right {
-    font-size: 2.3em;
-    padding-right: 8%;
+    font-size: 2.2em;
+    padding-right: 12%;
+    line-height: 1.4em;
   }
   @media ${device.tabletL} {
     grid-template-columns: auto;
@@ -50,7 +51,7 @@ const StaticContentContainer = styled.div`
     }
     > .static-content-right {
       text-align: center;
-      font-size: 2.2em;
+      font-size: 2em;
       padding: 0 5%;
     }
   }
@@ -72,7 +73,7 @@ const StaticContentContainer = styled.div`
   }
 `;
 
-const CountingBoxContainer = styled.div`
+const ContainerCountingBox = styled.div`
   display: flex;
   gap: var(--gap-m) var(--gap-l);
   justify-content: center;
@@ -226,7 +227,7 @@ function Inicio() {
         laborum delectus in dolorum nisi molestiae enim quisquam suscipit.
         Repellat, itaque?
       </p>
-      <CountingBoxContainer>
+      <ContainerCountingBox>
         <CountingBoxComponent
           background="var(--color-sub-primary)"
           color="var(--color-white)"
@@ -243,7 +244,7 @@ function Inicio() {
           end={34}
           label="Lectores"
         />
-      </CountingBoxContainer>
+      </ContainerCountingBox>
       <SectionBasic title="Últimas Publicaciones"></SectionBasic>
     </SectionWithCarousel>
   );

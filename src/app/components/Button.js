@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ButtonRectangle = styled.button`
   padding: 6px 10px;
   gap: 10px;
-  border: 1px solid var(--color-primary);
   background: ${(props) => props.background || "var(--color-primary)"};
   color: ${(props) => props.color || "var(--color-white)"};
   height: 32px;
@@ -13,8 +12,10 @@ export const ButtonRectangle = styled.button`
   align-items: center;
   transition: var(--transition);
   border-radius: var(--border-radius-global);
-
+  opacity: 0.9;
+  filter: brightness(1.1);
   &:hover {
-    background-color: var(--color-secondary);
+    opacity: 1;
+    filter: brightness(1);
   }
 `;
