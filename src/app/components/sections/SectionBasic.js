@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { ContainerSectionStyle, ImagesContainer, Title } from "./styles";
+import { device } from "../../utils/generalBreakpoints";
+import { ContainerSectionStyle, ContainerImages, Title } from "./styles";
 
-const ImageContainer = styled(ImagesContainer)`
+const ContainerImage = styled(ContainerImages)`
   height: var(--cover-image-height);
+
+  @media ${device.mobileL} {
+    height: auto;
+  }
 `;
 
 function SectionBasic({
@@ -23,12 +28,12 @@ function SectionBasic({
     }
 
     return (
-      <ImageContainer>
+      <ContainerImage>
         <img src={image} alt="front" />
         <div className="static-container">
           <Title>{title}</Title>
         </div>
-      </ImageContainer>
+      </ContainerImage>
     );
   };
 

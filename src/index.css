@@ -1,16 +1,10 @@
 :root {
   --header-height: 86px;
   --item-menu-height: 70px;
-  --cover-image-height: 320px;
-
-  /* --color-primary: #044d36; */
-  --color-primary: #1b5074;
-
-  /* --color-sub-primary: #097548; */
-  --color-sub-primary: #366d92;
-
+  --cover-image-height: 280px;
+  --color-primary: #1b4374;
+  --color-sub-primary: #365b92;
   --color-secondary: #1f6d60;
-
   --color-orange: #fc9b1d;
   --color-yellow: #e9bc28;
   --color-white: #fff;
@@ -69,6 +63,10 @@ a {
   color: inherit;
   text-decoration: none;
   transition: var(--transition);
+}
+
+ul {
+  list-style: none;
 }
 
 li {

@@ -2,9 +2,9 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import CarouselItem from "../carousel/CarouselItem";
-import { ContainerSectionStyle, ImagesContainer, Title } from "./styles";
+import { ContainerSectionStyle, ContainerImages, Title } from "./styles";
 
-const CarouselContainer = styled(ImagesContainer)`
+const ContainerCarousel = styled(ContainerImages)`
   height: ${(props) =>
     props.carouselFullHeight ? "100vh" : "var(--cover-image-height)"};
 `;
@@ -24,7 +24,7 @@ function SectionWithCarousel({
       gap={gap}
       sectionFullHeight={carouselFullHeight}
     >
-      <CarouselContainer
+      <ContainerCarousel
         background={background}
         carouselFullHeight={carouselFullHeight}
       >
@@ -49,7 +49,7 @@ function SectionWithCarousel({
         <div className="static-container">
           {title ? <Title>{title}</Title> : staticContent}
         </div>
-      </CarouselContainer>
+      </ContainerCarousel>
 
       {isMainContent ? (
         <div className="main-content">

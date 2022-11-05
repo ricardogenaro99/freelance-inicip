@@ -83,7 +83,7 @@ const Container = styled.div`
       display: grid;
       grid-template-columns: 1fr;
       grid-auto-rows: auto;
-      background-color: var(--color-sub-primary);
+      background: #526170; //var(--color-sub-primary);
       box-shadow: initial;
     }
 
