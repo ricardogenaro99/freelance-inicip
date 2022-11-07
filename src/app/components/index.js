@@ -5,7 +5,6 @@ import CardList from "./cards/CardList";
 import CardShadow from "./cards/CardShadow";
 import CarouselItem from "./carousel/CarouselItem";
 import Footer from "./footer/Footer";
-import FormCard from "./form/FormCard";
 import InputLabelError from "./form/InputLabelError";
 import Header from "./header/Header";
 import Main from "./Main";
@@ -19,7 +18,6 @@ export {
   Header,
   Main,
   InputLabelError,
-  FormCard,
   ButtonRectangle,
   Footer,
   SectionBasic,

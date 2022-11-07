@@ -5,7 +5,12 @@ import styled from "styled-components";
 import { portadaPublicaciones } from "../../../assets/portadas";
 import image from "../../../assets/tmp/images.png";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
-import { ButtonRectangle, CardList, SectionWhitImage } from "../../components";
+import {
+  ButtonRectangle,
+  CardList,
+  InputLabelError,
+  SectionWhitImage,
+} from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 
@@ -15,6 +20,8 @@ const ContainerControlButtons = styled.div`
   gap: var(--gap-s);
   background: var(--color-white);
 `;
+
+const ContainerForm = styled.form``;
 
 const initData = [
   {
@@ -69,6 +76,12 @@ function Publicaciones() {
   return (
     <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu>
+        <ContainerForm>
+          <InputLabelError />
+          <InputLabelError />
+          <InputLabelError />
+          <InputLabelError />
+        </ContainerForm>
         <CardList data={publicaciones} controlButtons={controlButtons} />
       </TwoSectionsMenu>
     </SectionWhitImage>
