@@ -6,13 +6,14 @@ import CardBasic from "./CardBasic";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); */
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
   grid-auto-flow: dense;
 
-  @media ${device.tabletS} {
+  /* @media ${device.tabletS} {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
-  }
+  } */
 
   @media ${device.mobileL} {
     gap: var(--gap-l);

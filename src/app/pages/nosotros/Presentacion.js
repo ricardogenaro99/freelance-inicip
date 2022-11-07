@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { trianglifyLowres } from "../../../assets/extras";
 import { portadaPresentacion } from "../../../assets/portadas";
 import {
-  SectionBasic,
+  SectionWhitImage,
   SeparatorBasic,
   SubSectionBasic,
 } from "../../components";
@@ -39,11 +39,7 @@ function Presentacion() {
   }, [resetTheme]);
 
   return (
-    <SectionBasic
-      title="Presentacion"
-      image={portadaPresentacion}
-      isMainContent
-    >
+    <SectionWhitImage title="Presentacion" image={portadaPresentacion}>
       <TwoSectionsMenu>
         <SubSectionBasic title="Quiénes somos">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis facere
@@ -110,7 +106,7 @@ function Presentacion() {
           laudantium asperiores soluta nostrum a, nulla facilis?
         </SubSectionBasic>
       </TwoSectionsMenu>
-    </SectionBasic>
+    </SectionWhitImage>
   );
 }
 

@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { portadaEquipo } from "../../../assets/portadas";
-import { CardBasic, CardList, SectionBasic } from "../../components";
+import { CardList, SectionWhitImage } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { device } from "../../utils/generalBreakpoints";
@@ -50,7 +50,7 @@ function Equipo() {
   }, []);
 
   return (
-    <SectionBasic title="Equipo" image={portadaEquipo} isMainContent>
+    <SectionWhitImage title="Equipo" image={portadaEquipo}>
       <TwoSectionsMenu>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam
@@ -63,7 +63,7 @@ function Equipo() {
         </p>
         <CardList data={equipo} />
       </TwoSectionsMenu>
-    </SectionBasic>
+    </SectionWhitImage>
   );
 }
 

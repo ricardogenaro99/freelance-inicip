@@ -6,8 +6,19 @@ const ContainerBasicStyle = styled.section`
   flex-direction: column;
   width: 100%;
   > .main-content {
+    width: 100%;
     padding: var(--padding-global);
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-l);
+
+    > * {
+      max-width: ${(props) => (props.isMainContent ? size.laptopS : "none")};
+      width: 100%;
+    }
   }
 `;
 
@@ -17,21 +28,20 @@ export const ContainerSectionStyle = styled(ContainerBasicStyle)`
     props.sectionFullHeight &&
     `transform: translateY(calc(var(--header-height) * -1));`}
   .section-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: ${(props) => props.gap};
-    padding: 0 0.2%;
-    max-width: ${(props) => (props.isMainContent ? size.laptopM : "none")};
+    /* padding: 0 0.3%; */
+    width: 100%;
   }
 `;
 
 export const ContainerSubSectionStyle = styled(ContainerBasicStyle)`
   gap: ${(props) => (props.isMainContent ? "0" : "var(--gap-m)")};
   .subsection-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: ${(props) => props.gap};
-    max-width: ${(props) => (props.isMainContent ? size.laptopM : "none")};
+    max-width: ${(props) => (props.isMainContent ? size.laptopS : "none")};
+    width: 100%;
   }
 `;
 

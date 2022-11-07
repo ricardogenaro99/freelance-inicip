@@ -27,14 +27,14 @@
   --font-size-xxl: 32px;
   --font-size-big: 64px;
 
-  --gap-s: 3px;
+  --gap-s: 4px;
   --gap-m: 8px;
   --gap-l: 16px;
   --gap-xl: 24px;
   --gap-xxl: 32px;
   --gap-big: 64px;
 
-  --padding-global-x: 8%;
+  --padding-global-x: 6%;
   --padding-global-y: 36px;
   --padding-global: var(--padding-global-y) var(--padding-global-x);
   --padding-header: 0 var(--padding-global-x);
@@ -45,6 +45,20 @@
     var(--padding-item-menu-movil-x);
 
   --border-radius-global: 3px;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
