@@ -14,7 +14,8 @@ import { PATHS } from "../routes";
 
 const Container = styled.main`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 function Main() {
   const location = useLocation();

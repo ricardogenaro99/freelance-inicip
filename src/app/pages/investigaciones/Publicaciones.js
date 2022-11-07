@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { FaExternalLinkSquareAlt, FaFileDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import image from "../../../assets/tmp/images.jpg";
-import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import { portadaPublicaciones } from "../../../assets/portadas";
-import { ButtonRectangle, CardList, SectionBasic } from "../../components";
+import image from "../../../assets/tmp/images.png";
+import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
+import { ButtonRectangle, CardList, SectionWhitImage } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 
@@ -67,15 +67,11 @@ function Publicaciones() {
   }
 
   return (
-    <SectionBasic
-      title="Publicaciones"
-      image={portadaPublicaciones}
-      isMainContent
-    >
+    <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu>
         <CardList data={publicaciones} controlButtons={controlButtons} />
       </TwoSectionsMenu>
-    </SectionBasic>
+    </SectionWhitImage>
   );
 }
 

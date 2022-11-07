@@ -13,15 +13,19 @@ function SubSectionBasic({
   gap = "var(--gap-s)",
   isMainContent = false,
 }) {
+  const renderContent = () => (
+    <>
+      {title && <Title>{title}</Title>}
+      <div className="subsection-content">{children}</div>
+    </>
+  );
+
   return (
     <ContainerSubSectionStyle isMainContent={isMainContent} gap={gap}>
-      {title && <Title>{title}</Title>}
       {isMainContent ? (
-        <div className="main-content">
-          <div className="subsection-content">{children}</div>
-        </div>
+        <div className="main-content">{renderContent()}</div>
       ) : (
-        <div className="subsection-content">{children}</div>
+        renderContent()
       )}
     </ContainerSubSectionStyle>
   );
