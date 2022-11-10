@@ -13,6 +13,8 @@ export const ButtonRectangle = styled.button`
   transition: var(--transition);
   border-radius: var(--border-radius-global);
   opacity: 0.9;
+  border: none;
+  cursor: pointer;
   filter: brightness(1.1);
   &:hover {
     opacity: 1;
