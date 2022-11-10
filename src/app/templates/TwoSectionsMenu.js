@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import NavLinkComponent from "../components/header/NavLinkComponent";
@@ -12,7 +12,7 @@ const paddingItemBox = "15px 10px";
 const Container = styled.article`
   display: grid;
   grid-template-columns: 2.8fr 1fr;
-  gap: var(--gap-xxl);
+  gap: var(--gap-xxxl);
 
   .content-section {
     display: flex;
@@ -26,6 +26,16 @@ const Container = styled.article`
     justify-self: end;
     width: 100%;
     max-width: 300px;
+    .boxes-container {
+      background: var(--color-white);
+      width: 100%;
+      position: sticky;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-xl);
+      top: calc(var(--header-height) * 2);
+    }
   }
 
   @media ${device[widthRD]} {
@@ -35,13 +45,7 @@ const Container = styled.article`
 `;
 
 const ContainerBoxMenu = styled.div`
-  background: var(--color-white);
   width: 100%;
-  position: sticky;
-  max-width: 300px;
-  top: calc(var(--header-height) * 2);
-  border-radius: var(--border-radius-global);
-
   color: var(--color-primary);
 
   > h5 {
@@ -116,17 +120,17 @@ const BoxMenu = memo(() => {
   );
 });
 
-function TwoSectionsMenu({ children, gap = "var(--gap-xl)" }) {
+function TwoSectionsMenu({
+  children,
+  gap = "var(--gap-xl)",
+  hasBoxMenu = true,
+  customBoxs = [],
+}) {
   const { widthWindow } = useWindowDimensions();
   const [showMenu, setShowMenu] = useState(true);
 
   useEffect(() => {
-    if (widthWindow > valuePx[widthRD]) {
-      setShowMenu(true);
-    }
-    if (widthWindow <= valuePx[widthRD]) {
-      setShowMenu(false);
-    }
+    setShowMenu(widthWindow > valuePx[widthRD]);
   }, [widthWindow]);
 
   return (
@@ -134,7 +138,12 @@ function TwoSectionsMenu({ children, gap = "var(--gap-xl)" }) {
       <section className="content-section">{children}</section>
       {showMenu && (
         <section className="box-section">
-          <BoxMenu />
+          <div className="boxes-container">
+            {hasBoxMenu && <BoxMenu />}
+            {customBoxs.map((box, i) => (
+              <Fragment key={i}>{box}</Fragment>
+            ))}
+          </div>
         </section>
       )}
     </Container>
