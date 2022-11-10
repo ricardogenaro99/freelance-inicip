@@ -76,12 +76,6 @@ function Publicaciones() {
   return (
     <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu>
-        <ContainerForm>
-          <InputLabelError />
-          <InputLabelError />
-          <InputLabelError />
-          <InputLabelError />
-        </ContainerForm>
         <CardList data={publicaciones} controlButtons={controlButtons} />
       </TwoSectionsMenu>
     </SectionWhitImage>
