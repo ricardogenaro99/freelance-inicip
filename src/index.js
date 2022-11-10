@@ -1,5 +1,7 @@
 import "normalize.css";
 import React from "react";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import App from "./App";

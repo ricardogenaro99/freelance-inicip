@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import NavLinkComponent from "../components/header/NavLinkComponent";
@@ -12,7 +12,7 @@ const paddingItemBox = "15px 10px";
 const Container = styled.article`
   display: grid;
   grid-template-columns: 2.8fr 1fr;
-  gap: var(--gap-xxl);
+  gap: var(--gap-xxxl);
 
   .content-section {
     display: flex;
@@ -46,7 +46,6 @@ const Container = styled.article`
 
 const ContainerBoxMenu = styled.div`
   width: 100%;
-  border-radius: var(--border-radius-global);
   color: var(--color-primary);
 
   > h5 {
@@ -125,18 +124,13 @@ function TwoSectionsMenu({
   children,
   gap = "var(--gap-xl)",
   hasBoxMenu = true,
-  customBoxs,
+  customBoxs = [],
 }) {
   const { widthWindow } = useWindowDimensions();
   const [showMenu, setShowMenu] = useState(true);
 
   useEffect(() => {
-    if (widthWindow > valuePx[widthRD]) {
-      setShowMenu(true);
-    }
-    if (widthWindow <= valuePx[widthRD]) {
-      setShowMenu(false);
-    }
+    setShowMenu(widthWindow > valuePx[widthRD]);
   }, [widthWindow]);
 
   return (
@@ -146,7 +140,9 @@ function TwoSectionsMenu({
         <section className="box-section">
           <div className="boxes-container">
             {hasBoxMenu && <BoxMenu />}
-            {customBoxs}
+            {customBoxs.map((box, i) => (
+              <Fragment key={i}>{box}</Fragment>
+            ))}
           </div>
         </section>
       )}
