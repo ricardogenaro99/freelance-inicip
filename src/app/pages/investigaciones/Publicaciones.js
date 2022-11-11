@@ -27,13 +27,8 @@ const ContainerControlButtons = styled.div`
   align-items: center;
   gap: var(--gap-s);
   background: var(--color-white);
-`;
-
-const ContainerControlButtonsForm = styled(ContainerControlButtons)`
-  > * {
-    /* width: 50%; */
-    /* height: 100%; */
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 126px), 1fr));
 `;
 
 const ContainerForm = styled.form`
@@ -65,11 +60,18 @@ const initData = [
   },
 ];
 
+const initForm = {
+  author: "",
+  title: "",
+  date: "",
+};
+
 function Publicaciones() {
   const [publicaciones, setPublicaciones] = useState([]);
   const { resetTheme } = useThemeHeader();
   const { widthWindow } = useWindowDimensions();
   const [showFilterForm, setShowFilterForm] = useState(false);
+  const [filterForm, setFilterForm] = useState(initForm);
 
   useEffect(() => {
     setShowFilterForm(widthWindow <= valuePx.tabletL);
@@ -83,7 +85,21 @@ function Publicaciones() {
     setPublicaciones(initData);
   }, []);
 
-  function renderControlButtons(e) {
+  const hnadleChangeFilterForm = (e) => {
+    const { name, value } = e.target;
+    setFilterForm({ ...filterForm, [name]: value });
+  };
+
+  const handleSubmitFilterForm = (e) => {
+    e.preventDefault();
+    console.log(filterForm);
+  };
+
+  const handleResetFilterForm = () => {
+    setFilterForm(initForm);
+  };
+
+  const renderControlButtons = (e) => {
     return (
       <ContainerControlButtons>
         <ButtonRectangle
@@ -93,47 +109,58 @@ function Publicaciones() {
           rel="noreferrer"
           background="var(--color-secondary)"
         >
-          Descargar
+          <span>Descargar</span>
           <FaFileDownload color="white" />
         </ButtonRectangle>
         <ButtonRectangle as={Link} to={String(e.id)}>
-          Ver mas
+          <span>Ver mas</span>
           <FaExternalLinkSquareAlt />
         </ButtonRectangle>
       </ContainerControlButtons>
     );
-  }
+  };
 
   const renderFilterForm = () => {
     return (
-      <ContainerForm onSubmit={() => console.log("xd")}>
+      <ContainerForm onSubmit={handleSubmitFilterForm}>
         <div className="inputs-container">
           <InputLabel
             label="Autor"
-            name="autor"
+            name="author"
             placeholder="Ingrese el nombre del autor"
+            value={filterForm.author}
+            onChange={hnadleChangeFilterForm}
           />
           <InputLabel
             label="Titulo"
-            name="titulo"
+            name="title"
             placeholder="Ingrese el titulo de la publicación"
+            value={filterForm.title}
+            onChange={hnadleChangeFilterForm}
           />
           <InputDatePicker
             label="Fecha de publicación"
+            nameState="date"
             placeholder="Seleccione una fecha"
+            valueState={filterForm.date}
+            setState={hnadleChangeFilterForm}
           />
         </div>
 
-        <ContainerControlButtonsForm>
-          <ButtonRectangle background="var(--color-secondary)" type="button">
-            Limpiar
+        <ContainerControlButtons>
+          <ButtonRectangle
+            background="var(--color-secondary)"
+            type="button"
+            onClick={handleResetFilterForm}
+          >
+            <span>Limpiar</span>
             <BiReset color="white" />
           </ButtonRectangle>
           <ButtonRectangle type="submit">
-            Buscar
+            <span>Buscar</span>
             <FaSearch />
           </ButtonRectangle>
-        </ContainerControlButtonsForm>
+        </ContainerControlButtons>
       </ContainerForm>
     );
   };

@@ -1,7 +1,14 @@
 import React, { useId } from "react";
 import { ContainerInputLabel } from "./styles";
 
-function InputLabel({ label, name, type = "text", placeholder }) {
+function InputLabel({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+}) {
   const id = useId();
 
   return (
@@ -13,6 +20,8 @@ function InputLabel({ label, name, type = "text", placeholder }) {
         name={name}
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
       />
     </ContainerInputLabel>
   );
