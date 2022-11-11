@@ -29,15 +29,23 @@ const ContainerDateRange = styled(DateRange)`
   }
 `;
 
-function InputDatePicker({ label, placeholder }) {
+const initDateRange = [
+  {
+    startDate: new Date(),
+    endDate: null,
+    key: "selection",
+  },
+];
+
+function InputDatePicker({
+  label,
+  placeholder,
+  setState,
+  nameState,
+  valueState,
+}) {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [dateRanges, setDateRanges] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
+  const [dateRange, setDateRange] = useState(initDateRange);
   const [valueInput, setValueInput] = useState("");
 
   useEffect(() => {
@@ -48,13 +56,35 @@ function InputDatePicker({ label, placeholder }) {
   }, []);
 
   useEffect(() => {
-    const { startDate, endDate } = dateRanges.at(0);
+    const { startDate, endDate } = dateRange.at(0);
     if (startDate !== endDate) {
       setShowDatePicker(false);
       handleValue();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dateRanges]);
+  }, [dateRange]);
+
+  useEffect(() => {
+    if (typeof valueState === "string" && valueState === "") {
+      setDateRange(initDateRange);
+      setStateParent(initDateRange);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueState]);
+
+  useEffect(() => {
+    setStateParent(dateRange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueInput]);
+
+  const setStateParent = (value) => {
+    setState({
+      target: {
+        name: nameState,
+        value,
+      },
+    });
+  };
 
   const generateDatePickerText = (date) => {
     return date.toLocaleDateString("es-PE", {
@@ -65,7 +95,7 @@ function InputDatePicker({ label, placeholder }) {
   };
 
   const generateRangeDatePickerText = () => {
-    const { startDate, endDate } = dateRanges.at(0);
+    const { startDate, endDate } = dateRange.at(0);
     if (startDate && endDate) {
       const textStartDate = generateDatePickerText(startDate);
       const textEndDate = generateDatePickerText(endDate);
@@ -100,9 +130,9 @@ function InputDatePicker({ label, placeholder }) {
         <ContainerDateRange
           locale={es}
           editableDateInputs={false}
-          onChange={(item) => setDateRanges([item.selection])}
+          onChange={(item) => setDateRange([item.selection])}
           moveRangeOnFirstSelection={false}
-          ranges={dateRanges}
+          ranges={dateRange}
           showDateDisplay={false}
         />
       )}

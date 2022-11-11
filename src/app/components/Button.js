@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonRectangle = styled.button`
-  padding: 6px 10px;
+  padding: 0 10px;
   gap: 10px;
   background: ${(props) => props.background || "var(--color-primary)"};
   color: ${(props) => props.color || "var(--color-white)"};
