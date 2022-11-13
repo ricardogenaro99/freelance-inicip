@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaFileDownload } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import image from "../../../assets/tmp/images.png";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
-import { ButtonRectangle, SectionBasic } from "../../components";
+import { ButtonRectangle, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
+import { API_ENDPOINT } from "../../utils/generalConst";
+import { parseHtml } from "../../utils/generalFunctions";
 
 const Container = styled.div`
   display: grid;
@@ -87,79 +90,74 @@ const ContainerControlButtons = styled.div`
 function Publicacion() {
   const params = useParams();
   const { resetTheme } = useThemeHeader();
+  const [data, setData] = useState();
 
   useEffect(() => {
     resetTheme();
   }, [resetTheme]);
 
   useEffect(() => {
-    console.log(params.id);
+    loadData(params.id);
   }, [params]);
 
+  const loadData = async (id) => {
+    try {
+      const response = await axios(`${API_ENDPOINT}/posts/${id}`);
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <SectionBasic title="Titulo de la publicacion" isMainContent>
-      <Container>
-        <section className="section-info">
-          <div className="image-container">
-            <img src={image} alt="cover" />
-          </div>
-          <div className="meta-container">
-            <ContainerMeta>
-              <div className="wrapper">
-                <span className="wrapper-label">Autor(es): </span>
-                <span className="wrapper-value">
-                  Autor de Prueba Estatico 1 y Autor de Prueba Estatico 2
-                </span>
+    <>
+      {data ? (
+        <SectionBasic title={data?.title} isMainContent>
+          <Container>
+            <section className="section-info">
+              <div className="image-container">
+                <img src={data?.image || image} alt="cover" />
               </div>
-              <div className="wrapper">
-                <span className="wrapper-label">Fecha de publicación: </span>
-                <span className="wrapper-value">06-11-2022</span>
+              <div className="meta-container">
+                <ContainerMeta>
+                  <div className="wrapper">
+                    <span className="wrapper-label">Autor(es): </span>
+                    <span className="wrapper-value">{data?.authors}</span>
+                  </div>
+                  <div className="wrapper">
+                    <span className="wrapper-label">
+                      Fecha de publicación:{" "}
+                    </span>
+                    <span className="wrapper-value">{data?.createdAt}</span>
+                  </div>
+                  <div className="wrapper">
+                    <span className="wrapper-label">Palabras claves: </span>
+                    <span className="wrapper-value">{data?.keywords}</span>
+                  </div>
+                </ContainerMeta>
+                <ContainerControlButtons>
+                  <ButtonRectangle
+                    as="a"
+                    href={data?.urlPdf || urlPdf}
+                    target="_blank"
+                    rel="noreferrer"
+                    background="var(--color-secondary)"
+                  >
+                    Descargar
+                    <FaFileDownload color="white" />
+                  </ButtonRectangle>
+                </ContainerControlButtons>
               </div>
-              <div className="wrapper">
-                <span className="wrapper-label">Palabras claves: </span>
-                <span className="wrapper-value">06-11-2022</span>
-              </div>
-            </ContainerMeta>
-            <ContainerControlButtons>
-              <ButtonRectangle
-                as="a"
-                href={urlPdf}
-                target="_blank"
-                rel="noreferrer"
-                background="var(--color-secondary)"
-              >
-                Descargar
-                <FaFileDownload color="white" />
-              </ButtonRectangle>
-            </ContainerControlButtons>
-          </div>
-        </section>
-        <section className="section-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta
-          explicabo nemo blanditiis delectus? Pariatur dolorem error, architecto
-          id consequuntur, iste in maxime cumque exercitationem, minus
-          voluptates nemo modi adipisci natus odio numquam deserunt molestias
-          nam magni. Odio laudantium rem magni neque dolores quis. Harum quia
-          sint ut, officia cupiditate sapiente tenetur, inventore, voluptate
-          ratione debitis nisi quo. Beatae in sunt expedita similique quae? Iure
-          pariatur laboriosam repellendus! Officiis beatae quia cupiditate illum
-          eos sint ea nemo rem cum maxime error, magni deserunt maiores
-          voluptatum praesentium. Mollitia et sequi minus rerum magnam cumque
-          delectus asperiores explicabo, eveniet eligendi quibusdam nobis
-          facilis quasi animi saepe eius cupiditate reiciendis, maiores odit?
-          Officiis voluptate ipsam optio nihil. Et voluptatum mollitia labore
-          asperiores? Ratione eaque veritatis quidem fugit iusto id a deserunt,
-          excepturi ipsam officia veniam ad, recusandae voluptate dignissimos.
-          Aliquid atque consequuntur perferendis facere hic quae nobis assumenda
-          maiores quibusdam error suscipit ut pariatur eligendi quos eveniet
-          quas ex ipsum impedit voluptatibus, a cumque repellat. Explicabo nisi
-          maiores vero itaque libero sit quod tempore, eum distinctio quae
-          quisquam ratione esse doloremque. Cupiditate eum possimus vero labore!
-          Blanditiis deserunt eum a nulla dignissimos, beatae quasi sit
-          doloribus facere dolorum sequi! Eos blanditiis sunt est totam.
-        </section>
-      </Container>
-    </SectionBasic>
+            </section>
+            <section className="section-text">
+              {parseHtml(data?.content)}
+            </section>
+          </Container>
+        </SectionBasic>
+      ) : (
+        <Spinner />
+      )}
+    </>
   );
 }
 

@@ -1,23 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { portadaEquipo } from "../../../assets/portadas";
 import { CardList, SectionWhitImage } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
-import { device } from "../../utils/generalBreakpoints";
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr));
-  grid-auto-rows: auto;
-  grid-auto-flow: dense;
-  gap: var(--gap-l);
-
-  @media ${device.tabletS} {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  }
-`;
 
 function Equipo() {
   const [equipo, setEquipo] = useState([]);

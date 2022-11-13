@@ -15,6 +15,7 @@ import SectionWhitImage from "./sections/SectionWhitImage";
 import SectionWithCarousel from "./sections/SectionWithCarousel";
 import SubSectionBasic from "./sections/SubSectionBasic";
 import { SeparatorBasic } from "./Separator";
+import Spinner from "./Spinner";
 
 export {
   Header,
@@ -34,4 +35,5 @@ export {
   SeparatorBasic,
   InputDatePicker,
   TextareaLabel,
+  Spinner,
 };

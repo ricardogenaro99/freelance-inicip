@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BiReset } from "react-icons/bi";
 import {
@@ -8,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { portadaPublicaciones } from "../../../assets/portadas";
-import image from "../../../assets/tmp/images.png";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import {
   ButtonRectangle,
@@ -16,11 +16,13 @@ import {
   InputDatePicker,
   InputLabel,
   SectionWhitImage,
+  Spinner,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { valuePx } from "../../utils/generalBreakpoints";
+import { API_ENDPOINT } from "../../utils/generalConst";
 
 const ContainerControlButtons = styled.div`
   display: flex;
@@ -43,23 +45,6 @@ const ContainerForm = styled.form`
   }
 `;
 
-const initData = [
-  {
-    id: 1,
-    title: "Static post 1",
-    image,
-    content: `<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archiatem. Ut enim ad mluptas nulla pariatur?</p>`,
-    urlPdf,
-  },
-  {
-    id: 2,
-    title: "Static post 2",
-    image,
-    content: `<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architect`,
-    urlPdf,
-  },
-];
-
 const initForm = {
   author: "",
   title: "",
@@ -67,7 +52,7 @@ const initForm = {
 };
 
 function Publicaciones() {
-  const [publicaciones, setPublicaciones] = useState([]);
+  const [data, setData] = useState();
   const { resetTheme } = useThemeHeader();
   const { widthWindow } = useWindowDimensions();
   const [showFilterForm, setShowFilterForm] = useState(false);
@@ -82,8 +67,18 @@ function Publicaciones() {
   }, [resetTheme]);
 
   useEffect(() => {
-    setPublicaciones(initData);
+    loadData();
   }, []);
+
+  const loadData = async () => {
+    try {
+      const response = await axios(`${API_ENDPOINT}/posts`);
+      setData(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      setData([]);
+      console.log(error);
+    }
+  };
 
   const hnadleChangeFilterForm = (e) => {
     const { name, value } = e.target;
@@ -104,7 +99,7 @@ function Publicaciones() {
       <ContainerControlButtons>
         <ButtonRectangle
           as="a"
-          href={e.urlPdf}
+          href={e.urlPdf || urlPdf}
           target="_blank"
           rel="noreferrer"
           background="var(--color-secondary)"
@@ -169,7 +164,11 @@ function Publicaciones() {
     <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
         {showFilterForm && renderFilterForm()}
-        <CardList data={publicaciones} controlButtons={renderControlButtons} />
+        {data ? (
+          <CardList data={data} controlButtons={renderControlButtons} />
+        ) : (
+          <Spinner />
+        )}
       </TwoSectionsMenu>
     </SectionWhitImage>
   );
