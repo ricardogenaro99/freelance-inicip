@@ -7,6 +7,7 @@ import CarouselItem from "./carousel/CarouselItem";
 import Footer from "./footer/Footer";
 import InputDatePicker from "./form/InputDatePicker";
 import InputLabel from "./form/InputLabel";
+import TextareaLabel from "./form/TextareaLabel";
 import Header from "./header/Header";
 import Main from "./Main";
 import SectionBasic from "./sections/SectionBasic";
@@ -32,4 +33,5 @@ export {
   CardList,
   SeparatorBasic,
   InputDatePicker,
+  TextareaLabel,
 };

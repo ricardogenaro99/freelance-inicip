@@ -1,37 +1,174 @@
-import React, { useEffect } from "react";
-import { SectionBasic } from "../components";
-import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
+import React, { useEffect, useState } from "react";
+import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
+import { mapReference } from "../../assets/map";
+import {
+  ButtonRectangle,
+  InputLabel,
+  SectionBasic,
+  TextareaLabel,
+} from "../components";
+import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
+import { device } from "../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 2fr 1.5fr;
+  grid-auto-rows: auto;
+  gap: var(--gap-xl);
+
+  @media ${device.tabletL} {
+    grid-template-columns: 1fr;
+  }
 `;
+
+const ContainerControlButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+  background: var(--color-white);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
+`;
+
+const ContainerForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+
+  .inputs-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: var(--gap-l);
+  }
+`;
+
+const ContainerMap = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--border-radius-global);
+  /* height: 100%; */
+  &:after {
+    content: "";
+    position: absolute;
+    background: #00000087;
+    width: 100%;
+    height: 100%;
+    transform: translate(80%, -80%);
+    border-bottom-left-radius: 100%;
+    transition: var(--transition);
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.58, 0.29, 0.09, 1.07);
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+  }
+  &:hover {
+    &:after {
+      content: "Ver mapa completo";
+      transform: translate(0, 0);
+      border-bottom-left-radius: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-white);
+      font-size: var(--font-size-xl);
+      text-align: center;
+      padding: 15px;
+    }
+  }
+`;
+
+const initForm = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+};
+
 function Contacto() {
   const { resetTheme } = useThemeHeader();
+  const [form, setForm] = useState(initForm);
 
   useEffect(() => {
     resetTheme();
   }, [resetTheme]);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(form);
+  };
+
   return (
     <SectionBasic title="Contactanos" isMainContent>
       <Container>
         <section>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          iusto quaerat ex vitae mollitia, deserunt nesciunt repellat minus,
-          voluptatem, magnam quam! Culpa sed maxime quam ipsam minima
-          voluptatibus facere corporis.
+          <ContainerForm onSubmit={handleSubmit}>
+            <div className="inputs-container">
+              <InputLabel
+                label="Nombre *"
+                name="name"
+                placeholder="Ingrese su nombre"
+                required={true}
+                value={form.name}
+                onChange={handleChange}
+              />
+              <InputLabel
+                label="Correo electrónico *"
+                name="email"
+                type="email"
+                placeholder="Ingrese su correo electrónico"
+                required={true}
+                value={form.email}
+                onChange={handleChange}
+              />
+              {/* <InputLabel
+                label="Teléfono"
+                name="phone"
+                placeholder="Ingrese su número telefónico"
+                type="number"
+                value={form.phone}
+                onChange={handleChange}
+              /> */}
+              <TextareaLabel
+                label="Mensaje *"
+                name="message"
+                placeholder="Ingrese su mensaje"
+                required={true}
+                value={form.message}
+                onChange={handleChange}
+              />
+            </div>
+
+            <ContainerControlButtons>
+              <ButtonRectangle type="submit">
+                <span>Enviar</span>
+                <IoMdSend />
+              </ButtonRectangle>
+            </ContainerControlButtons>
+          </ContainerForm>
         </section>
         <section>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.0597053908245!2d-76.99393368474195!3d-12.176338447640685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b9cbbb496cf1%3A0xd7fdac541760db67!2sEscuela%20de%20Oficiales%20de%20la%20Polic%C3%ADa%20Nacional%20del%20Per%C3%BA!5e0!3m2!1ses-419!2spe!4v1668147560042!5m2!1ses-419!2spe"
-            style={{ border: 0, width: "100%", height: "100%" }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="hola"
-          ></iframe>
+          <ContainerMap
+            href="https://goo.gl/maps/AGGzSER8SJYGCte67"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={mapReference} alt="map" />
+          </ContainerMap>
         </section>
       </Container>
     </SectionBasic>

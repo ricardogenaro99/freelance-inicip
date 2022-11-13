@@ -1,10 +1,9 @@
 import React, { useId } from "react";
 import { ContainerInputLabel } from "./styles";
 
-function InputLabel({
+function TextareaLabel({
   label,
   name,
-  type = "text",
   placeholder,
   value,
   onChange,
@@ -15,18 +14,18 @@ function InputLabel({
   return (
     <ContainerInputLabel htmlFor={id}>
       {label && <span className="label-form">{label}</span>}
-      <input
+      <textarea
         className="input-form"
-        id={id}
         name={name}
-        type={type}
+        id={id}
+        rows="6"
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         required={required}
-      />
+      ></textarea>
     </ContainerInputLabel>
   );
 }
 
-export default InputLabel;
+export default TextareaLabel;

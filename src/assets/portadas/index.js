@@ -1,5 +1,5 @@
-import portadaEquipo from "./portada-equipo.jpg";
-import portadaPresentacion from "./portada-presentacion.jpg";
-import portadaPublicaciones from "./portada-publicaciones.jpg";
+import portadaEquipo from "./portadaEquipo.jpg";
+import portadaPresentacion from "./portadaPresentacion.jpg";
+import portadaPublicaciones from "./portadaPublicaciones.jpg";
 
 export { portadaPresentacion, portadaEquipo, portadaPublicaciones };
