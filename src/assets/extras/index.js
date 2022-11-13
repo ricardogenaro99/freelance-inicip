@@ -1,3 +1,3 @@
-import trianglifyLowres from "./trianglify-lowres.png";
+import trianglifyLowres from "./trianglifyLowres.png";
 
 export { trianglifyLowres };

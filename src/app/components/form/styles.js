@@ -7,6 +7,7 @@ export const ContainerInputLabel = styled.label`
   padding: 9px 15px;
   background: var(--color-white);
   border-radius: var(--border-radius-global);
+  gap: var(--gap-s);
 
   .label-form {
     color: var(--color-sub-primary);
@@ -19,6 +20,7 @@ export const ContainerInputLabel = styled.label`
     outline: none;
     line-height: 20px;
     font-size: var(--font-size-m);
+    resize: vertical;
 
     &:disabled {
       background: transparent;
