@@ -16,6 +16,7 @@ import {
   InputDatePicker,
   InputLabel,
   SectionWhitImage,
+  Spinner,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
@@ -166,7 +167,7 @@ function Publicaciones() {
         {data ? (
           <CardList data={data} controlButtons={renderControlButtons} />
         ) : (
-          "cargando..."
+          <Spinner />
         )}
       </TwoSectionsMenu>
     </SectionWhitImage>
