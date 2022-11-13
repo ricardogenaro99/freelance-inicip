@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import image from "../../../assets/tmp/images.png";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
-import { ButtonRectangle, SectionBasic } from "../../components";
+import { ButtonRectangle, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
 import { API_ENDPOINT } from "../../utils/generalConst";
@@ -155,7 +155,7 @@ function Publicacion() {
           </Container>
         </SectionBasic>
       ) : (
-        "cargando..."
+        <Spinner />
       )}
     </>
   );
