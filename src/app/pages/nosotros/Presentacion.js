@@ -12,22 +12,39 @@ import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { device } from "../../utils/generalBreakpoints";
 
 const ContainerMisionVision = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: var(--gap-xl);
-  padding: var(--padding-global);
   background-image: ${(props) => `url(${props.image})`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
 
-  .vl {
-    border: 2px solid var(--color-secondary);
+  opacity: 0.9;
+
+  &::before {
+    content: "";
+    background: #000000a3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
 
-  @media ${device.tabletL} {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auro 1fr;
+  .container-mision-vision {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--gap-xl);
+    padding: var(--padding-global);
+    position: relative;
+    z-index: 2;
+
+    .content {
+      color: var(--color-white);
+    }
+
+    @media ${device.tabletL} {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auro 1fr;
+    }
   }
 `;
 
@@ -70,26 +87,32 @@ function Presentacion() {
         </SubSectionBasic>
 
         <ContainerMisionVision image={trianglifyLowres}>
-          <SubSectionBasic title="Misión">
-            La Policía Nacional del Perú es una institución del Estado que tiene
-            por misión garantizar, mantener y restablecer el orden interno,
-            prestar protección y ayuda a las personas y a la comunidad,
-            garantizar el cumplimiento de las leyes y la seguridad del
-            patrimonio público y privado, prevenir, investigar y combatir la
-            delincuencia; vigilar y controlar las fronteras; con el propósito de
-            defender a la sociedad y a las personas, a fin de permitir su pleno
-            desarrollo, en el marco de una cultura de paz y de respeto a los
-            derechos humanos.
-          </SubSectionBasic>
-          <SeparatorBasic />
-          <SubSectionBasic title="Visión">
-            Policía moderna, eficiente y cohesionada al servicio de la sociedad
-            y del Estado, comprometida con una cultura de paz, con vocación de
-            servicio y reconocida por su respeto irrestricto a la persona, los
-            derechos humanos, la Constitución y las leyes, por su integración
-            con la comunidad, por su honestidad, disciplina y liderazgo de sus
-            miembros.
-          </SubSectionBasic>
+          <div className="container-mision-vision">
+            <SubSectionBasic title="Misión" colorTitle="var(--color-orange)">
+              <p className="content">
+                La Policía Nacional del Perú es una institución del Estado que
+                tiene por misión garantizar, mantener y restablecer el orden
+                interno, prestar protección y ayuda a las personas y a la
+                comunidad, garantizar el cumplimiento de las leyes y la
+                seguridad del patrimonio público y privado, prevenir, investigar
+                y combatir la delincuencia; vigilar y controlar las fronteras;
+                con el propósito de defender a la sociedad y a las personas, a
+                fin de permitir su pleno desarrollo, en el marco de una cultura
+                de paz y de respeto a los derechos humanos.
+              </p>
+            </SubSectionBasic>
+            <SeparatorBasic color="var(--color-orange)" />
+            <SubSectionBasic title="Visión" colorTitle="var(--color-orange)">
+              <p className="content">
+                Policía moderna, eficiente y cohesionada al servicio de la
+                sociedad y del Estado, comprometida con una cultura de paz, con
+                vocación de servicio y reconocida por su respeto irrestricto a
+                la persona, los derechos humanos, la Constitución y las leyes,
+                por su integración con la comunidad, por su honestidad,
+                disciplina y liderazgo de sus miembros.
+              </p>
+            </SubSectionBasic>
+          </div>
         </ContainerMisionVision>
 
         <SubSectionBasic title="Estructura organizacional">

@@ -239,9 +239,7 @@ function Inicio() {
           label="Lectores"
         />
       </ContainerCountingBox>
-      <SectionBasic title="Últimas Publicaciones">
-        
-      </SectionBasic>
+      <SectionBasic title="Últimas Publicaciones"></SectionBasic>
     </SectionWithCarousel>
   );
 }

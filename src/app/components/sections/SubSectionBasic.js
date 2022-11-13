@@ -4,7 +4,7 @@ import { ContainerSubSectionStyle } from "./styles";
 
 const Title = styled.h5`
   font-size: var(--font-size-xl);
-  color: var(--color-primary);
+  color: ${(props) => props.color};
 `;
 
 function SubSectionBasic({
@@ -12,10 +12,15 @@ function SubSectionBasic({
   children,
   gap = "var(--gap-s)",
   isMainContent = false,
+  colorTitle = "var(--color-primary)",
 }) {
   const renderContent = () => (
     <>
-      {title && <Title>{title}</Title>}
+      {title && (
+        <Title as="h5" color={colorTitle}>
+          {title}
+        </Title>
+      )}
       <div className="subsection-content">{children}</div>
     </>
   );
