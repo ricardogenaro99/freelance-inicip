@@ -7,3 +7,10 @@ export const parseHtml = (content) => {
     return content;
   }
 };
+
+export const windowScroll = (top = 0, behavior = "smooth") => {
+  window.scrollTo({
+    top,
+    behavior,
+  });
+};

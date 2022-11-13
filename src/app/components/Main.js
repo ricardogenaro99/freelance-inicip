@@ -11,6 +11,7 @@ import {
   Publicaciones,
 } from "../pages";
 import { PATHS } from "../routes";
+import { windowScroll } from "../utils/generalFunctions";
 
 const Container = styled.main`
   display: flex;
@@ -21,10 +22,7 @@ function Main() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    windowScroll();
   }, [location.pathname]);
 
   return (
