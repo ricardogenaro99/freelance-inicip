@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { windowScroll } from "../utils/generalFunctions";
 
 const size = "40px";
 const color = "var(--color-sub-primary)";
@@ -35,7 +36,7 @@ const Container = styled.button`
 
 const ButtonBackToTop = () => {
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    windowScroll();
   };
   return (
     <Container onClick={handleClick}>
