@@ -50,8 +50,11 @@ function InputDatePicker({
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      const pos = e.path.findIndex((item) => item.id === "inputDatePicker");
-      if (pos === -1) setShowDatePicker(false);
+      const path = e.path || (e.composedPath && e.composedPath());
+      if (path) {
+        const pos = path.findIndex((item) => item.id === "inputDatePicker");
+        if (pos === -1) setShowDatePicker(false);
+      }
     });
   }, []);
 
