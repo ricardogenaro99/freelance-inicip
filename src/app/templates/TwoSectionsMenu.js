@@ -6,7 +6,7 @@ import { useWindowDimensions } from "../hooks";
 import { PATHS } from "../routes/paths";
 import { device, valuePx } from "../utils/generalBreakpoints";
 
-const widthRD = "tabletL";
+const widthRD = "headerRD";
 const paddingItemBox = "15px 10px";
 
 const Container = styled.article`

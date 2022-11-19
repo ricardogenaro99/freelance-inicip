@@ -4,7 +4,7 @@ import { BiReset } from "react-icons/bi";
 import {
   FaExternalLinkSquareAlt,
   FaFileDownload,
-  FaSearch,
+  FaSearch
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -16,13 +16,20 @@ import {
   InputDatePicker,
   InputLabel,
   SectionWhitImage,
-  Spinner,
+  Spinner
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { valuePx } from "../../utils/generalBreakpoints";
 import { API_ENDPOINT } from "../../utils/generalConst";
+
+const Container = styled.div`
+  max-width: 650px;
+  display: grid;
+  gap: var(--gap-xl);
+  margin: auto;
+`;
 
 const ContainerControlButtons = styled.div`
   display: flex;
@@ -40,7 +47,7 @@ const ContainerForm = styled.form`
 
   .inputs-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); */
     gap: var(--gap-m);
   }
 `;
@@ -59,7 +66,7 @@ function Publicaciones() {
   const [filterForm, setFilterForm] = useState(initForm);
 
   useEffect(() => {
-    setShowFilterForm(widthWindow <= valuePx.tabletL);
+    setShowFilterForm(widthWindow <= valuePx.headerRD);
   }, [widthWindow]);
 
   useEffect(() => {
@@ -163,8 +170,10 @@ function Publicaciones() {
   return (
     <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
-        {showFilterForm && renderFilterForm()}
-        {data ? <CardList data={data} redirect={true} /> : <Spinner />}
+        <Container>
+          {showFilterForm && renderFilterForm()}
+          {data ? <CardList data={data} redirect={true} /> : <Spinner />}
+        </Container>
       </TwoSectionsMenu>
     </SectionWhitImage>
   );
