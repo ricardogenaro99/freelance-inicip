@@ -13,14 +13,14 @@ import { parseHtml } from "../../utils/generalFunctions";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr;
   grid-auto-rows: auto;
   grid-auto-flow: column;
   gap: var(--gap-xl);
   .section-info {
     display: grid;
-    gap: var(--gap-l);
+    gap: var(--gap-m);
 
     .image-container {
       img {
@@ -33,11 +33,22 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: var(--gap-m);
-      padding: 10px;
     }
   }
 
-  @media ${device.tabletL} {
+  .section-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+
+    .content-post {
+      * {
+        text-align: justify;
+      }
+    }
+  }
+
+  @media ${device.tabletS} {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto);
 
@@ -65,9 +76,9 @@ const ContainerMeta = styled.div`
   }
 
   .wrapper {
-    display: grid;
-    grid-template-columns: 85px 1fr;
-    gap: var(--gap-s);
+    display: flex;
+    grid-template-columns: 130px 1fr;
+    gap: var(--gap-l);
 
     .wrapper-label {
       font-weight: 500;
@@ -78,13 +89,6 @@ const ContainerMeta = styled.div`
       font-weight: 600;
     }
   }
-`;
-
-const ContainerControlButtons = styled.div`
-  display: flex;
-  align-items: center;
-  gap: var(--gap-l);
-  background: var(--color-white);
 `;
 
 function Publicacion() {
@@ -119,38 +123,32 @@ function Publicacion() {
                 <img src={data?.image || image} alt="cover" />
               </div>
               <div className="meta-container">
-                <ContainerMeta>
-                  <div className="wrapper">
-                    <span className="wrapper-label">Autor(es): </span>
-                    <span className="wrapper-value">{data?.authors}</span>
-                  </div>
-                  <div className="wrapper">
-                    <span className="wrapper-label">
-                      Fecha de publicación:{" "}
-                    </span>
-                    <span className="wrapper-value">{data?.createdAt}</span>
-                  </div>
-                  <div className="wrapper">
-                    <span className="wrapper-label">Palabras claves: </span>
-                    <span className="wrapper-value">{data?.keywords}</span>
-                  </div>
-                </ContainerMeta>
-                <ContainerControlButtons>
-                  <ButtonRectangle
-                    as="a"
-                    href={data?.urlPdf || urlPdf}
-                    target="_blank"
-                    rel="noreferrer"
-                    background="var(--color-secondary)"
-                  >
-                    Descargar
-                    <FaFileDownload color="white" />
-                  </ButtonRectangle>
-                </ContainerControlButtons>
+                <ButtonRectangle
+                  as="a"
+                  href={data?.urlPdf || urlPdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  background="var(--color-secondary)"
+                >
+                  Descargar
+                  <FaFileDownload color="white" />
+                </ButtonRectangle>
               </div>
             </section>
             <section className="section-text">
-              {parseHtml(data?.content)}
+              <div className="content-post">{parseHtml(data?.content)}</div>
+              <ContainerMeta>
+                <div className="wrapper">
+                  <span className="wrapper-label">Autor(es): </span>
+                  <span className="wrapper-value">{data?.authors}</span>
+                </div>
+                <div className="wrapper">
+                  <span className="wrapper-label">Fecha de publicación: </span>
+                  <span className="wrapper-value">
+                    {data?.createdAt || new Date().toDateString()}
+                  </span>
+                </div>
+              </ContainerMeta>
             </section>
           </Container>
         </SectionBasic>

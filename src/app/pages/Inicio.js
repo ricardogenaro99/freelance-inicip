@@ -8,7 +8,7 @@ import {
   carousel_3,
   carousel_4,
 } from "../../assets/carousel";
-import { logo } from "../../assets/logos";
+import { logoEscudo } from "../../assets/logos";
 import { SectionBasic, SectionWithCarousel } from "../components";
 import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../hooks";
@@ -19,7 +19,7 @@ const countingBoxSize = "150px";
 const StaticContentContainer = styled.div`
   margin: auto;
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   justify-content: center;
   align-items: center;
   gap: var(--gap-big);
@@ -129,9 +129,13 @@ function Inicio() {
   const refContainerCountingBox = useRef();
   const [countUpActive, setCountUpActive] = useState(false);
 
+  // const initTheme = useCallback(() => {
+  //   configTheme("transparent", null, null, false);
+  // }, [configTheme]);
+
   const initTheme = useCallback(() => {
-    configTheme("transparent", null, null, false);
-  }, [configTheme]);
+    resetTheme();
+  }, [resetTheme]);
 
   useEffect(() => {
     initTheme();
@@ -170,7 +174,7 @@ function Inicio() {
     return (
       <StaticContentContainer>
         <div className="static-content-left">
-          <img src={logo} alt="logo" />
+          <img src={logoEscudo} alt="logo" />
         </div>
 
         <h5 className="static-content-right">
@@ -187,6 +191,7 @@ function Inicio() {
       background="linear-gradient(to top, rgba(0, 0, 0, 0.5), var(--color-dark))"
       isMainContent
       staticContent={renderStaticContent()}
+      translateY
     >
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum doloremque

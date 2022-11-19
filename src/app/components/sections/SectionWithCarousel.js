@@ -6,7 +6,7 @@ import { ContainerSectionStyle, ContainerImages, Title } from "./styles";
 
 const ContainerCarousel = styled(ContainerImages)`
   height: ${(props) =>
-    props.carouselFullHeight ? "100vh" : "var(--cover-image-height)"};
+    props.carouselFullHeight ? "80vh" : "var(--cover-image-height)"};
 `;
 function SectionWithCarousel({
   children,
@@ -17,12 +17,14 @@ function SectionWithCarousel({
   title,
   staticContent,
   background,
+  translateY = false,
 }) {
   return (
     <ContainerSectionStyle
       isMainContent={isMainContent}
       gap={gap}
       sectionFullHeight={carouselFullHeight}
+      translateY={translateY}
     >
       <ContainerCarousel
         background={background}

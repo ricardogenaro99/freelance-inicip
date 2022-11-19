@@ -13,6 +13,7 @@ function SubSectionBasic({
   gap = "var(--gap-s)",
   isMainContent = false,
   colorTitle = "var(--color-primary)",
+  maxWidth,
 }) {
   const renderContent = () => (
     <>
@@ -26,7 +27,11 @@ function SubSectionBasic({
   );
 
   return (
-    <ContainerSubSectionStyle isMainContent={isMainContent} gap={gap}>
+    <ContainerSubSectionStyle
+      isMainContent={isMainContent}
+      gap={gap}
+      maxWidth={maxWidth}
+    >
       {isMainContent ? (
         <div className="main-content">{renderContent()}</div>
       ) : (

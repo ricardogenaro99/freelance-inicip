@@ -23,7 +23,7 @@ const ContainerList = styled.section`
   }
 `;
 
-function Items({ items, controlButtons }) {
+function Items({ items, controlButtons, redirect }) {
   return (
     <ContainerList className="list-container">
       {items.map((e, i) => (
@@ -32,6 +32,7 @@ function Items({ items, controlButtons }) {
             title={e.title}
             image={e.image || image}
             controlButtons={controlButtons && controlButtons(e)}
+            redirect={redirect && e.id.toString()}
           >
             {e.content}
           </CardBasic>
@@ -42,7 +43,8 @@ function Items({ items, controlButtons }) {
   );
 }
 
-function CardList({ data = [], controlButtons }) {
+function CardList({ data = [], controlButtons, redirect }) {
+  // eslint-disable-next-line no-unused-vars
   const [dataPerPage, setdataPerPage] = useState(8);
   const [items, setItems] = useState([]);
   const [range, setRange] = useState({
@@ -55,10 +57,10 @@ function CardList({ data = [], controlButtons }) {
     setItems(data.slice(range.start, range.end));
   }, [data, range]);
 
-  // useEffect(() => {
-  //   const selected = range.start % dataPerPage
-  //   handlePageClick({ selected });
-  // }, [dataPerPage]);
+  // // useEffect(() => {
+  // //   const selected = range.start % dataPerPage
+  // //   handlePageClick({ selected });
+  // // }, [dataPerPage]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * dataPerPage) % data.length;
@@ -72,7 +74,11 @@ function CardList({ data = [], controlButtons }) {
     <Container>
       {data.length > 0 ? (
         <>
-          <Items items={items} controlButtons={controlButtons} />
+          <Items
+            items={items}
+            controlButtons={controlButtons}
+            redirect={redirect}
+          />
           <section className="pagination-container">
             <Paginate
               handlePageClick={handlePageClick}

@@ -7,6 +7,7 @@ const Container = styled.div`
     props.carouselFullHeight ? "100vh" : "var(--cover-image-height)"};
   img {
     object-fit: cover;
+    object-position: bottom;
     width: 100%;
     height: 100%;
   }
