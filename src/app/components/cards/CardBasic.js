@@ -33,6 +33,8 @@ const Container = styled.div`
 
     .title-card {
       font-size: var(--font-size-l);
+      color: var(--color-primary);
+      font-weight: 800;
     }
 
     .button-watch {
