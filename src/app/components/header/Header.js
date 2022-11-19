@@ -66,12 +66,14 @@ const Container = styled.header`
           img {
             object-fit: cover;
             height: 100%;
-            max-height: calc(var(--header-height) - 30px);
+            max-height: calc(var(--header-height) - 20px);
           }
         }
       }
 
-      @media ${device.tabletL} {
+      @media ${device.headerRD} {
+        padding-left: 6%;
+        padding-right: 6%;
         section {
           width: 100%;
           justify-content: space-between;
@@ -107,29 +109,29 @@ function Header() {
   const { widthWindow } = useWindowDimensions();
   const { color, background, coloractive, hasShadow } = useThemeHeader();
 
-  const itemsNosotros = [
-    {
-      path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.presentacion.path}`,
-      anchor: "Presentación",
-    },
-    {
-      path: `${PATHS.nosotros.path}/${PATHS.nosotros.children.equipo.path}`,
-      anchor: "Equipo",
-    },
-  ];
+  const generateChildren = (itemKey) => {
+    const originPath = PATHS[itemKey].path;
+    return Object.entries(PATHS[itemKey].children).map((e) => {
+      return {
+        path: `/${originPath}/${e.at(1).path}`,
+        anchor: e.at(1).label,
+      };
+    });
+  };
 
-  const itemsInvestigaciones = [
-    {
-      path: `${PATHS.investigaciones.path}/${PATHS.investigaciones.children.publicaciones.path}`,
-      anchor: "Publicaciones",
-    },
-  ];
+  const itemsNosotros = generateChildren("nosotros");
+
+  const itemsInvestigadores = generateChildren("investigadores");
+
+  const itemsRevistas = generateChildren("revistas");
+
+  const itemsInvestigaciones = generateChildren("investigaciones");
 
   useEffect(() => {
-    if (widthWindow > valuePx.tabletL && watchMenu) {
+    if (widthWindow > valuePx.headerRD && watchMenu) {
       setWatchMenu(false);
     }
-    if (widthWindow <= valuePx.tabletL && !watchMenu) {
+    if (widthWindow <= valuePx.headerRD && !watchMenu) {
       setWatchMenu(true);
     }
   }, [watchMenu, widthWindow]);
@@ -176,6 +178,18 @@ function Header() {
             <DropdownItemMenu
               dropdownTitle="Nosotros"
               items={itemsNosotros}
+              onClickItem={handleClickMenu}
+              openMenu={openMenu}
+            />
+            <DropdownItemMenu
+              dropdownTitle="Investigadores"
+              items={itemsInvestigadores}
+              onClickItem={handleClickMenu}
+              openMenu={openMenu}
+            />
+            <DropdownItemMenu
+              dropdownTitle="Revistas"
+              items={itemsRevistas}
               onClickItem={handleClickMenu}
               openMenu={openMenu}
             />

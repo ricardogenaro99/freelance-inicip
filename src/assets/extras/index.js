@@ -1,3 +1,3 @@
 import trianglifyLowres from "./trianglifyLowres.png";
-
-export { trianglifyLowres };
+import stop from "./stop.png";
+export { trianglifyLowres, stop };

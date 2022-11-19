@@ -55,7 +55,7 @@ const Container = styled.div`
     }
   }
 
-  @media ${device.tabletL} {
+  @media ${device.headerRD} {
     display: flex;
     flex-direction: column;
 
@@ -117,7 +117,7 @@ function DropdownItemMenu({
   };
 
   const closeDropDown = () => {
-    if (widthWindow > valuePx.tabletL) {
+    if (widthWindow > valuePx.headerRD) {
       setIsOpen(false);
     }
     onClickItem();
@@ -138,7 +138,7 @@ function DropdownItemMenu({
         return;
       }
 
-      if (window.innerWidth > valuePx.tabletL) {
+      if (window.innerWidth > valuePx.headerRD) {
         setIsOpen(false);
       }
     }
@@ -151,10 +151,10 @@ function DropdownItemMenu({
   }, [dropdownTitle, location]);
 
   useEffect(() => {
-    if (widthWindow > valuePx.tabletL && firstOpenResponse) {
+    if (widthWindow > valuePx.headerRD && firstOpenResponse) {
       setFirstOpenResponse(false);
     }
-    if (widthWindow <= valuePx.tabletL && !firstOpenResponse) {
+    if (widthWindow <= valuePx.headerRD && !firstOpenResponse) {
       setFirstOpenResponse(true);
     }
   }, [firstOpenResponse, widthWindow]);
@@ -172,7 +172,7 @@ function DropdownItemMenu({
   }, [firstOpenResponse]);
 
   useEffect(() => {
-    if (widthWindow > valuePx.tabletL) {
+    if (widthWindow > valuePx.headerRD) {
       if (isOpen) {
         dropdownListRef.current.querySelector("a").focus();
         document.addEventListener("mousedown", clickOutsideHandler);

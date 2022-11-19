@@ -13,7 +13,7 @@ const LinkStyle = styled(Link)`
     color: ${(props) => props.coloractive};
   }
 
-  @media ${device.tabletL} {
+  @media ${device.headerRD} {
     height: var(--item-menu-height);
     span {
       padding-left: ${(props) =>
