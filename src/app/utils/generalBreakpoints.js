@@ -9,6 +9,7 @@ export const valuePx = {
   laptopM: 1200,
   laptopL: 1440,
   desktop: 2560,
+  headerRD: 1230,
 };
 
 export const size = {
@@ -22,6 +23,7 @@ export const size = {
   laptopM: `${valuePx.laptopM}px`,
   laptopL: `${valuePx.laptopL}px`,
   desktop: `${valuePx.desktop}px`,
+  headerRD: `${valuePx.headerRD}px`,
 };
 
 export const device = {
@@ -35,4 +37,5 @@ export const device = {
   laptopM: `(max-width: ${size.laptopM})`,
   laptopL: `(max-width: ${size.laptopL})`,
   desktop: `(max-width: ${size.desktop})`,
+  headerRD: `(max-width: ${size.headerRD})`,
 };
