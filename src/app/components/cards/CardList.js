@@ -23,7 +23,7 @@ const ContainerList = styled.section`
   }
 `;
 
-function Items({ items, controlButtons }) {
+function Items({ items, controlButtons, redirect }) {
   return (
     <ContainerList className="list-container">
       {items.map((e, i) => (
@@ -32,6 +32,7 @@ function Items({ items, controlButtons }) {
             title={e.title}
             image={e.image || image}
             controlButtons={controlButtons && controlButtons(e)}
+            redirect={redirect && e.id.toString()}
           >
             {e.content}
           </CardBasic>
@@ -42,7 +43,7 @@ function Items({ items, controlButtons }) {
   );
 }
 
-function CardList({ data = [], controlButtons }) {
+function CardList({ data = [], controlButtons, redirect }) {
   // eslint-disable-next-line no-unused-vars
   const [dataPerPage, setdataPerPage] = useState(8);
   const [items, setItems] = useState([]);
@@ -73,7 +74,11 @@ function CardList({ data = [], controlButtons }) {
     <Container>
       {data.length > 0 ? (
         <>
-          <Items items={items} controlButtons={controlButtons} />
+          <Items
+            items={items}
+            controlButtons={controlButtons}
+            redirect={redirect}
+          />
           <section className="pagination-container">
             <Paginate
               handlePageClick={handlePageClick}

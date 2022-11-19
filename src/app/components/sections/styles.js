@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { size } from "../../utils/generalBreakpoints";
 
+const maxWidth = size.tabletL;
+
 const ContainerBasicStyle = styled.section`
   display: flex;
   flex-direction: column;
@@ -16,7 +18,7 @@ const ContainerBasicStyle = styled.section`
     gap: var(--gap-l);
 
     > * {
-      max-width: ${(props) => (props.isMainContent ? size.laptopS : "none")};
+      max-width: ${(props) => (props.isMainContent ? maxWidth : "none")};
       width: 100%;
     }
   }
@@ -24,23 +26,25 @@ const ContainerBasicStyle = styled.section`
 
 export const ContainerSectionStyle = styled(ContainerBasicStyle)`
   gap: ${(props) => (props.isMainContent ? "0" : "var(--gap-xxl)")};
+  max-width: ${(props) => props.maxWidth || "none"};
   ${(props) =>
     props.sectionFullHeight &&
+    props.translateY &&
     `transform: translateY(calc(var(--header-height) * -1));`}
   .section-content {
     display: grid;
     gap: ${(props) => props.gap};
-    /* padding: 0 0.3%; */
     width: 100%;
   }
 `;
 
 export const ContainerSubSectionStyle = styled(ContainerBasicStyle)`
   gap: ${(props) => (props.isMainContent ? "0" : "var(--gap-m)")};
+  max-width: ${(props) => props.maxWidth || "none"};
   .subsection-content {
     display: grid;
     gap: ${(props) => props.gap};
-    max-width: ${(props) => (props.isMainContent ? size.laptopS : "none")};
+    max-width: ${(props) => (props.isMainContent ? maxWidth : "none")};
     width: 100%;
   }
 `;

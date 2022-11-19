@@ -164,11 +164,7 @@ function Publicaciones() {
     <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
       <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
         {showFilterForm && renderFilterForm()}
-        {data ? (
-          <CardList data={data} controlButtons={renderControlButtons} />
-        ) : (
-          <Spinner />
-        )}
+        {data ? <CardList data={data} redirect={true} /> : <Spinner />}
       </TwoSectionsMenu>
     </SectionWhitImage>
   );

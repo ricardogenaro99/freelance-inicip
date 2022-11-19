@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: min(100%, 140px) 7fr;
   grid-auto-rows: auto;
   gap: var(--gap-l);
   padding: 25px 30px;
@@ -65,14 +66,27 @@ const Container = styled.div`
   }
 `;
 
-function CardBasic({ title = "", image = "", children, controlButtons }) {
+function CardBasic({
+  title = "",
+  image = "",
+  children,
+  controlButtons,
+  redirect,
+}) {
   return (
     <Container>
       <div className="image-container">
         <img src={image} alt={title} />
       </div>
       <div className="body-container">
-        <h5 className="title-card">{title}</h5>
+        {redirect ? (
+          <Link className="title-card" to={redirect}>
+            {title}
+          </Link>
+        ) : (
+          <h5 className="title-card">{title}</h5>
+        )}
+
         {children}
         {controlButtons && <div className="button-watch">{controlButtons}</div>}
       </div>

@@ -6,6 +6,7 @@ function SectionBasic({
   children,
   gap = "var(--gap-xl)",
   isMainContent = false,
+  maxWidth,
 }) {
   const renderContent = () => (
     <>
@@ -15,7 +16,11 @@ function SectionBasic({
   );
 
   return (
-    <ContainerSectionStyle isMainContent={isMainContent} gap={gap}>
+    <ContainerSectionStyle
+      isMainContent={isMainContent}
+      gap={gap}
+      maxWidth={maxWidth}
+    >
       {isMainContent ? (
         <div className="main-content">{renderContent()}</div>
       ) : (

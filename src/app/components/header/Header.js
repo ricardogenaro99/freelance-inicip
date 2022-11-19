@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { logoEscudoText } from "../../../assets/logos";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import { PATHS } from "../../routes";
@@ -58,6 +59,15 @@ const Container = styled.header`
           font-size: var(--font-size-xxl);
           color: ${(props) => props.coloractive};
           font-weight: 900;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            object-fit: cover;
+            height: 100%;
+            max-height: calc(var(--header-height) - 30px);
+          }
         }
       }
 
@@ -150,7 +160,7 @@ function Header() {
               className="title-quena"
               onClick={() => setOpenMenu(false)}
             >
-              INICIP
+              <img src={logoEscudoText} alt="logo" />
             </Link>
             {watchMenu && (
               <BurgerComponent onClick={handleClickMenu} openMenu={openMenu} />

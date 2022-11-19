@@ -37,9 +37,7 @@ function NavLinkComponent({ path, label, onClick, level = 1 }) {
     <div>
       <NavLinkStyle
         to={path || label.toLowerCase()}
-        className={(navData) =>
-          navData.isActive ? "active" : undefined
-        }
+        className={(navData) => (navData.isActive ? "active" : undefined)}
         onClick={onClick}
         level={level}
         coloractive={coloractive}
