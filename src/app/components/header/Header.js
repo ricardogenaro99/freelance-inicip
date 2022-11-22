@@ -5,7 +5,7 @@ import { logoEscudoText } from "../../../assets/logos";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import { PATHS } from "../../routes";
-import { device, size, valuePx } from "../../utils/generalBreakpoints";
+import { device, valuePx } from "../../utils/generalBreakpoints";
 import BurgerComponent from "./BurgerComponent";
 import DropdownItemMenu from "./DropdownItemMenu";
 import LinkComponent from "./LinkComponent";
@@ -43,7 +43,7 @@ const Container = styled.header`
       padding: var(--padding-header);
       display: flex;
       align-items: center;
-      max-width: ${size.desktopS};
+      max-width: var(--max-width);
       margin: 0 auto;
 
       section,
@@ -201,6 +201,11 @@ function Header() {
               dropdownTitle="Investigaciones"
               items={itemsInvestigaciones}
               onClickItem={handleClickMenu}
+              openMenu={openMenu}
+            />
+            <NavLinkComponent
+              label="Noticias"
+              onClick={handleClickMenu}
               openMenu={openMenu}
             />
             <NavLinkComponent

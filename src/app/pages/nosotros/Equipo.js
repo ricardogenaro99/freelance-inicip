@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { portadaEquipo } from "../../../assets/portadas";
 import { CardList, SectionWhitImage } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
@@ -36,7 +35,7 @@ function Equipo() {
   }, []);
 
   return (
-    <SectionWhitImage title="Equipo" image={portadaEquipo}>
+    <SectionWhitImage title="Equipo">
       <TwoSectionsMenu>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam

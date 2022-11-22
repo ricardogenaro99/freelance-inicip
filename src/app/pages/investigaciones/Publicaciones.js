@@ -15,7 +15,7 @@ import {
   CardList,
   InputDatePicker,
   InputLabel,
-  SectionWhitImage,
+  SectionBasic,
   Spinner,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
@@ -25,7 +25,7 @@ import { valuePx } from "../../utils/generalBreakpoints";
 import { API_ENDPOINT } from "../../utils/generalConst";
 
 const Container = styled.div`
-  max-width: 650px;
+  max-width: 900px;
   display: grid;
   gap: var(--gap-xl);
   margin: auto;
@@ -169,14 +169,25 @@ function Publicaciones() {
   };
 
   return (
-    <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
-      <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
+    <SectionBasic
+      title="Publicaciones"
+      image={portadaPublicaciones}
+      isMainContent
+      maxWidth="var(--max-width-inner)"
+      textAlign="center"
+    >
+      {/* <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
         <Container>
           {showFilterForm && renderFilterForm()}
           {data ? <CardList data={data} redirect={true} /> : <Spinner />}
         </Container>
-      </TwoSectionsMenu>
-    </SectionWhitImage>
+      </TwoSectionsMenu> */}
+
+      <Container>
+        {showFilterForm && renderFilterForm()}
+        {data ? <CardList data={data} redirect={true} /> : <Spinner />}
+      </Container>
+    </SectionBasic>
   );
 }
 

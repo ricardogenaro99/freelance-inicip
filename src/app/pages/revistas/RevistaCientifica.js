@@ -61,6 +61,7 @@ function RevistaCientifica() {
     <SectionBasic
       title="“CHAPAQ”, Revista Académica de la Escuela de Posgrado de la PNP"
       isMainContent
+      maxWidth="var(--max-width-inner)"
     >
       <Container>
         <section className="section-info">

@@ -7,10 +7,15 @@ function SectionBasic({
   gap = "var(--gap-xl)",
   isMainContent = false,
   maxWidth,
+  textAlign = "left",
 }) {
   const renderContent = () => (
     <>
-      {title && <Title isMainContent={true}>{title}</Title>}
+      {title && (
+        <Title isMainContent={true} textAlign={textAlign}>
+          {title}
+        </Title>
+      )}
       <div className="section-content">{children}</div>
     </>
   );

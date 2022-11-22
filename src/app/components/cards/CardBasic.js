@@ -9,7 +9,7 @@ const Container = styled.div`
   grid-auto-rows: auto;
   gap: var(--gap-l);
   padding: 25px 30px;
-  max-height: 230px;
+  max-height: 280px;
 
   .image-container {
     display: flex;
@@ -32,7 +32,7 @@ const Container = styled.div`
     overflow: hidden;
 
     .title-card {
-      font-size: var(--font-size-l);
+      font-size: var(--font-size-xl);
       color: var(--color-primary);
       font-weight: 700;
     }
@@ -52,8 +52,8 @@ const Container = styled.div`
         background: rgb(255, 255, 255);
         background: linear-gradient(
           180deg,
-          transparent 30%,
-          rgba(255, 255, 255, 1) 75%
+          transparent 70%,
+          rgba(255, 255, 255, 1) 100%
         );
         position: absolute;
         width: 100%;

@@ -11,7 +11,7 @@ const paddingItemBox = "15px 10px";
 
 const Container = styled.article`
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 2.8fr 1fr;
   gap: var(--gap-xxxl);
 
   .content-section {

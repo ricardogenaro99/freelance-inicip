@@ -41,7 +41,11 @@ function RevistaEscpogra() {
   }, []);
 
   return (
-    <SectionBasic title="REVISTA ESCPOGRA" isMainContent>
+    <SectionBasic
+      title="REVISTA ESCPOGRA"
+      isMainContent
+      maxWidth="var(--max-width-inner)"
+    >
       <Container>
         <section className="section-text">
           <div className="content-post">

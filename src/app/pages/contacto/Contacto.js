@@ -113,7 +113,11 @@ function Contacto() {
   };
 
   return (
-    <SectionBasic title="Contactanos" isMainContent>
+    <SectionBasic
+      title="Contactanos"
+      isMainContent
+      maxWidth="var(--max-width-inner)"
+    >
       <Container>
         <section>
           <ContainerForm onSubmit={handleSubmit}>
