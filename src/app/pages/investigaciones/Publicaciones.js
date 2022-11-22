@@ -4,7 +4,7 @@ import { BiReset } from "react-icons/bi";
 import {
   FaExternalLinkSquareAlt,
   FaFileDownload,
-  FaSearch
+  FaSearch,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -16,7 +16,7 @@ import {
   InputDatePicker,
   InputLabel,
   SectionWhitImage,
-  Spinner
+  Spinner,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";

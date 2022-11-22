@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
-import { mapReference } from "../../assets/map";
+import { mapReference } from "../../../assets/map";
 import {
   ButtonRectangle,
   InputLabel,
   SectionBasic,
   TextareaLabel,
-} from "../components";
-import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
-import { device } from "../utils/generalBreakpoints";
+} from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
+import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;

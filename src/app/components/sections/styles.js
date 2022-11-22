@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { size } from "../../utils/generalBreakpoints";
 
-const maxWidth = size.tabletL;
+const maxWidth = size.tabletM;
 
 const ContainerBasicStyle = styled.section`
   display: flex;
