@@ -7,12 +7,12 @@ import {
   carousel_2,
   carousel_3,
   carousel_4,
-} from "../../assets/carousel";
-import { logoEscudo } from "../../assets/logos";
-import { SectionBasic, SectionWithCarousel } from "../components";
-import { useThemeHeader } from "../contexts/ThemeHeaderProvider";
-import { useScrollPosition } from "../hooks";
-import { device } from "../utils/generalBreakpoints";
+} from "../../../assets/carousel";
+import { logoEscudo } from "../../../assets/logos";
+import { SectionBasic, SectionWithCarousel } from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
+import { useScrollPosition } from "../../hooks";
+import { device } from "../../utils/generalBreakpoints";
 
 const countingBoxSize = "150px";
 
