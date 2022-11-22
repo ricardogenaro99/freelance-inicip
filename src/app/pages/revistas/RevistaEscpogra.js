@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { escpogra } from "../../../assets/revistas";
 import { CardList, SectionBasic, SubSectionBasic } from "../../components";
+import { PROPS_SECTION } from "../../utils/generalConst";
 
 const Container = styled.div`
   display: grid;
@@ -16,7 +17,7 @@ const Container = styled.div`
 
     .content-post {
       display: grid;
-      gap: var(--gap-m);
+      gap: var(--gap-l);
 
       .guidelines {
         list-style: initial;
@@ -41,7 +42,7 @@ function RevistaEscpogra() {
   }, []);
 
   return (
-    <SectionBasic title="REVISTA ESCPOGRA" isMainContent>
+    <SectionBasic title="REVISTA ESCPOGRA" {...PROPS_SECTION}>
       <Container>
         <section className="section-text">
           <div className="content-post">

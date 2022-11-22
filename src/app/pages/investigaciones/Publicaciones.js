@@ -4,28 +4,29 @@ import { BiReset } from "react-icons/bi";
 import {
   FaExternalLinkSquareAlt,
   FaFileDownload,
-  FaSearch,
+  FaSearch
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { portadaPublicaciones } from "../../../assets/portadas";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import {
   ButtonRectangle,
   CardList,
   InputDatePicker,
   InputLabel,
-  SectionWhitImage,
-  Spinner,
+  SectionBasic,
+  Spinner
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
-import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { valuePx } from "../../utils/generalBreakpoints";
-import { API_ENDPOINT } from "../../utils/generalConst";
+import {
+  API_ENDPOINT,
+  PROPS_SECTION_CENTER_TITLE
+} from "../../utils/generalConst";
 
 const Container = styled.div`
-  max-width: 650px;
+  max-width: 900px;
   display: grid;
   gap: var(--gap-xl);
   margin: auto;
@@ -169,14 +170,19 @@ function Publicaciones() {
   };
 
   return (
-    <SectionWhitImage title="Publicaciones" image={portadaPublicaciones}>
-      <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
+    <SectionBasic title="Publicaciones" {...PROPS_SECTION_CENTER_TITLE}>
+      {/* <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
         <Container>
           {showFilterForm && renderFilterForm()}
           {data ? <CardList data={data} redirect={true} /> : <Spinner />}
         </Container>
-      </TwoSectionsMenu>
-    </SectionWhitImage>
+      </TwoSectionsMenu> */}
+
+      <Container>
+        {showFilterForm && renderFilterForm()}
+        {data ? <CardList data={data} redirect={true} /> : <Spinner />}
+      </Container>
+    </SectionBasic>
   );
 }
 

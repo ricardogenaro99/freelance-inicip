@@ -12,3 +12,14 @@ export const VALIDATE_INPUTS = {
 export const TIME_OUT = 10000;
 
 export const API_ENDPOINT = "https://apimocha.com/inicip";
+
+export const PROPS_SECTION = {
+  isMainContent: true,
+  maxWidth: "var(--max-width-inner)",
+  textAlign: "left",
+};
+
+export const PROPS_SECTION_CENTER_TITLE = {
+  ...PROPS_SECTION,
+  textAlign: "center",
+};

@@ -3,13 +3,14 @@ import styled from "styled-components";
 import { trianglifyLowres } from "../../../assets/extras";
 import { portadaPresentacion } from "../../../assets/portadas";
 import {
-  SectionWhitImage,
+  SectionBasic,
   SeparatorBasic,
-  SubSectionBasic,
+  SubSectionBasic
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { device } from "../../utils/generalBreakpoints";
+import { PROPS_SECTION } from "../../utils/generalConst";
 
 const Container = styled.div`
   display: grid;
@@ -62,10 +63,14 @@ function Presentacion() {
   }, [resetTheme]);
 
   return (
-    <SectionWhitImage title="Presentacion" image={portadaPresentacion}>
+    <SectionBasic
+      title="Presentación"
+      image={portadaPresentacion}
+      {...PROPS_SECTION}
+    >
       <TwoSectionsMenu>
         <Container>
-          <SubSectionBasic title="Quiénes somos">
+          <p>
             El Instituto de Investigación en Ciencias Policiales (INICIP),
             creado el 04 de noviembre de 2021, es una unidad académica de la
             Escuela de Posgrado de la Policía Nacional del Perú (ESCPOGRA –
@@ -82,8 +87,7 @@ function Presentacion() {
             Nuestra producción está orientada a la publicación de diversos
             trabajos de investigaciones (Documentos de Trabajo, Series de
             Investigación, Libros digitales, entre otros).
-          </SubSectionBasic>
-
+          </p>
           <ContainerMisionVision image={trianglifyLowres}>
             <div className="container-mision-vision">
               <SubSectionBasic title="Misión" colorTitle="var(--color-orange)">
@@ -111,7 +115,7 @@ function Presentacion() {
           </ContainerMisionVision>
         </Container>
       </TwoSectionsMenu>
-    </SectionWhitImage>
+    </SectionBasic>
   );
 }
 

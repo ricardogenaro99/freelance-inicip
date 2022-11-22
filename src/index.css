@@ -1,5 +1,5 @@
 :root {
-  --header-height: 100px;
+  --header-height: 110px;
   --item-menu-height: 70px;
   --cover-image-height: 300px;
   /* --color-primary: #1b4374; */
@@ -31,6 +31,7 @@
   --font-size-l: 18px;
   --font-size-xl: 24px;
   --font-size-xxl: 32px;
+  --font-size-xxxl: 48px;
   --font-size-big: 64px;
 
   --gap-s: 4px;
@@ -41,25 +42,28 @@
   --gap-xxxl: 48px;
   --gap-big: 64px;
 
-  --padding-global-x: 10%;
+  --padding-global-x: 3%;
   --padding-global-y: 36px;
   --padding-global-y-2: 36px;
   --padding-global: var(--padding-global-y) var(--padding-global-x);
-  --padding-header: 0 var(--padding-global-x);
-  --padding-footer: 48px var(--padding-global-x);
+  --padding-header: 0 15px;
+  --padding-footer: 48px 15px;
   --padding-item-menu-movil-x: 32px;
   --padding-item-menu-movil-y: 16px;
   --padding-item-menu-movil: var(--padding-item-menu-movil-y)
     var(--padding-item-menu-movil-x);
 
   --border-radius-global: 3px;
+
+  --max-width: 1320px;
+  --max-width-inner: 1200px;
 }
 
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  line-height: 1.9;
+  line-height: 1.7;
 }
 
 *,
@@ -76,7 +80,7 @@ body {
 }
 
 * {
-  font-family: "Open Sans", Arial, system-ui;
+  font-family: "Sora", sans-serif;
   font-size: var(--font-size-m);
   padding: 0;
   margin: 0;

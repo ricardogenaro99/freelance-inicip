@@ -6,10 +6,11 @@ import {
   ButtonRectangle,
   InputLabel,
   SectionBasic,
-  TextareaLabel,
+  TextareaLabel
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
+import { PROPS_SECTION } from "../../utils/generalConst";
 
 const Container = styled.div`
   display: grid;
@@ -113,7 +114,7 @@ function Contacto() {
   };
 
   return (
-    <SectionBasic title="Contactanos" isMainContent>
+    <SectionBasic title="Contactanos" {...PROPS_SECTION}>
       <Container>
         <section>
           <ContainerForm onSubmit={handleSubmit}>

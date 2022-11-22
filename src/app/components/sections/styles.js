@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { size } from "../../utils/generalBreakpoints";
 
-const maxWidth = size.tabletM;
-
+const maxWidth = "var(--max-width)";
+const maxWidth2 = "var(--max-width-inner)";
 const ContainerBasicStyle = styled.section`
   display: flex;
   flex-direction: column;
@@ -35,6 +34,7 @@ export const ContainerSectionStyle = styled(ContainerBasicStyle)`
     display: grid;
     gap: ${(props) => props.gap};
     width: 100%;
+    max-width: ${maxWidth2};
   }
 `;
 
@@ -50,8 +50,12 @@ export const ContainerSubSectionStyle = styled(ContainerBasicStyle)`
 `;
 
 export const Title = styled.h4`
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xxxl);
   color: var(--color-primary);
+  width: 100%;
+  max-width: var(--max-width) ${(props) => props.maxWidthString && "!important"};
+  margin: auto;
+  text-align: ${(props) => props.textAlign}!important;
 `;
 
 export const ContainerImages = styled.div`

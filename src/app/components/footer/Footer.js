@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { device, size } from "../../utils/generalBreakpoints";
+import { device } from "../../utils/generalBreakpoints";
 import SectionFooter from "./SectionFooter";
 
 const Container = styled.footer`
@@ -28,7 +28,7 @@ const Container = styled.footer`
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-big);
     padding: var(--padding-footer);
-    max-width: ${size.desktopS};
+    max-width: var(--max-width);
     margin: 0 auto;
   }
 
