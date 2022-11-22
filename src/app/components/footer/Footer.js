@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import SectionFooter from "./SectionFooter";
 import { device, size } from "../../utils/generalBreakpoints";
+import SectionFooter from "./SectionFooter";
 
 const Container = styled.footer`
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
   color: var(--color-white);
+
+  * {
+    text-align: initial;
+  }
 
   > div {
     display: grid;

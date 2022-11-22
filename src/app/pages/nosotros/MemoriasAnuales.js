@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MemoriasAnuales() {
-  return (
-    <div>MemoriasAnuales</div>
-  )
+  return <div>MemoriasAnuales</div>;
 }
 
-export default MemoriasAnuales
+export default MemoriasAnuales;

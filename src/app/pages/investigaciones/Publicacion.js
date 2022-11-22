@@ -40,12 +40,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
-
-    .content-post {
-      * {
-        text-align: justify;
-      }
-    }
   }
 
   @media ${device.tabletS} {

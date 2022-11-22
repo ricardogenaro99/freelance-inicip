@@ -15,6 +15,7 @@ const Container = styled.header`
   * {
     transition: all var(--transition);
     transition-duration: 0.13s;
+    text-align: left;
   }
   width: 100%;
   > div {

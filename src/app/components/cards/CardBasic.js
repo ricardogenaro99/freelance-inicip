@@ -34,7 +34,7 @@ const Container = styled.div`
     .title-card {
       font-size: var(--font-size-l);
       color: var(--color-primary);
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .button-watch {
@@ -86,7 +86,7 @@ function CardBasic({
             {title}
           </Link>
         ) : (
-          <h5 className="title-card">{title}</h5>
+          <h4 className="title-card">{title}</h4>
         )}
 
         {children}

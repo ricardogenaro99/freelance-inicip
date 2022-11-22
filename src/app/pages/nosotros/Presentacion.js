@@ -11,6 +11,11 @@ import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { device } from "../../utils/generalBreakpoints";
 
+const Container = styled.div`
+  display: grid;
+  gap: var(--gap-xl);
+`;
+
 const ContainerMisionVision = styled.div`
   background-image: ${(props) => `url(${props.image})`};
   background-repeat: no-repeat;
@@ -39,6 +44,7 @@ const ContainerMisionVision = styled.div`
 
     .content {
       color: var(--color-white);
+      text-align: left;
     }
 
     @media ${device.tabletL} {
@@ -58,49 +64,52 @@ function Presentacion() {
   return (
     <SectionWhitImage title="Presentacion" image={portadaPresentacion}>
       <TwoSectionsMenu>
-        <SubSectionBasic title="Quiénes somos">
-          El Instituto de Investigación en Ciencias Policiales (INICIP), creado
-          el 04 de noviembre de 2021, es una unidad académica de la Escuela de
-          Posgrado de la Policía Nacional del Perú (ESCPOGRA – PNP), dedicada al
-          desarrollo y promoción de la investigación académica
-          interdisciplinaria que tiene por finalidad contribuir al desarrollo y
-          modernización del sistema educativo de posgrado de la Policía Nacional
-          del Perú, en conformidad con los lineamientos del Decreto Legislativo
-          N° 1318 y con el Reglamento Institucional de la ESCPOGRA – PNP. El
-          instituto está conformado por estudiantes, docentes e investigadores
-          con especial interés en el campo de las Ciencias Policiales y en las
-          líneas de investigación establecidas por la ESCPOGRA – PNP, bajo los
-          lineamientos del Plan Estratégico de Capacidades de la PNP al 2030
-          “Mariano Santos Mateos” (MS30). Nuestra producción está orientada a la
-          publicación de diversos trabajos de investigaciones (Documentos de
-          Trabajo, Series de Investigación, Libros digitales, entre otros).
-        </SubSectionBasic>
+        <Container>
+          <SubSectionBasic title="Quiénes somos">
+            El Instituto de Investigación en Ciencias Policiales (INICIP),
+            creado el 04 de noviembre de 2021, es una unidad académica de la
+            Escuela de Posgrado de la Policía Nacional del Perú (ESCPOGRA –
+            PNP), dedicada al desarrollo y promoción de la investigación
+            académica interdisciplinaria que tiene por finalidad contribuir al
+            desarrollo y modernización del sistema educativo de posgrado de la
+            Policía Nacional del Perú, en conformidad con los lineamientos del
+            Decreto Legislativo N° 1318 y con el Reglamento Institucional de la
+            ESCPOGRA – PNP. El instituto está conformado por estudiantes,
+            docentes e investigadores con especial interés en el campo de las
+            Ciencias Policiales y en las líneas de investigación establecidas
+            por la ESCPOGRA – PNP, bajo los lineamientos del Plan Estratégico de
+            Capacidades de la PNP al 2030 “Mariano Santos Mateos” (MS30).
+            Nuestra producción está orientada a la publicación de diversos
+            trabajos de investigaciones (Documentos de Trabajo, Series de
+            Investigación, Libros digitales, entre otros).
+          </SubSectionBasic>
 
-        <ContainerMisionVision image={trianglifyLowres}>
-          <div className="container-mision-vision">
-            <SubSectionBasic title="Misión" colorTitle="var(--color-orange)">
-              <p className="content">
-                Ser el centro de producción científica de más alto nivel en la
-                Policía Nacional del Perú, dedicada a la investigación,
-                producción y promoción de estudios en el campo de las ciencias
-                policiales desde una perspectiva multidisciplinaria, a fin de
-                contribuir a la comprensión de las problemáticas actuales a
-                nivel institucional y la sociedad peruana.
-              </p>
-            </SubSectionBasic>
-            <SeparatorBasic color="var(--color-orange)" />
-            <SubSectionBasic title="Visión" colorTitle="var(--color-orange)">
-              <p className="content">
-                Estimular la vocación por la investigación científica entre
-                estudiantes, docentes e investigadores de la ESCPOGRA PNP, y
-                personal de oficiales y suboficiales de la PNP, por el
-                desarrollo de investigaciones de calidad y con incidencia en la
-                sociedad actual, logrando el posicionamiento académico de la
-                ESCPOGRA PNP a nivel nacional e internacional.
-              </p>
-            </SubSectionBasic>
-          </div>
-        </ContainerMisionVision>
+          <ContainerMisionVision image={trianglifyLowres}>
+            <div className="container-mision-vision">
+              <SubSectionBasic title="Misión" colorTitle="var(--color-orange)">
+                <p className="content">
+                  Ser el centro de producción científica de más alto nivel en la
+                  Policía Nacional del Perú, dedicada a la investigación,
+                  producción y promoción de estudios en el campo de las ciencias
+                  policiales desde una perspectiva multidisciplinaria, a fin de
+                  contribuir a la comprensión de las problemáticas actuales a
+                  nivel institucional y la sociedad peruana.
+                </p>
+              </SubSectionBasic>
+              <SeparatorBasic color="var(--color-orange)" />
+              <SubSectionBasic title="Visión" colorTitle="var(--color-orange)">
+                <p className="content">
+                  Estimular la vocación por la investigación científica entre
+                  estudiantes, docentes e investigadores de la ESCPOGRA PNP, y
+                  personal de oficiales y suboficiales de la PNP, por el
+                  desarrollo de investigaciones de calidad y con incidencia en
+                  la sociedad actual, logrando el posicionamiento académico de
+                  la ESCPOGRA PNP a nivel nacional e internacional.
+                </p>
+              </SubSectionBasic>
+            </div>
+          </ContainerMisionVision>
+        </Container>
       </TwoSectionsMenu>
     </SectionWhitImage>
   );

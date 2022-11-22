@@ -3,7 +3,7 @@ export const valuePx = {
   mobileM: 375,
   mobileL: 425,
   tabletS: 768,
-  tabletM: 830,
+  tabletM: 840,
   tabletL: 962,
   laptopS: 1024,
   laptopM: 1200,
