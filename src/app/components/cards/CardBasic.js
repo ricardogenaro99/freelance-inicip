@@ -46,6 +46,7 @@ const Container = styled.div`
     .children {
       display: grid;
       position: relative;
+      height: 100%;
       &::after {
         content: "";
         background: rgb(255, 255, 255);
