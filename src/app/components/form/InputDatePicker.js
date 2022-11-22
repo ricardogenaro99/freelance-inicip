@@ -6,6 +6,22 @@ import { ContainerInputLabel } from "./styles";
 
 const Container = styled(ContainerInputLabel)`
   position: relative;
+
+  .input-form {
+    border: none;
+    outline: none;
+    line-height: 20px;
+    font-size: var(--font-size-m);
+    resize: vertical;
+
+    &:disabled {
+      background: transparent;
+    }
+
+    &::placeholder {
+      font-size: 0.94em;
+    }
+  }
 `;
 
 const ContainerDateRange = styled(DateRange)`

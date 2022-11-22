@@ -2,15 +2,21 @@
   --header-height: 100px;
   --item-menu-height: 70px;
   --cover-image-height: 300px;
-  --color-primary: #1b4374;
-  --color-sub-primary: #365b92;
-  --color-secondary: #1f6d60;
-  --color-orange: #ff9a28;
+  /* --color-primary: #1b4374; */
+  --color-primary: #104a38;
+
+  /* --color-sub-primary: #365b92; */
+  --color-sub-primary: #1e5a47;
+
+  /* --color-secondary: #1f6d60; */
+  --color-secondary: #2f693e;
+  --color-orange: #ffab3e;
   --color-yellow: #e9bc28;
   --color-white: #fff;
   --color-gray: #b0b0b0;
   --color-black: #000000;
   --color-dark: #1e1e1e;
+  --color-brown: #584728;
   --color-red: #ff726b;
   --color-red-text: #d43737;
 
@@ -53,6 +59,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  line-height: 1.9;
 }
 
 *,
@@ -73,6 +80,7 @@ body {
   font-size: var(--font-size-m);
   padding: 0;
   margin: 0;
+  text-align: justify;
 }
 
 a {

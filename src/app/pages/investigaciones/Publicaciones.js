@@ -151,7 +151,7 @@ function Publicaciones() {
 
         <ContainerControlButtons>
           <ButtonRectangle
-            background="var(--color-secondary)"
+            background="var(--color-brown)"
             type="button"
             onClick={handleResetFilterForm}
           >

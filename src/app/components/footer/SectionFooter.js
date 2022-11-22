@@ -9,7 +9,7 @@ const Container = styled.section`
   gap: var(--gap-m);
   @media ${device.tabletS} {
     * {
-      text-align: center;
+      text-align: center !important;
     }
   }
 `;

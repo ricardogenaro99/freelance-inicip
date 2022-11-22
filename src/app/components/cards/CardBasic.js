@@ -34,13 +34,30 @@ const Container = styled.div`
     .title-card {
       font-size: var(--font-size-l);
       color: var(--color-primary);
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .button-watch {
       position: absolute;
       bottom: 0;
       width: 100%;
+    }
+
+    .children {
+      display: grid;
+      position: relative;
+      &::after {
+        content: "";
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          180deg,
+          transparent 30%,
+          rgba(255, 255, 255, 1) 75%
+        );
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -86,10 +103,11 @@ function CardBasic({
             {title}
           </Link>
         ) : (
-          <h5 className="title-card">{title}</h5>
+          <h4 className="title-card">{title}</h4>
         )}
 
-        {children}
+        <div className="children">{children}</div>
+
         {controlButtons && <div className="button-watch">{controlButtons}</div>}
       </div>
     </Container>

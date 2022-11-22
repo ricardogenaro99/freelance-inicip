@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { device, size } from "../../utils/generalBreakpoints";
 import SectionFooter from "./SectionFooter";
-import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.footer`
   display: grid;
@@ -9,17 +9,27 @@ const Container = styled.footer`
   grid-auto-rows: auto;
   color: var(--color-white);
 
+  * {
+    text-align: initial;
+  }
+
   > div {
     display: grid;
     justify-content: center;
     align-items: center;
   }
 
+  .footer-content {
+    background-color: var(--color-secondary);
+  }
+
   .sections {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-big);
-    background-color: var(--color-secondary);
     padding: var(--padding-footer);
+    max-width: ${size.desktopS};
+    margin: 0 auto;
   }
 
   .copys {
@@ -38,19 +48,23 @@ const Container = styled.footer`
 function Footer() {
   return (
     <Container>
-      <div className="sections">
-        <SectionFooter title="Ubicación">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, optio
-          labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit iste
-        </SectionFooter>
-        <SectionFooter title="Contacto">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, optio
-          labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit iste
-        </SectionFooter>
-        <SectionFooter title="Siguenos">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-          ullam iure explicabo numquam est, dolor sit enim, cum expedita nisi
-        </SectionFooter>
+      <div className="footer-content">
+        <div className="sections">
+          <SectionFooter title="Ubicación">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+            optio labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit
+            iste
+          </SectionFooter>
+          <SectionFooter title="Contacto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+            optio labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit
+            iste
+          </SectionFooter>
+          <SectionFooter title="Siguenos">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+            ullam iure explicabo numquam est, dolor sit enim, cum expedita nisi
+          </SectionFooter>
+        </div>
       </div>
       <div className="copys">© 2022 INICIP – All rights reserved.</div>
     </Container>

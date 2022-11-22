@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CooperacionInstitucional() {
-  return (
-    <div>CooperacionInstitucional</div>
-  )
+  return <div>CooperacionInstitucional</div>;
 }
 
-export default CooperacionInstitucional
+export default CooperacionInstitucional;

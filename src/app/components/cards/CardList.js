@@ -43,9 +43,15 @@ function Items({ items, controlButtons, redirect }) {
   );
 }
 
-function CardList({ data = [], controlButtons, redirect }) {
+function CardList({
+  data = [],
+  controlButtons,
+  redirect,
+  initDataPerPage = 8,
+  scroll = true,
+}) {
   // eslint-disable-next-line no-unused-vars
-  const [dataPerPage, setdataPerPage] = useState(8);
+  const [dataPerPage, setdataPerPage] = useState(initDataPerPage);
   const [items, setItems] = useState([]);
   const [range, setRange] = useState({
     start: 0,
@@ -53,9 +59,9 @@ function CardList({ data = [], controlButtons, redirect }) {
   });
 
   useEffect(() => {
-    windowScroll();
+    scroll && windowScroll();
     setItems(data.slice(range.start, range.end));
-  }, [data, range]);
+  }, [data, range, scroll]);
 
   // // useEffect(() => {
   // //   const selected = range.start % dataPerPage
@@ -79,13 +85,15 @@ function CardList({ data = [], controlButtons, redirect }) {
             controlButtons={controlButtons}
             redirect={redirect}
           />
-          <section className="pagination-container">
-            <Paginate
-              handlePageClick={handlePageClick}
-              dataLength={data.length}
-              dataPerPage={dataPerPage}
-            />
-          </section>
+          {data.length > dataPerPage && (
+            <section className="pagination-container">
+              <Paginate
+                handlePageClick={handlePageClick}
+                dataLength={data.length}
+                dataPerPage={dataPerPage}
+              />
+            </section>
+          )}
         </>
       ) : (
         <span>No se encontro contenido disponible</span>
