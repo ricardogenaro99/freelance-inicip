@@ -122,7 +122,7 @@ function Publicacion() {
                   href={data?.urlPdf || urlPdf}
                   target="_blank"
                   rel="noreferrer"
-                  background="var(--color-secondary)"
+                  background="var(--color-brown)"
                 >
                   Descargar
                   <FaFileDownload color="white" />

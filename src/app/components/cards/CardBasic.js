@@ -43,18 +43,21 @@ const Container = styled.div`
       width: 100%;
     }
 
-    &::after {
-      content: "";
-      background: rgb(255, 255, 255);
-      background: linear-gradient(
-        180deg,
-        transparent 80%,
-        rgba(255, 255, 255, 1) 100%
-      );
-      position: absolute;
-
-      width: 100%;
-      height: 100%;
+    .children {
+      display: grid;
+      position: relative;
+      &::after {
+        content: "";
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          180deg,
+          transparent 30%,
+          rgba(255, 255, 255, 1) 75%
+        );
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -103,7 +106,8 @@ function CardBasic({
           <h4 className="title-card">{title}</h4>
         )}
 
-        {children}
+        <div className="children">{children}</div>
+
         {controlButtons && <div className="button-watch">{controlButtons}</div>}
       </div>
     </Container>
