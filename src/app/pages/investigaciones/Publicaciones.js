@@ -29,6 +29,7 @@ const Container = styled.div`
   display: grid;
   gap: var(--gap-xl);
   margin: auto;
+  width: 100%;
 `;
 
 const ContainerControlButtons = styled.div`
