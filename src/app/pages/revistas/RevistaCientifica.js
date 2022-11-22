@@ -97,6 +97,7 @@ function RevistaCientifica() {
               publicación y ejes temáticos, puede visitar nuestro portal web:{" "}
               <b>
                 <a
+                  style={{ color: "var(--color-primary)" }}
                   href="http://www.revistachapaq.com"
                   target="_blank"
                   rel="noopener noreferrer"

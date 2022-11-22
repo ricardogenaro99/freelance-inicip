@@ -42,6 +42,20 @@ const Container = styled.div`
       bottom: 0;
       width: 100%;
     }
+
+    &::after {
+      content: "";
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        180deg,
+        transparent 80%,
+        rgba(255, 255, 255, 1) 100%
+      );
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @media ${device.tabletS} {

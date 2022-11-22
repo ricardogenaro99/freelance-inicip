@@ -25,5 +25,9 @@ export const ContainerInputLabel = styled.label`
     &:disabled {
       background: transparent;
     }
+
+    &::placeholder {
+      font-size: 0.94em;
+    }
   }
 `;

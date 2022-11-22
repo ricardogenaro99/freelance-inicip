@@ -2,10 +2,15 @@
   --header-height: 100px;
   --item-menu-height: 70px;
   --cover-image-height: 300px;
-  --color-primary: #1b4374;
-  --color-sub-primary: #365b92;
-  --color-secondary: #1f6d60;
-  --color-orange: #ff9a28;
+  /* --color-primary: #1b4374; */
+  --color-primary: #104a38;
+
+  /* --color-sub-primary: #365b92; */
+  --color-sub-primary: #1e5a47;
+
+  /* --color-secondary: #1f6d60; */
+  --color-secondary: #2f693e;
+  --color-orange: #ffab3e;
   --color-yellow: #e9bc28;
   --color-white: #fff;
   --color-gray: #b0b0b0;
