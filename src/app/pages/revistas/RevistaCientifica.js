@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { chapaq } from "../../../assets/revistas";
 import { SectionBasic } from "../../components";
 import { device } from "../../utils/generalBreakpoints";
+import { PROPS_SECTION } from "../../utils/generalConst";
 
 const Container = styled.div`
   display: grid;
@@ -36,7 +37,7 @@ const Container = styled.div`
 
     .content-post {
       display: grid;
-      gap: var(--gap-m);
+      gap: var(--gap-l);
     }
   }
 
@@ -60,8 +61,7 @@ function RevistaCientifica() {
   return (
     <SectionBasic
       title="“CHAPAQ”, Revista Académica de la Escuela de Posgrado de la PNP"
-      isMainContent
-      maxWidth="var(--max-width-inner)"
+      {...PROPS_SECTION}
     >
       <Container>
         <section className="section-info">

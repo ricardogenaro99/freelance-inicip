@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CardList, SectionWhitImage } from "../../components";
+import { portadaEquipo } from "../../../assets/portadas";
+import { CardList, SectionBasic } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
-
+import {
+  PROPS_SECTION
+} from "../../utils/generalConst";
 function Equipo() {
   const [equipo, setEquipo] = useState([]);
   const { resetTheme } = useThemeHeader();
@@ -35,20 +38,12 @@ function Equipo() {
   }, []);
 
   return (
-    <SectionWhitImage title="Equipo">
+    <SectionBasic title="Equipo" image={portadaEquipo} {...PROPS_SECTION}>
       <TwoSectionsMenu>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam
-          laboriosam deserunt eum alias repellat nobis a quod? Itaque fugit
-          molestiae recusandae dolore quas inventore. Officia quae eius sed
-          vitae. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
-          quia adipisci explicabo fugiat voluptatum iusto libero magni, officia,
-          odit dolorem debitis similique unde possimus. Nobis ipsum libero
-          voluptatem sunt esse.
-        </p>
+        
         <CardList data={equipo} />
       </TwoSectionsMenu>
-    </SectionWhitImage>
+    </SectionBasic>
   );
 }
 

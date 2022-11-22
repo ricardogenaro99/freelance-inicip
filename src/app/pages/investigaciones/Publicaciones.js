@@ -4,11 +4,10 @@ import { BiReset } from "react-icons/bi";
 import {
   FaExternalLinkSquareAlt,
   FaFileDownload,
-  FaSearch,
+  FaSearch
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { portadaPublicaciones } from "../../../assets/portadas";
 import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import {
   ButtonRectangle,
@@ -16,13 +15,15 @@ import {
   InputDatePicker,
   InputLabel,
   SectionBasic,
-  Spinner,
+  Spinner
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
-import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { valuePx } from "../../utils/generalBreakpoints";
-import { API_ENDPOINT } from "../../utils/generalConst";
+import {
+  API_ENDPOINT,
+  PROPS_SECTION_CENTER_TITLE
+} from "../../utils/generalConst";
 
 const Container = styled.div`
   max-width: 900px;
@@ -169,13 +170,7 @@ function Publicaciones() {
   };
 
   return (
-    <SectionBasic
-      title="Publicaciones"
-      image={portadaPublicaciones}
-      isMainContent
-      maxWidth="var(--max-width-inner)"
-      textAlign="center"
-    >
+    <SectionBasic title="Publicaciones" {...PROPS_SECTION_CENTER_TITLE}>
       {/* <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
         <Container>
           {showFilterForm && renderFilterForm()}

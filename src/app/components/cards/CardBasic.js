@@ -8,7 +8,7 @@ const Container = styled.div`
   grid-template-columns: min(100%, 140px) 7fr;
   grid-auto-rows: auto;
   gap: var(--gap-l);
-  padding: 25px 30px;
+  padding: 25px 1%;
   max-height: 280px;
 
   .image-container {
