@@ -45,7 +45,7 @@ const Container = styled.div`
     }
 
     .children {
-      display: grid;
+      /* display: grid; */
       position: relative;
       height: 100%;
       &::after {
@@ -66,7 +66,7 @@ const Container = styled.div`
   @media ${device.tabletS} {
     max-height: none;
     grid-template-columns: 1fr;
-    grid-template-rows: 230px 200px;
+    grid-template-rows: ${(props) => props.heightImageText || "230px 200px"};
 
     .image-container {
       display: flex;
@@ -96,9 +96,15 @@ function CardBasic({
   maxHeight,
   widthImage,
   height,
+  heightImageText,
 }) {
   return (
-    <Container maxHeight={maxHeight} widthImage={widthImage} height={height}>
+    <Container
+      maxHeight={maxHeight}
+      widthImage={widthImage}
+      height={height}
+      heightImageText={heightImageText}
+    >
       <div className="image-container">
         <img src={image} alt={title} />
       </div>

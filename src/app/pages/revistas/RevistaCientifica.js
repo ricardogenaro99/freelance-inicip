@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { chapaq } from "../../../assets/revistas";
 import { SectionBasic } from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { device } from "../../utils/generalBreakpoints";
 import { PROPS_SECTION } from "../../utils/generalConst";
@@ -59,6 +60,12 @@ const Container = styled.div`
 `;
 
 function RevistaCientifica() {
+  const { resetTheme } = useThemeHeader();
+
+  useEffect(() => {
+    resetTheme();
+  }, [resetTheme]);
+
   return (
     <SectionBasic
       title="“CHAPAQ”, Revista Académica de la Escuela de Posgrado de la PNP"

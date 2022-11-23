@@ -49,7 +49,9 @@ function SectionWithCarousel({
         </Carousel>
 
         <div className="static-container">
-          <div className="static-content" >{title ? <Title>{title}</Title> : staticContent}</div>
+          <div className="static-content">
+            {title ? <Title>{title}</Title> : staticContent}
+          </div>
         </div>
       </ContainerCarousel>
 

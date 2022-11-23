@@ -18,7 +18,7 @@ function TextareaLabel({
         className="input-form"
         name={name}
         id={id}
-        rows="6"
+        rows="8"
         placeholder={placeholder}
         value={value}
         onChange={onChange}

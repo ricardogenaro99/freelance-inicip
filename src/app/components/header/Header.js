@@ -70,7 +70,7 @@ const Container = styled.header`
           img {
             object-fit: cover;
             height: 100%;
-            max-height: calc(var(--header-height) - 15px);
+            max-height: calc(var(--header-height) - 18px);
           }
         }
       }
@@ -137,6 +137,7 @@ function Header() {
     }
     if (widthWindow <= valuePx.headerRD && !watchMenu) {
       setWatchMenu(true);
+      setOpenMenu(false);
     }
   }, [watchMenu, widthWindow]);
 

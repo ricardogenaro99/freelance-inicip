@@ -21,3 +21,11 @@ export const ButtonRectangle = styled.button`
     filter: brightness(1);
   }
 `;
+
+export const Chip = styled.span`
+  text-align: center;
+  background: var(--color-yellow);
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+`;

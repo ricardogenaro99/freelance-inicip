@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { escpogra } from "../../../assets/revistas";
-import { CardList, SectionBasic, SubSectionBasic } from "../../components";
+import {
+  CardList,
+  Chip,
+  SectionBasic,
+  SubSectionBasic,
+} from "../../components";
+import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
 import { PROPS_SECTION } from "../../utils/generalConst";
 
@@ -28,8 +34,21 @@ const Container = styled.div`
   }
 `;
 
+const ContainerText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--gap-m);
+`;
+
 function RevistaEscpogra() {
   const [data, setData] = useState([]);
+  const { resetTheme } = useThemeHeader();
+
+  useEffect(() => {
+    resetTheme();
+  }, [resetTheme]);
 
   useEffect(() => {
     setData([
@@ -37,13 +56,23 @@ function RevistaEscpogra() {
         title: "Revista Escpogra",
         description: "A Revista Escpogra é um espaço de publica",
         image: escpogra,
-        content: <h6>Edición N° 1 (octubre – 2022)</h6>,
+        content: (
+          <ContainerText>
+            <Chip>Edición N° 2 </Chip>
+            <h6>(octubre – 2022)</h6>
+          </ContainerText>
+        ),
       },
       {
         title: "Revista Escpogra",
         description: "A Revista Escpogra é um espaço de publica",
         image: escpogra,
-        content: <h6>Edición N° 1 (octubre – 2022)</h6>,
+        content: (
+          <ContainerText>
+            <Chip>Edición N° 1 </Chip>
+            <h6>(octubre – 2021)</h6>
+          </ContainerText>
+        ),
       },
     ]);
   }, []);
@@ -107,6 +136,7 @@ function RevistaEscpogra() {
               maxHeightItem="500px"
               widthImage="200px"
               columns={1}
+              heightImageText="auto auto"
             />
           </SubSectionBasic>
         </Container>

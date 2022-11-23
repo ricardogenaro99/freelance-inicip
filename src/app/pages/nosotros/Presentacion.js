@@ -5,7 +5,7 @@ import { portadaPresentacion } from "../../../assets/portadas";
 import {
   SectionBasic,
   SeparatorBasic,
-  SubSectionBasic
+  SubSectionBasic,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
@@ -45,7 +45,6 @@ const ContainerMisionVision = styled.div`
 
     .content {
       color: var(--color-white);
-      text-align: left;
     }
 
     @media ${device.tabletL} {

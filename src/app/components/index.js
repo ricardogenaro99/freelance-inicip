@@ -1,4 +1,4 @@
-import { ButtonRectangle } from "./Button";
+import { ButtonRectangle, Chip } from "./Button";
 import ButtonBackToTop from "./ButtonBackToTop";
 import CardBasic from "./cards/CardBasic";
 import CardEquipoPrincipal from "./cards/CardEquipoPrincipal";
@@ -38,4 +38,5 @@ export {
   TextareaLabel,
   Spinner,
   CardEquipoPrincipal,
+  Chip,
 };
