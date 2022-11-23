@@ -12,8 +12,8 @@ import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";
 import { device } from "../../utils/generalBreakpoints";
 
-const lineBorder = "5px groove var(--color-orange)";
-const floatPosition = "-12px";
+const lineBorder = "6px groove var(--color-orange)";
+const floatPosition = "-15px";
 
 const StaticContentContainer = styled.div`
   background: var(--color-sub-secondary);
@@ -34,7 +34,7 @@ const StaticContentContainer = styled.div`
     width: 70px;
     height: 70px;
     background-color: transparent;
-    opacity: 0.9;
+    opacity: 0.96;
   }
 
   &::after {
@@ -71,6 +71,10 @@ const StaticContentContainer = styled.div`
       h2 {
         font-size: 5rem;
         font-weight: 800;
+      }
+
+      hr {
+        border-color: var(--color-orange);
       }
 
       h4 {
