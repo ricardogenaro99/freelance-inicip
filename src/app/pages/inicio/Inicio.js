@@ -1,28 +1,33 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import CountUp from "react-countup";
+import React, { useCallback, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import styled from "styled-components";
 import {
   carousel_1,
   carousel_2,
   carousel_3,
-  carousel_4,
+  carousel_4
 } from "../../../assets/carousel";
-import { logoEscudo } from "../../../assets/logos";
-import { SectionBasic, SectionWithCarousel } from "../../components";
+import { SectionWithCarousel } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";
 import { device } from "../../utils/generalBreakpoints";
 
-const countingBoxSize = "150px";
-
 const StaticContentContainer = styled.div`
-  margin: auto;
+  background: var(--color-primary);
+  max-width: 500px;
+  padding: 45px 35px !important;
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  /* grid-template-columns: 0.5fr 1fr; */
   justify-content: center;
   align-items: center;
   gap: var(--gap-big);
+  transform: translate(-45%, 5%);
+
+  margin: 20px;
+
+  * {
+    text-align: left;
+  }
 
   > .static-content-left {
     display: flex;
@@ -40,7 +45,48 @@ const StaticContentContainer = styled.div`
     padding-right: 12%;
     line-height: 1.4em;
   }
-  @media ${device.tabletL} {
+
+  > .static-content-img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  > .static-content-text {
+    * {
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1;
+    }
+
+    display: grid;
+    gap: var(--gap-xl);
+
+    div {
+      display: grid;
+      gap: var(--gap-m);
+      h2 {
+        font-size: 5rem;
+        font-weight: 800;
+      }
+
+      h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+    }
+
+    h6 {
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 500;
+    }
+  }
+
+  @media ${device.laptopM} {
     grid-template-columns: auto;
     grid-auto-rows: auto;
     gap: var(--gap-xxl);
@@ -54,6 +100,11 @@ const StaticContentContainer = styled.div`
       font-size: 2em;
       padding: 0 5%;
     }
+    transform: translate(-0%, 5%);
+  }
+
+  @media ${device.tabletL} {
+    padding: 25px !important;
   }
 
   @media ${device.mobileL} {
@@ -73,61 +124,9 @@ const StaticContentContainer = styled.div`
   }
 `;
 
-const ContainerCountingBox = styled.div`
-  display: flex;
-  gap: var(--gap-m) var(--gap-l);
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0 20px;
-`;
-
-const CountingBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: ${countingBoxSize};
-  height: ${countingBoxSize};
-  background: ${(props) => props.background};
-  font-size: var(--font-size-l);
-  color: ${(props) => props.color};
-  border-radius: var(--border-radius-global);
-
-  .counter {
-    font-size: 2.5em;
-    font-weight: 700;
-  }
-
-  .label {
-    font-size: 1em;
-    font-weight: 700;
-  }
-`;
-
-function CountingBoxComponent({
-  end = 0,
-  label = "",
-  background,
-  color = "inherit",
-  active = false,
-}) {
-  return (
-    <CountingBox background={background} color={color}>
-      {!active ? (
-        <span className="counter">0</span>
-      ) : (
-        <CountUp className="counter" start={0} end={end} duration={1} />
-      )}
-      {label && <span className="label">{label}</span>}
-    </CountingBox>
-  );
-}
-
 function Inicio() {
   const { configTheme, resetTheme } = useThemeHeader();
   const scrollPosition = useScrollPosition();
-  const refContainerCountingBox = useRef();
-  const [countUpActive, setCountUpActive] = useState(false);
 
   // const initTheme = useCallback(() => {
   //   configTheme("transparent", null, null, false);
@@ -149,20 +148,6 @@ function Inicio() {
     }
   }, [initTheme, resetTheme, scrollPosition]);
 
-  useEffect(() => {
-    const scrollTop = scrollPosition;
-    const scrollBottom = scrollPosition + window.innerHeight;
-    const {
-      offsetTop: scrollRefTop,
-      clientHeight,
-      scrollRefBottom = scrollRefTop + clientHeight,
-    } = refContainerCountingBox.current;
-
-    setCountUpActive(
-      scrollBottom >= scrollRefTop && scrollRefBottom >= scrollTop
-    );
-  }, [scrollPosition]);
-
   const images = [
     { image: carousel_1, legend: "" },
     { image: carousel_2, legend: "" },
@@ -173,13 +158,26 @@ function Inicio() {
   const renderStaticContent = () => {
     return (
       <StaticContentContainer>
-        <div className="static-content-left">
+        {/* <div className="static-content-left">
           <img src={logoEscudo} alt="logo" />
-        </div>
+        </div> */}
 
-        <h5 className="static-content-right">
+        {/* <h5 className="static-content-right">
           El INICIP, forma parte de la Escuela de Posgrado de la PNP
-        </h5>
+        </h5> */}
+
+        {/* <div className="static-content-img">
+          <img src={logoHome} alt="emblema" />
+        </div> */}
+
+        <div className="static-content-text">
+          <div>
+            <h2>INICIP</h2>
+            <hr />
+            <h4>INSTITUTO DE INVESTIGACIÓN EN CIENCIAS POLICIALES</h4>
+          </div>
+          <h6>“Innovación e investigación, al servicio de la sociedad”</h6>
+        </div>
       </StaticContentContainer>
     );
   };
@@ -223,27 +221,6 @@ function Inicio() {
         praesentium, minus non ut officia obcaecati sint perferendis. Odit quia
         Repellat, itaque?
       </p>
-      <ContainerCountingBox ref={refContainerCountingBox}>
-        <CountingBoxComponent
-          active={countUpActive}
-          background="var(--color-sub-primary)"
-          color="var(--color-white)"
-          end={10}
-          label="Publicaciones"
-        />
-        <CountingBoxComponent
-          active={countUpActive}
-          background="var(--color-orange)"
-          end={8}
-          label="Investigaciones"
-        />
-        <CountingBoxComponent
-          active={countUpActive}
-          background="var(--color-red)"
-          end={34}
-          label="Lectores"
-        />
-      </ContainerCountingBox>
       {/* <SectionBasic title="Últimas Publicaciones"></SectionBasic> */}
     </SectionWithCarousel>
   );

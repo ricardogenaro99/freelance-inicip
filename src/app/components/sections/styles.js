@@ -78,11 +78,21 @@ export const ContainerImages = styled.div`
       "linear-gradient(to left, rgba(0, 0, 0, 0.3), #13271d)"};
     width: 100%;
     height: 100%;
-    > * {
-      color: var(--color-white);
-    }
-    > * {
-      padding: 0 var(--padding-global-x);
+
+    .static-content {
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: var(--max-width);
+      > * {
+        color: var(--color-white);
+      }
+      > * {
+        padding: 0 var(--padding-global-x);
+      }
     }
   }
 `;
