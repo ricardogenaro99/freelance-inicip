@@ -30,7 +30,8 @@ function Items({
   maxHeightItem,
   widthImage,
   columns = 1,
-  heightItem
+  heightItem,
+  heightImageText,
 }) {
   return (
     <ContainerList className="list-container" columns={columns}>
@@ -44,6 +45,7 @@ function Items({
             maxHeight={maxHeightItem}
             widthImage={widthImage}
             height={heightItem}
+            heightImageText={heightImageText}
           >
             {e.content}
           </CardBasic>
@@ -66,6 +68,7 @@ function CardList({
   heightItem,
   widthImage,
   columns = 1,
+  heightImageText,
 }) {
   // eslint-disable-next-line no-unused-vars
   const [dataPerPage, setdataPerPage] = useState(initDataPerPage);
@@ -105,6 +108,7 @@ function CardList({
             widthImage={widthImage}
             columns={columns}
             heightItem={heightItem}
+            heightImageText={heightImageText}
           />
           {data.length > dataPerPage && (
             <section className="pagination-container">

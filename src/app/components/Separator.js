@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const posGradientInit = '0%'
-const posGradientEnd = '20%'
+const posGradientInit = "0%";
+const posGradientEnd = "20%";
 
 export const SeparatorBasic = styled.div`
   border${(props) => props.position || ""}-width: ${(props) =>

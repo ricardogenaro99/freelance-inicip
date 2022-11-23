@@ -4,7 +4,7 @@ import { BiReset } from "react-icons/bi";
 import {
   FaExternalLinkSquareAlt,
   FaFileDownload,
-  FaSearch
+  FaSearch,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -15,14 +15,14 @@ import {
   InputDatePicker,
   InputLabel,
   SectionBasic,
-  Spinner
+  Spinner,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useWindowDimensions } from "../../hooks";
 import { valuePx } from "../../utils/generalBreakpoints";
 import {
   API_ENDPOINT,
-  PROPS_SECTION_CENTER_TITLE
+  PROPS_SECTION_CENTER_TITLE,
 } from "../../utils/generalConst";
 
 const Container = styled.div`
@@ -171,7 +171,7 @@ function Publicaciones() {
 
   return (
     <SectionBasic title="Publicaciones" {...PROPS_SECTION_CENTER_TITLE}>
-      {/* <TwoSectionsMenu customBoxs={[renderFilterForm()]} hasBoxMenu={false}>
+      {/* <TwoSectionsMenu customBoxs={[renderFilterForm()]} >
         <Container>
           {showFilterForm && renderFilterForm()}
           {data ? <CardList data={data} redirect={true} /> : <Spinner />}

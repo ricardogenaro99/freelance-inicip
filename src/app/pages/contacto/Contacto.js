@@ -6,7 +6,7 @@ import {
   ButtonRectangle,
   InputLabel,
   SectionBasic,
-  TextareaLabel
+  TextareaLabel,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
@@ -53,7 +53,7 @@ const ContainerMap = styled.a`
   overflow: hidden;
   width: 100%;
   border-radius: var(--border-radius-global);
-  /* height: 100%; */
+  height: 90%;
   &:after {
     content: "";
     position: absolute;
@@ -136,14 +136,6 @@ function Contacto() {
                 value={form.email}
                 onChange={handleChange}
               />
-              {/* <InputLabel
-                label="Teléfono"
-                name="phone"
-                placeholder="Ingrese su número telefónico"
-                type="number"
-                value={form.phone}
-                onChange={handleChange}
-              /> */}
               <TextareaLabel
                 label="Mensaje *"
                 name="message"

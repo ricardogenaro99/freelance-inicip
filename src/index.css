@@ -2,14 +2,10 @@
   --header-height: 110px;
   --item-menu-height: 70px;
   --cover-image-height: 300px;
-  /* --color-primary: #1b4374; */
   --color-primary: #104a38;
-
-  /* --color-sub-primary: #365b92; */
   --color-sub-primary: #1e5a47;
-
-  /* --color-secondary: #1f6d60; */
   --color-secondary: #2f693e;
+  --color-sub-secondary: #2c5036e8;
   --color-orange: #ffab3e;
   --color-yellow: #e9bc28;
   --color-white: #fff;
@@ -26,13 +22,13 @@
   --border-primary: 1.5px solid var(--color-primary);
 
   --font-size-xs: 10px;
-  --font-size-s: 14px;
-  --font-size-m: 16px;
-  --font-size-l: 18px;
-  --font-size-xl: 24px;
-  --font-size-xxl: 32px;
-  --font-size-xxxl: 48px;
-  --font-size-big: 64px;
+  --font-size-s: 12px;
+  --font-size-m: 13px;
+  --font-size-l: 16px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 28px;
+  --font-size-xxxl: 32px;
+  --font-size-big: 48px;
 
   --gap-s: 4px;
   --gap-m: 8px;
@@ -63,7 +59,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 *,
@@ -103,4 +99,6 @@ li {
 
 button {
   cursor: pointer;
+  border: none;
+  outline: none;
 }

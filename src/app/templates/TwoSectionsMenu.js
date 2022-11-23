@@ -51,6 +51,7 @@ const ContainerBoxMenu = styled.div`
   > h5 {
     padding: ${paddingItemBox};
     border-top: 3px solid var(--color-primary);
+    font-size: 1.1em;
   }
 
   > ul {

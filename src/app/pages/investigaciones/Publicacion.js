@@ -8,7 +8,7 @@ import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import { ButtonRectangle, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
-import { API_ENDPOINT } from "../../utils/generalConst";
+import { API_ENDPOINT, PROPS_SECTION } from "../../utils/generalConst";
 import { parseHtml } from "../../utils/generalFunctions";
 
 const Container = styled.div`
@@ -80,7 +80,7 @@ const ContainerMeta = styled.div`
     }
     .wrapper-value {
       color: var(--color-primary);
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 `;
@@ -110,7 +110,7 @@ function Publicacion() {
   return (
     <>
       {data ? (
-        <SectionBasic title={data?.title} isMainContent>
+        <SectionBasic title={data?.title} {...PROPS_SECTION}>
           <Container>
             <section className="section-info">
               <div className="image-container">

@@ -5,61 +5,61 @@ import {
   carousel_1,
   carousel_2,
   carousel_3,
-  carousel_4
+  carousel_4,
 } from "../../../assets/carousel";
 import { SectionWithCarousel } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";
 import { device } from "../../utils/generalBreakpoints";
 
+const lineBorder = "5px groove var(--color-orange)";
+const floatPosition = "-12px";
+
 const StaticContentContainer = styled.div`
-  background: var(--color-primary);
+  background: var(--color-sub-secondary);
   max-width: 500px;
   padding: 45px 35px !important;
   display: grid;
-  /* grid-template-columns: 0.5fr 1fr; */
   justify-content: center;
   align-items: center;
   gap: var(--gap-big);
   transform: translate(-45%, 5%);
-
   margin: 20px;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    opacity: 0.9;
+  }
+
+  &::after {
+    border-top: ${lineBorder};
+    border-left: ${lineBorder};
+    top: ${floatPosition};
+    left: ${floatPosition};
+  }
+
+  &::before {
+    border-bottom: ${lineBorder};
+    border-right: ${lineBorder};
+    bottom: ${floatPosition};
+    right: ${floatPosition};
+  }
 
   * {
     text-align: left;
-  }
-
-  > .static-content-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    > img {
-      object-fit: cover;
-      width: 100%;
-      max-width: 380px;
-    }
-  }
-
-  > .static-content-right {
-    font-size: 2.2em;
-    padding-right: 12%;
-    line-height: 1.4em;
-  }
-
-  > .static-content-img {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    img {
-      object-fit: cover;
-      width: 100%;
-    }
   }
 
   > .static-content-text {
     * {
       font-family: "Times New Roman", Times, serif;
       line-height: 1;
+      color: var(--color-orange);
     }
 
     display: grid;
@@ -74,53 +74,29 @@ const StaticContentContainer = styled.div`
       }
 
       h4 {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         font-weight: 600;
       }
     }
 
     h6 {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-style: italic;
       font-weight: 500;
     }
   }
 
   @media ${device.laptopM} {
-    grid-template-columns: auto;
-    grid-auto-rows: auto;
     gap: var(--gap-xxl);
-    > .static-content-left {
-      > img {
-        max-width: 320px;
-      }
-    }
-    > .static-content-right {
-      text-align: center;
-      font-size: 2em;
-      padding: 0 5%;
-    }
     transform: translate(-0%, 5%);
   }
 
   @media ${device.tabletL} {
-    padding: 25px !important;
+    padding: 30px !important;
   }
 
   @media ${device.mobileL} {
-    grid-template-columns: auto;
-    grid-auto-rows: auto;
     gap: var(--gap-xl);
-    > .static-content-left {
-      > img {
-        max-width: 280px;
-      }
-    }
-    > .static-content-right {
-      text-align: center;
-      font-size: 1.7em;
-      padding: 0 5%;
-    }
   }
 `;
 
@@ -128,20 +104,20 @@ function Inicio() {
   const { configTheme, resetTheme } = useThemeHeader();
   const scrollPosition = useScrollPosition();
 
-  // const initTheme = useCallback(() => {
-  //   configTheme("transparent", null, null, false);
-  // }, [configTheme]);
-
   const initTheme = useCallback(() => {
-    resetTheme();
-  }, [resetTheme]);
+    configTheme("transparent", null, null, false);
+  }, [configTheme]);
+
+  // const initTheme = useCallback(() => {
+  //   resetTheme();
+  // }, [resetTheme]);
 
   useEffect(() => {
     initTheme();
   }, [configTheme, initTheme]);
 
   useEffect(() => {
-    if (scrollPosition > 280) {
+    if (scrollPosition > 50) {
       resetTheme();
     } else {
       initTheme();
@@ -158,18 +134,6 @@ function Inicio() {
   const renderStaticContent = () => {
     return (
       <StaticContentContainer>
-        {/* <div className="static-content-left">
-          <img src={logoEscudo} alt="logo" />
-        </div> */}
-
-        {/* <h5 className="static-content-right">
-          El INICIP, forma parte de la Escuela de Posgrado de la PNP
-        </h5> */}
-
-        {/* <div className="static-content-img">
-          <img src={logoHome} alt="emblema" />
-        </div> */}
-
         <div className="static-content-text">
           <div>
             <h2>INICIP</h2>
