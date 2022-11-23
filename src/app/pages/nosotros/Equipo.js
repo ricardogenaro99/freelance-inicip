@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { coordinadorGeneral, directorEscpogra } from "../../../assets/equipo";
 import { portadaEquipo } from "../../../assets/portadas";
 import { CardEquipoPrincipal, SectionBasic } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
-import { PROPS_SECTION } from "../../utils/generalConst";
-import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
+import { PROPS_SECTION } from "../../utils/generalConst";
 
 const GridContainer = styled.div`
   display: grid;
