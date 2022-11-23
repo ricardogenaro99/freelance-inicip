@@ -70,7 +70,7 @@ const Container = styled.header`
           img {
             object-fit: cover;
             height: 100%;
-            max-height: calc(var(--header-height) - 20px);
+            max-height: calc(var(--header-height) - 15px);
           }
         }
       }

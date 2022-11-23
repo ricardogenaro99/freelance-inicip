@@ -5,12 +5,10 @@ import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: min(100%, ${(props) => props.widthImage || "140px"}) 7fr;
+  grid-template-columns: min(100%, ${(props) => props.widthImage || "220px"}) 1fr;
   grid-auto-rows: auto;
   gap: var(--gap-l);
   padding: 25px 1%;
-  max-height: ${(props) => props.maxHeight || "280px"};
-  ${(props) => props.height && `height: ${props.height};`};
 
   .image-container {
     display: flex;
@@ -30,12 +28,13 @@ const Container = styled.div`
     flex-direction: column;
     gap: var(--gap-m);
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     .title-card {
       font-size: var(--font-size-xl);
       color: var(--color-primary);
       font-weight: 700;
+      text-align: left;
     }
 
     .button-watch {
@@ -48,25 +47,13 @@ const Container = styled.div`
       display: grid;
       position: relative;
       height: 100%;
-      &::after {
-        content: "";
-        background: rgb(255, 255, 255);
-        background: linear-gradient(
-          180deg,
-          transparent 70%,
-          rgba(255, 255, 255, 1) 100%
-        );
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 
   @media ${device.tabletS} {
     max-height: none;
     grid-template-columns: 1fr;
-    grid-template-rows: 230px 200px;
+    /* grid-template-rows: 230px 200px; */
 
     .image-container {
       display: flex;
@@ -87,18 +74,15 @@ const Container = styled.div`
   }
 `;
 
-function CardBasic({
+function CardEquipoPrincipal({
   title = "",
   image = "",
   children,
   controlButtons,
   redirect,
-  maxHeight,
-  widthImage,
-  height,
 }) {
   return (
-    <Container maxHeight={maxHeight} widthImage={widthImage} height={height}>
+    <Container>
       <div className="image-container">
         <img src={image} alt={title} />
       </div>
@@ -119,4 +103,4 @@ function CardBasic({
   );
 }
 
-export default CardBasic;
+export default CardEquipoPrincipal;
