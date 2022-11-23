@@ -1,6 +1,7 @@
 import { ButtonRectangle } from "./Button";
 import ButtonBackToTop from "./ButtonBackToTop";
 import CardBasic from "./cards/CardBasic";
+import CardEquipoPrincipal from "./cards/CardEquipoPrincipal";
 import CardList from "./cards/CardList";
 import CardShadow from "./cards/CardShadow";
 import CarouselItem from "./carousel/CarouselItem";
@@ -36,4 +37,5 @@ export {
   InputDatePicker,
   TextareaLabel,
   Spinner,
+  CardEquipoPrincipal,
 };

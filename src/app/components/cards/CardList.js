@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const ContainerList = styled.section`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
   grid-auto-rows: auto;
   grid-auto-flow: dense;
 
@@ -23,9 +23,17 @@ const ContainerList = styled.section`
   }
 `;
 
-function Items({ items, controlButtons, redirect }) {
+function Items({
+  items,
+  controlButtons,
+  redirect,
+  maxHeightItem,
+  widthImage,
+  columns = 1,
+  heightItem
+}) {
   return (
-    <ContainerList className="list-container">
+    <ContainerList className="list-container" columns={columns}>
       {items.map((e, i) => (
         <Fragment key={i}>
           <CardBasic
@@ -33,10 +41,15 @@ function Items({ items, controlButtons, redirect }) {
             image={e.image || image}
             controlButtons={controlButtons && controlButtons(e)}
             redirect={redirect && e.id.toString()}
+            maxHeight={maxHeightItem}
+            widthImage={widthImage}
+            height={heightItem}
           >
             {e.content}
           </CardBasic>
-          {items.length - 1 !== i && <SeparatorBasic position="-top" />}
+          {columns === 1 && items.length - 1 !== i && (
+            <SeparatorBasic position="-top" />
+          )}
         </Fragment>
       ))}
     </ContainerList>
@@ -49,6 +62,10 @@ function CardList({
   redirect,
   initDataPerPage = 8,
   scroll = true,
+  maxHeightItem,
+  heightItem,
+  widthImage,
+  columns = 1,
 }) {
   // eslint-disable-next-line no-unused-vars
   const [dataPerPage, setdataPerPage] = useState(initDataPerPage);
@@ -84,6 +101,10 @@ function CardList({
             items={items}
             controlButtons={controlButtons}
             redirect={redirect}
+            maxHeightItem={maxHeightItem}
+            widthImage={widthImage}
+            columns={columns}
+            heightItem={heightItem}
           />
           {data.length > dataPerPage && (
             <section className="pagination-container">
