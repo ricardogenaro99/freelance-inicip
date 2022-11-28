@@ -76,8 +76,8 @@ const Container = styled.header`
       }
 
       @media ${device.headerRD} {
-        padding-left: 6%;
-        padding-right: 6%;
+        padding-left: 4%;
+        padding-right: 4%;
         section {
           width: 100%;
           justify-content: space-between;

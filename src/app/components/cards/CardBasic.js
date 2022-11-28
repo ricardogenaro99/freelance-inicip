@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 
@@ -98,6 +98,14 @@ function CardBasic({
   height,
   heightImageText,
 }) {
+  const navigation = useNavigate();
+
+  const redirectClick = () => {
+    if (redirect) {
+      navigation(redirect);
+    }
+  };
+
   return (
     <Container
       maxHeight={maxHeight}
@@ -106,7 +114,12 @@ function CardBasic({
       heightImageText={heightImageText}
     >
       <div className="image-container">
-        <img src={image} alt={title} />
+        <img
+          src={image}
+          alt={title}
+          style={{ cursor: `${redirect ? "pointer" : "default"}` }}
+          onClick={redirectClick}
+        />
       </div>
       <div className="body-container">
         {redirect ? (

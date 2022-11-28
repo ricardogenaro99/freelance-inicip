@@ -179,7 +179,7 @@ function Publicaciones() {
       </TwoSectionsMenu> */}
 
       <Container>
-        {showFilterForm && renderFilterForm()}
+        {/* {showFilterForm && renderFilterForm()} */}
         {data ? <CardList data={data} redirect={true} /> : <Spinner />}
       </Container>
     </SectionBasic>
