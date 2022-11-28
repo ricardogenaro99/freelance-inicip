@@ -3,6 +3,7 @@ import ButtonBackToTop from "./ButtonBackToTop";
 import CardBasic from "./cards/CardBasic";
 import CardEquipoPrincipal from "./cards/CardEquipoPrincipal";
 import CardList from "./cards/CardList";
+import CardNoticia from "./cards/CardNoticia";
 import CardShadow from "./cards/CardShadow";
 import CarouselItem from "./carousel/CarouselItem";
 import Footer from "./footer/Footer";
@@ -39,4 +40,5 @@ export {
   Spinner,
   CardEquipoPrincipal,
   Chip,
+  CardNoticia,
 };

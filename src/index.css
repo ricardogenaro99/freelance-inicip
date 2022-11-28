@@ -38,7 +38,7 @@
   --gap-xxxl: 48px;
   --gap-big: 64px;
 
-  --padding-global-x: 3%;
+  --padding-global-x: 4%;
   --padding-global-y: 36px;
   --padding-global-y-2: 36px;
   --padding-global: var(--padding-global-y) var(--padding-global-x);

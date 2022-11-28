@@ -5,9 +5,13 @@ import {
   carousel_1,
   carousel_2,
   carousel_3,
-  carousel_4,
+  carousel_4
 } from "../../../assets/carousel";
-import { SectionWithCarousel } from "../../components";
+import imageNoticia from "../../../assets/tmp/images.png";
+import {
+  CardNoticia, SectionWithCarousel,
+  SubSectionBasic
+} from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";
 import { device } from "../../utils/generalBreakpoints";
@@ -104,6 +108,17 @@ const StaticContentContainer = styled.div`
   }
 `;
 
+const ContainerNoticias = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: 1fr;
+  gap: var(--gap-xxl) var(--gap-l);
+
+  @media ${device.tabletM} {
+    grid-template-columns: 1fr;
+  }
+`;
+
 function Inicio() {
   const { configTheme, resetTheme } = useThemeHeader();
   const scrollPosition = useScrollPosition();
@@ -189,7 +204,22 @@ function Inicio() {
         praesentium, minus non ut officia obcaecati sint perferendis. Odit quia
         Repellat, itaque?
       </p>
-      {/* <SectionBasic title="Últimas Publicaciones"></SectionBasic> */}
+      <SubSectionBasic title="Últimas Noticias">
+        <ContainerNoticias>
+          <CardNoticia
+            image={imageNoticia}
+            title="titulo lago de la noticia de prueba estatica"
+          />
+          <CardNoticia
+            image={imageNoticia}
+            title="titulo lago de la noticia de prueba estatica"
+          />
+          <CardNoticia
+            image={imageNoticia}
+            title="titulo lago de la noticia de prueba estatica"
+          />
+        </ContainerNoticias>
+      </SubSectionBasic>
     </SectionWithCarousel>
   );
 }
