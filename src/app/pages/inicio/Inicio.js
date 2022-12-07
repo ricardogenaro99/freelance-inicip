@@ -5,12 +5,13 @@ import {
   carousel_1,
   carousel_2,
   carousel_3,
-  carousel_4
+  carousel_4,
 } from "../../../assets/carousel";
 import imageNoticia from "../../../assets/tmp/images.png";
 import {
-  CardNoticia, SectionWithCarousel,
-  SubSectionBasic
+  CardNoticia,
+  SectionWithCarousel,
+  SubSectionBasic,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";

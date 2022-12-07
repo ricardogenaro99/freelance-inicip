@@ -1,23 +1,48 @@
-import React, { useEffect } from "react";
-import { SectionBasic } from "../../components";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { CardList, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
-import TwoSectionsMenu from "../../templates/TwoSectionsMenu";
-import { PROPS_SECTION } from "../../utils/generalConst";
+import {
+  API_ENDPOINT,
+  PROPS_SECTION_CENTER_TITLE,
+} from "../../utils/generalConst";
+
+const Container = styled.div`
+  max-width: 900px;
+  display: grid;
+  gap: var(--gap-xl);
+  margin: auto;
+  width: 100%;
+`;
 
 function SeriesTrabajo() {
+  const [data, setData] = useState();
   const { resetTheme } = useThemeHeader();
 
   useEffect(() => {
     resetTheme();
   }, [resetTheme]);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const response = await axios(`${API_ENDPOINT}/posts`);
+      setData(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      setData([]);
+      console.log(error);
+    }
+  };
+
   return (
-    <SectionBasic title="Series de Trabajo" {...PROPS_SECTION}>
-      <TwoSectionsMenu>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt amet
-        quibusdam non veritatis reiciendis! Numquam, cum reiciendis!
-        Reprehenderit alias, praesentium assumenda vitae cumque quas, adipisci
-        eum eligendi officia eveniet et?
-      </TwoSectionsMenu>
+    <SectionBasic title="Series de Trabajo" {...PROPS_SECTION_CENTER_TITLE}>
+      <Container>
+        {data ? <CardList data={data} redirect={true} /> : <Spinner />}
+      </Container>
     </SectionBasic>
   );
 }

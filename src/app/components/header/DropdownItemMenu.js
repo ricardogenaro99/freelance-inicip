@@ -35,7 +35,7 @@ const Container = styled.div`
   .dropdown_item_list {
     background: var(--color-white);
     margin: 0;
-    z-index: 10000;
+    z-index: 90000;
     position: absolute;
     box-shadow: 0px 2px 9px 3px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0px 2px 9px 3px rgba(0, 0, 0, 0.1);

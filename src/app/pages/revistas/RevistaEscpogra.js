@@ -53,24 +53,11 @@ function RevistaEscpogra() {
   useEffect(() => {
     setData([
       {
-        title: "Revista Escpogra",
-        description: "A Revista Escpogra é um espaço de publica",
+        title: "REVISTA ESCPOGRA",
         image: escpogra,
         content: (
           <ContainerText>
-            <Chip>Edición N° 2 </Chip>
-            <h6>(octubre – 2022)</h6>
-          </ContainerText>
-        ),
-      },
-      {
-        title: "Revista Escpogra",
-        description: "A Revista Escpogra é um espaço de publica",
-        image: escpogra,
-        content: (
-          <ContainerText>
-            <Chip>Edición N° 1 </Chip>
-            <h6>(octubre – 2021)</h6>
+            <Chip>Edición N° 1 (octubre – 2022) </Chip>
           </ContainerText>
         ),
       },
@@ -78,8 +65,8 @@ function RevistaEscpogra() {
   }, []);
 
   return (
-    <SectionBasic title="REVISTA ESCPOGRA" {...PROPS_SECTION}>
-      <TwoSectionsMenu>
+    <SectionBasic {...PROPS_SECTION}>
+      <TwoSectionsMenu title="REVISTA ESCPOGRA">
         <Container>
           <section className="section-text">
             <div className="content-post">
@@ -117,15 +104,13 @@ function RevistaEscpogra() {
                 </ul>
               </div>
               <p style={{ textAlign: "left" }}>
-                <b>
-                  Puede enviarlo al siguiente correo:{" "}
-                  <a
-                    style={{ color: "var(--color-primary)" }}
-                    href="mailto:revista.institucional@escpograpnp.com"
-                  >
-                    revista.institucional@escpograpnp.com
-                  </a>
-                </b>
+                <b>Puede enviarlo al siguiente correo:</b>{" "}
+                <a
+                  style={{ color: "var(--color-link)" }}
+                  href="mailto:revista.institucional@escpograpnp.com"
+                >
+                  revista.institucional@escpograpnp.com
+                </a>
               </p>
             </div>
           </section>

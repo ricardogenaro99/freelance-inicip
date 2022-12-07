@@ -12,13 +12,8 @@ function MemoriasAnuales() {
   }, [resetTheme]);
 
   return (
-    <SectionBasic title="Memorias Anuales" {...PROPS_SECTION}>
-      <TwoSectionsMenu>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt amet
-        quibusdam non veritatis reiciendis! Numquam, cum reiciendis!
-        Reprehenderit alias, praesentium assumenda vitae cumque quas, adipisci
-        eum eligendi officia eveniet et?
-      </TwoSectionsMenu>
+    <SectionBasic {...PROPS_SECTION}>
+      <TwoSectionsMenu title="Memorias Anuales"></TwoSectionsMenu>
     </SectionBasic>
   );
 }

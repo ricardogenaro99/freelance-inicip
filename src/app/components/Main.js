@@ -15,8 +15,6 @@ import {
   Noticias,
   Presentacion,
   Proyectos,
-  Publicacion,
-  Publicaciones,
   RevistaCientifica,
   RevistaEscpogra,
   SeriesTrabajo,
@@ -89,10 +87,10 @@ function Main() {
           </Route>
           {/* Investigaciones */}
           <Route path={PATHS.investigaciones.path}>
-            <Route path={PATHS.investigaciones.children.publicaciones.path}>
+            {/* <Route path={PATHS.investigaciones.children.publicaciones.path}>
               <Route index element={<Publicaciones />} />
               <Route path=":id" element={<Publicacion />} />
-            </Route>
+            </Route> */}
             <Route
               path={PATHS.investigaciones.children.proyectos.path}
               element={<Proyectos />}

@@ -1,4 +1,5 @@
 import React from "react";
+import { BsEnvelope, BsGeoAlt, BsTelephone } from "react-icons/bs";
 import styled from "styled-components";
 import { device } from "../../utils/generalBreakpoints";
 import SectionFooter from "./SectionFooter";
@@ -45,24 +46,43 @@ const Container = styled.footer`
   }
 `;
 
+const ItemInfo = styled.div`
+  display: grid;
+  grid-template-columns: 30px 1fr;
+
+  > {
+    &:nth-child(1) {
+      margin-top: 4px;
+      transform: scale(1.6);
+    }
+  }
+`;
+
 function Footer() {
   return (
     <Container>
       <div className="footer-content">
         <div className="sections">
+          <SectionFooter>LOGO</SectionFooter>
           <SectionFooter title="Ubicación">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
-            optio labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit
-            iste
+            <ItemInfo>
+              <BsGeoAlt color="var(--color-white)" />
+              <p>
+                Av. Guardia Civil Sur 800 - Chorrillos (Lima, Perú)
+                <br />
+                2° Piso - Biblioteca de la ESCPOGRA PNP
+              </p>
+            </ItemInfo>
           </SectionFooter>
           <SectionFooter title="Contacto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
-            optio labore. Aliquid, veniam. Voluptatem ab aperiam reprehenderit
-            iste
-          </SectionFooter>
-          <SectionFooter title="Siguenos">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            ullam iure explicabo numquam est, dolor sit enim, cum expedita nisi
+            <ItemInfo>
+              <BsEnvelope color="var(--color-white)" />
+              <a href="mailto:inicip@escpograpnp.com">inicip@escpograpnp.com</a>
+            </ItemInfo>
+            <ItemInfo>
+              <BsTelephone color="var(--color-white)" />
+              <span>+51 - 965305887</span>
+            </ItemInfo>
           </SectionFooter>
         </div>
       </div>
