@@ -12,12 +12,14 @@ import {
   InvestigadoresAsociados,
   MemoriasAnuales,
   NotFound,
+  Noticia,
   Noticias,
   Presentacion,
   Proyectos,
+  Publicacion,
   RevistaCientifica,
   RevistaEscpogra,
-  SeriesTrabajo,
+  SeriesTrabajo
 } from "../pages";
 import { PATHS } from "../routes";
 import { windowScroll } from "../utils/generalFunctions";
@@ -87,25 +89,24 @@ function Main() {
           </Route>
           {/* Investigaciones */}
           <Route path={PATHS.investigaciones.path}>
-            {/* <Route path={PATHS.investigaciones.children.publicaciones.path}>
-              <Route index element={<Publicaciones />} />
+            <Route path={PATHS.investigaciones.children.proyectos.path}>
+              <Route index element={<Proyectos />} />
               <Route path=":id" element={<Publicacion />} />
-            </Route> */}
-            <Route
-              path={PATHS.investigaciones.children.proyectos.path}
-              element={<Proyectos />}
-            />
-            <Route
-              path={PATHS.investigaciones.children.documentosTrabajo.path}
-              element={<DocumentosTrabajo />}
-            />
-            <Route
-              path={PATHS.investigaciones.children.seriesTrabajo.path}
-              element={<SeriesTrabajo />}
-            />
+            </Route>
+            <Route path={PATHS.investigaciones.children.documentosTrabajo.path}>
+              <Route index element={<DocumentosTrabajo />} />
+              <Route path=":id" element={<Publicacion />} />
+            </Route>
+            <Route path={PATHS.investigaciones.children.seriesTrabajo.path}>
+              <Route index element={<SeriesTrabajo />} />
+              <Route path=":id" element={<Publicacion />} />
+            </Route>
           </Route>
           {/* Noticias */}
-          <Route path={PATHS.noticias.path} element={<Noticias />} />
+          <Route path={PATHS.noticias.path}>
+            <Route index element={<Noticias />} />
+            <Route path=":id" element={<Noticia />} />
+          </Route>
           {/* Contacto */}
           <Route path={PATHS.contacto.path} element={<Contacto />} />
           {/* NotFound */}

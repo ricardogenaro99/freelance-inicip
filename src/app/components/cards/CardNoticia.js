@@ -12,6 +12,7 @@ const Container = styled.div`
   transform: scale(1);
   border-radius: calc(var(--border-radius-global) * 2.5);
   overflow: hidden;
+  outline: 1.5px solid #67847740;
 
   cursor: pointer;
   * {
@@ -28,9 +29,10 @@ const Container = styled.div`
     display: grid;
     gap: var(--gap-s);
     padding: 20px;
+    width: 100%;
     h3 {
       font-weight: 700;
-      font-size: var(--font-size-l);
+      font-size: var(--font-size-xl);
       line-height: 33px;
       color: var(--color-primary);
     }
@@ -49,11 +51,11 @@ const Container = styled.div`
   }
 `;
 
-function CardNoticia({ id, image, title, createdAt = "askdjas askd 23)=12" }) {
+function CardNoticia({ id, image, title, createdAt }) {
   const generateProps = () => {
     const props = {
-      as: { Link },
-      to: `${PATHS.noticias.path}/${toString(id)}`,
+      as: Link,
+      to: `/${PATHS.noticias.path}/${String(id)}`,
     };
     if (!id) {
       delete props.as;
@@ -65,7 +67,10 @@ function CardNoticia({ id, image, title, createdAt = "askdjas askd 23)=12" }) {
 
   return (
     <Container {...generateProps()}>
-      <img src={image} alt="noticia" />
+      <img
+        src={image || "https://via.placeholder.com/800?text=Sin+Imagen"}
+        alt="noticia"
+      />
       <div>
         <span>{createdAt}</span>
         <h3>{title}</h3>

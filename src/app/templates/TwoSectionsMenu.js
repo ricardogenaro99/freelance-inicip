@@ -12,7 +12,7 @@ const paddingItemBox = "15px 10px";
 
 const Container = styled.article`
   display: grid;
-  grid-template-columns: 2.8fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: var(--gap-xxxl);
 
   .content-section {
@@ -140,7 +140,7 @@ function TwoSectionsMenu({
     <Container gap={gap}>
       <section className="content-section">
         {title && (
-          <Title isMainContent={true} style={{ margin: "0" }}>
+          <Title isMainContent={true} style={{ margin: "0" }} textAlign="left">
             {title}
           </Title>
         )}

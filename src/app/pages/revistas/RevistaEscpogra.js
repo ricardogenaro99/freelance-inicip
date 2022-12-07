@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { escpogra } from "../../../assets/revistas";
+import pdfEscpogra from "../../../assets/tmp/escpogra1.pdf";
 import {
   CardList,
   Chip,
@@ -60,6 +61,7 @@ function RevistaEscpogra() {
             <Chip>Edición N° 1 (octubre – 2022) </Chip>
           </ContainerText>
         ),
+        urlPdf: pdfEscpogra,
       },
     ]);
   }, []);

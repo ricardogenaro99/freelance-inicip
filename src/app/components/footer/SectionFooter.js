@@ -7,6 +7,7 @@ const Container = styled.section`
   flex-direction: column;
   height: 100%;
   gap: var(--gap-xl);
+  max-width: 290px;
 
   h4 {
     font-size: var(--font-size-l);
@@ -15,9 +16,9 @@ const Container = styled.section`
   .children {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-l);
+    gap: var(--gap-m);
   }
-  @media ${device.tabletS} {
+  @media ${device.tabletM} {
     * {
       text-align: center !important;
     }

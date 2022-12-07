@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect } from "react";
+import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import styled from "styled-components";
 import {
@@ -6,8 +7,9 @@ import {
   carousel_2,
   carousel_3,
   carousel_4,
+  carousel_5,
+  carousel_6,
 } from "../../../assets/carousel";
-import imageNoticia from "../../../assets/tmp/images.png";
 import {
   CardNoticia,
   SectionWithCarousel,
@@ -16,6 +18,7 @@ import {
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { useScrollPosition } from "../../hooks";
 import { device } from "../../utils/generalBreakpoints";
+import { API_ENDPOINT } from "../../utils/generalConst";
 
 const lineBorder = "6px groove var(--color-orange)";
 const floatPosition = "-15px";
@@ -28,7 +31,7 @@ const StaticContentContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: var(--gap-big);
-  transform: translate(-45%, 5%);
+  transform: translate(-45%, 20%);
   margin: 20px;
   position: relative;
 
@@ -123,6 +126,7 @@ const ContainerNoticias = styled.div`
 function Inicio() {
   const { configTheme, resetTheme } = useThemeHeader();
   const scrollPosition = useScrollPosition();
+  const [noticias, setNoticias] = useState();
 
   const initTheme = useCallback(() => {
     configTheme("transparent", null, null, false);
@@ -131,6 +135,23 @@ function Inicio() {
   // const initTheme = useCallback(() => {
   //   resetTheme();
   // }, [resetTheme]);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const response = await axios(`${API_ENDPOINT}/posts`);
+      const data = Array.isArray(response.data)
+        ? response.data
+        : [response.data];
+      setNoticias(data.slice(0, 3));
+    } catch (error) {
+      setNoticias([]);
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     initTheme();
@@ -149,6 +170,8 @@ function Inicio() {
     { image: carousel_2, legend: "" },
     { image: carousel_3, legend: "" },
     { image: carousel_4, legend: "" },
+    { image: carousel_5, legend: "" },
+    { image: carousel_6, legend: "" },
   ];
 
   const renderStaticContent = () => {
@@ -205,22 +228,15 @@ function Inicio() {
         praesentium, minus non ut officia obcaecati sint perferendis. Odit quia
         Repellat, itaque?
       </p>
-      <SubSectionBasic title="Últimas Noticias">
-        <ContainerNoticias>
-          <CardNoticia
-            image={imageNoticia}
-            title="titulo lago de la noticia de prueba estatica"
-          />
-          <CardNoticia
-            image={imageNoticia}
-            title="titulo lago de la noticia de prueba estatica"
-          />
-          <CardNoticia
-            image={imageNoticia}
-            title="titulo lago de la noticia de prueba estatica"
-          />
-        </ContainerNoticias>
-      </SubSectionBasic>
+      {noticias && (
+        <SubSectionBasic title="Últimas Noticias">
+          <ContainerNoticias>
+            {noticias.map((e, i) => (
+              <CardNoticia key={i} {...e} />
+            ))}
+          </ContainerNoticias>
+        </SubSectionBasic>
+      )}
     </SectionWithCarousel>
   );
 }
