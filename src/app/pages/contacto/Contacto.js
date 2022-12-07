@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BsEnvelope, BsGeoAlt, BsTelephone } from "react-icons/bs";
 import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
 import { mapReference } from "../../../assets/map";
@@ -6,6 +7,7 @@ import {
   ButtonRectangle,
   InputLabel,
   SectionBasic,
+  SubSectionBasic,
   TextareaLabel,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
@@ -17,6 +19,14 @@ const Container = styled.div`
   grid-template-columns: 2fr 1.5fr;
   grid-auto-rows: auto;
   gap: var(--gap-xl);
+
+  > section {
+    &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-xl);
+    }
+  }
 
   @media ${device.tabletL} {
     grid-template-columns: 1fr;
@@ -54,6 +64,7 @@ const ContainerMap = styled.a`
   width: 100%;
   border-radius: var(--border-radius-global);
   height: 90%;
+  max-height: 400px;
   &:after {
     content: "";
     position: absolute;
@@ -84,6 +95,24 @@ const ContainerMap = styled.a`
       font-size: var(--font-size-xl);
       text-align: center;
       padding: 15px;
+    }
+  }
+`;
+
+const ContainerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xl);
+
+  .item-info {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+
+    > {
+      &:nth-child(1) {
+        margin-top: 4px;
+        transform: scale(1.6);
+      }
     }
   }
 `;
@@ -162,6 +191,30 @@ function Contacto() {
           >
             <img src={mapReference} alt="map" />
           </ContainerMap>
+          <ContainerInfo>
+            <SubSectionBasic title="Ubicación" gap="var(--gap-l)">
+              <div className="item-info">
+                <BsGeoAlt color="var(--color-sub-secondary)" />
+                <p>
+                  Av. Guardia Civil Sur 800 - Chorrillos (Lima, Perú)
+                  <br />
+                  2° Piso - Biblioteca de la ESCPOGRA PNP
+                </p>
+              </div>
+            </SubSectionBasic>
+            <SubSectionBasic title="Contacto" gap="var(--gap-l)">
+              <div className="item-info">
+                <BsEnvelope color="var(--color-sub-secondary)" />
+                <a href="mailto:inicip@escpograpnp.com">
+                  inicip@escpograpnp.com
+                </a>
+              </div>
+              <div className="item-info">
+                <BsTelephone color="var(--color-sub-secondary)" />
+                <span>+51 - 965305887</span>
+              </div>
+            </SubSectionBasic>
+          </ContainerInfo>
         </section>
       </Container>
     </SectionBasic>

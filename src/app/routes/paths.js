@@ -35,7 +35,7 @@ export const PATHS = {
       },
       asistentesInvestigacion: {
         path: "asistentes-investigacion",
-        label: "Asistentes de Investigacion",
+        label: "Asistentes de Investigación",
       },
     },
   },
@@ -57,10 +57,10 @@ export const PATHS = {
     path: "investigaciones",
     label: "Investigaciones",
     children: {
-      publicaciones: {
-        path: "publicaciones",
-        label: "Publicaciones",
-      },
+      // publicaciones: {
+      //   path: "publicaciones",
+      //   label: "Publicaciones",
+      // },
       proyectos: {
         path: "proyectos",
         label: "Proyectos",

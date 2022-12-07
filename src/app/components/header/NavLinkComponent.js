@@ -10,7 +10,8 @@ const NavLinkStyle = styled(NavLink)`
   font-weight: inherit;
 
   &.active {
-    color: ${(props) => props.coloractive};
+    color: ${(props) => props.coloractive} !important;
+    background-color: var(--color-primary);
   }
 
   @media ${device.headerRD} {

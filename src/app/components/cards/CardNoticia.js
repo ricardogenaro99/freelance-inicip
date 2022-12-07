@@ -50,7 +50,6 @@ const Container = styled.div`
 `;
 
 function CardNoticia({ id, image, title, createdAt = "askdjas askd 23)=12" }) {
-
   const generateProps = () => {
     const props = {
       as: { Link },

@@ -18,6 +18,7 @@ import SectionWithCarousel from "./sections/SectionWithCarousel";
 import SubSectionBasic from "./sections/SubSectionBasic";
 import { SeparatorBasic } from "./Separator";
 import Spinner from "./Spinner";
+import TitleWithSeparator from "./TitleWithSeparator";
 
 export {
   Header,
@@ -41,4 +42,5 @@ export {
   CardEquipoPrincipal,
   Chip,
   CardNoticia,
+  TitleWithSeparator,
 };

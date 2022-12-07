@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { trianglifyLowres } from "../../../assets/extras";
-import { portadaPresentacion } from "../../../assets/portadas";
 import {
   SectionBasic,
   SeparatorBasic,
@@ -62,12 +61,8 @@ function Presentacion() {
   }, [resetTheme]);
 
   return (
-    <SectionBasic
-      title="Presentación"
-      image={portadaPresentacion}
-      {...PROPS_SECTION}
-    >
-      <TwoSectionsMenu>
+    <SectionBasic {...PROPS_SECTION}>
+      <TwoSectionsMenu title="Presentación">
         <Container>
           <p>
             El Instituto de Investigación en Ciencias Policiales (INICIP),
@@ -78,11 +73,16 @@ function Presentacion() {
             desarrollo y modernización del sistema educativo de posgrado de la
             Policía Nacional del Perú, en conformidad con los lineamientos del
             Decreto Legislativo N° 1318 y con el Reglamento Institucional de la
-            ESCPOGRA – PNP. El instituto está conformado por estudiantes,
-            docentes e investigadores con especial interés en el campo de las
-            Ciencias Policiales y en las líneas de investigación establecidas
-            por la ESCPOGRA – PNP, bajo los lineamientos del Plan Estratégico de
+            ESCPOGRA – PNP.
+          </p>
+          <p>
+            El instituto está conformado por estudiantes, docentes e
+            investigadores con especial interés en el campo de las Ciencias
+            Policiales y en las líneas de investigación establecidas por la
+            ESCPOGRA – PNP, bajo los lineamientos del Plan Estratégico de
             Capacidades de la PNP al 2030 “Mariano Santos Mateos” (MS30).
+          </p>
+          <p>
             Nuestra producción está orientada a la publicación de diversos
             trabajos de investigaciones (Documentos de Trabajo, Series de
             Investigación, Libros digitales, entre otros).

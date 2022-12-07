@@ -50,12 +50,16 @@ export const ContainerSubSectionStyle = styled(ContainerBasicStyle)`
 `;
 
 export const Title = styled.h4`
-  font-size: var(--font-size-xxxl);
-  color: var(--color-primary);
-  width: 100%;
-  max-width: var(--max-width) ${(props) => props.maxWidthString && "!important"};
-  margin: auto;
-  text-align: ${(props) => props.textAlign}!important;
+  &,
+  * {
+    font-size: var(--font-size-xxl);
+    color: var(--color-primary);
+    width: 100%;
+    max-width: var(--max-width)
+      ${(props) => props.maxWidthString && "!important"};
+    margin: auto;
+    text-align: ${(props) => props.textAlign}!important;
+  }
 `;
 
 export const ContainerImages = styled.div`

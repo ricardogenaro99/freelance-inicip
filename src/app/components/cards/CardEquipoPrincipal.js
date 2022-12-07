@@ -5,7 +5,7 @@ import { device } from "../../utils/generalBreakpoints";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: min(100%, ${(props) => props.widthImage || "220px"}) 1fr;
+  grid-template-columns: min(100%, ${(props) => props.widthImage || "180px"}) 1fr;
   grid-auto-rows: auto;
   gap: var(--gap-l);
   padding: 25px 1%;

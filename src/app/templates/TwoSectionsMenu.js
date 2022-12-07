@@ -2,6 +2,7 @@ import React, { Fragment, memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import NavLinkComponent from "../components/header/NavLinkComponent";
+import { Title } from "../components/sections/styles";
 import { useWindowDimensions } from "../hooks";
 import { PATHS } from "../routes/paths";
 import { device, valuePx } from "../utils/generalBreakpoints";
@@ -22,7 +23,7 @@ const Container = styled.article`
 
   .box-section {
     position: relative;
-    padding-top: 30px;
+    padding-top: 60px;
     justify-self: end;
     width: 100%;
     max-width: 300px;
@@ -34,7 +35,7 @@ const Container = styled.article`
       display: flex;
       flex-direction: column;
       gap: var(--gap-xl);
-      top: calc(var(--header-height) * 2);
+      top: calc(var(--header-height) * 1.5);
     }
   }
 
@@ -126,6 +127,7 @@ function TwoSectionsMenu({
   gap = "var(--gap-xl)",
   hasBoxMenu = true,
   customBoxs = [],
+  title,
 }) {
   const { widthWindow } = useWindowDimensions();
   const [showMenu, setShowMenu] = useState(true);
@@ -136,7 +138,14 @@ function TwoSectionsMenu({
 
   return (
     <Container gap={gap}>
-      <section className="content-section">{children}</section>
+      <section className="content-section">
+        {title && (
+          <Title isMainContent={true} style={{ margin: "0" }}>
+            {title}
+          </Title>
+        )}
+        <div>{children}</div>
+      </section>
       {showMenu && (
         <section className="box-section">
           <div className="boxes-container">
