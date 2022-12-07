@@ -13,6 +13,7 @@ import Equipo from "./nosotros/Equipo";
 import MemoriasAnuales from "./nosotros/MemoriasAnuales";
 import Presentacion from "./nosotros/Presentacion";
 import NotFound from "./NotFound";
+import Noticia from "./noticias/Noticia";
 import Noticias from "./noticias/Noticias";
 import RevistaCientifica from "./revistas/RevistaCientifica";
 import RevistaEscpogra from "./revistas/RevistaEscpogra";
@@ -36,4 +37,5 @@ export {
   Noticias,
   CooperacionInstitucional,
   MemoriasAnuales,
+  Noticia,
 };

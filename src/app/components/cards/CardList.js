@@ -41,7 +41,7 @@ function Items({
             title={e.title}
             image={e.image || image}
             controlButtons={controlButtons && controlButtons(e)}
-            redirect={redirect && e.id.toString()}
+            redirect={redirect && String(e.id)}
             maxHeight={maxHeightItem}
             widthImage={widthImage}
             height={heightItem}

@@ -9,9 +9,11 @@ export const ContainerInputLabel = styled.label`
   border-radius: var(--border-radius-global);
   gap: var(--gap-s);
 
+  font-size: var(--font-size-m);
+
   .label-form {
     color: var(--color-sub-primary);
-    font-size: var(--font-size-s);
+    font-size: 0.95em;
     font-weight: 600;
   }
 
@@ -19,15 +21,14 @@ export const ContainerInputLabel = styled.label`
     border: none;
     outline: none;
     line-height: 20px;
-    font-size: var(--font-size-m);
     resize: vertical;
-
+    font-size: 1em;
     &:disabled {
       background: transparent;
     }
 
     &::placeholder {
-      font-size: 0.94em;
+      font-size: 0.98em;
     }
   }
 `;

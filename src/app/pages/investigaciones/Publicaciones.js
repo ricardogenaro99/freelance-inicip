@@ -49,7 +49,6 @@ const ContainerForm = styled.form`
 
   .inputs-container {
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); */
     gap: var(--gap-m);
   }
 `;

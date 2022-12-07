@@ -15,7 +15,7 @@ const Container = styled.footer`
   }
 
   > div {
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -25,12 +25,15 @@ const Container = styled.footer`
   }
 
   .sections {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
+    display: flex;
+    justify-content: space-evenly;
     gap: var(--gap-big);
     padding: var(--padding-footer);
     max-width: var(--max-width);
     margin: 0 auto;
+    width: 100%;
   }
 
   .copys {
@@ -39,9 +42,11 @@ const Container = styled.footer`
     padding: 18px var(--padding-global-x);
   }
 
-  @media ${device.tabletS} {
+  @media ${device.tabletM} {
     .sections {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 `;
@@ -63,7 +68,10 @@ function Footer() {
     <Container>
       <div className="footer-content">
         <div className="sections">
-          <SectionFooter>LOGO</SectionFooter>
+          <SectionFooter title="Enlaces externos">
+            <p>Enlace 1</p>
+            <p>Enlace 2</p>
+          </SectionFooter>
           <SectionFooter title="Ubicación">
             <ItemInfo>
               <BsGeoAlt color="var(--color-white)" />
