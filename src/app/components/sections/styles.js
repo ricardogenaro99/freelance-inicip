@@ -53,7 +53,7 @@ export const Title = styled.h4`
   &,
   * {
     font-family: "Roboto";
-    font-size: var(--font-size-xxl);
+    font-size: var(--font-size-xxxl);
     font-weight: 700;
     color: var(--color-primary);
     width: 100%;

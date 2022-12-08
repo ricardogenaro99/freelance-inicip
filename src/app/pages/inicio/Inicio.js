@@ -10,6 +10,9 @@ import {
   carousel_5,
   carousel_6,
 } from "../../../assets/carousel";
+import portadaNoticia_1 from "../../../assets/tmp/noticia (1).png";
+import portadaNoticia_2 from "../../../assets/tmp/noticia (2).png";
+import portadaNoticia_3 from "../../../assets/tmp/noticia (3).png";
 import {
   CardNoticia,
   SectionWithCarousel,
@@ -115,6 +118,7 @@ const StaticContentContainer = styled.div`
 const ContainerNoticias = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(calc(100% / 4), 1fr)); */
   grid-auto-columns: 1fr;
   gap: var(--gap-xxl) var(--gap-l);
 
@@ -123,35 +127,60 @@ const ContainerNoticias = styled.div`
   }
 `;
 
+const ContainerSchoolInformation = styled.div``;
 function Inicio() {
   const { configTheme, resetTheme } = useThemeHeader();
   const scrollPosition = useScrollPosition();
-  const [noticias, setNoticias] = useState();
+  const [noticias, setNoticias] = useState([
+    {
+      id: 1,
+      title:
+        "1ER ENCUENTRO DE DEPARTAMENTOS DE INVESTIGACIÓN DE LAS ESCUELAS DE POSGRADO DE LAS FF.AA. Y LA PNP",
+      image: portadaNoticia_1,
+      content:
+        "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archiatem. Ut enim ad mluptas nulla pariatur?</p>",
+      urlPdf: "",
+      createdAt: "19 abril - 2022",
+    },
+    {
+      id: 2,
+      title: "NOTICIA ESTATICA DE EJEMPLO",
+      image: portadaNoticia_2,
+      content:
+        "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archiatem. Ut enim ad mluptas nulla pariatur?</p>",
+      urlPdf: "",
+      createdAt: "19 abril - 2022",
+    },
+    {
+      id: 3,
+      title: "NOTICIA ESTATICA DE EJEMPLO",
+      image: portadaNoticia_3,
+      content:
+        "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archiatem. Ut enim ad mluptas nulla pariatur?</p>",
+      urlPdf: "",
+      createdAt: "19 abril - 2022",
+    },
+  ]);
 
   const initTheme = useCallback(() => {
     configTheme("transparent", null, null, false);
   }, [configTheme]);
 
-  // const initTheme = useCallback(() => {
-  //   resetTheme();
-  // }, [resetTheme]);
-
   useEffect(() => {
-    loadData();
-  }, []);
+    const loadData = async () => {
+      try {
+        const response = await axios(`${API_ENDPOINT}/posts`);
+        const data = Array.isArray(response.data)
+          ? response.data
+          : [response.data];
+        setNoticias(data.slice(0, 3));
+      } catch (error) {
+        setNoticias([]);
+      }
+    };
 
-  const loadData = async () => {
-    try {
-      const response = await axios(`${API_ENDPOINT}/posts`);
-      const data = Array.isArray(response.data)
-        ? response.data
-        : [response.data];
-      setNoticias(data.slice(0, 3));
-    } catch (error) {
-      setNoticias([]);
-      console.log(error);
-    }
-  };
+    // // loadData();
+  }, []);
 
   useEffect(() => {
     initTheme();
@@ -198,40 +227,20 @@ function Inicio() {
       staticContent={renderStaticContent()}
       translateY
     >
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum doloremque
-        iste dolores corporis error natus blanditiis molestiae sapiente alias at
-        accusamus cupiditate nemo perspiciatis quasi est repellendus accusantium
-        modi praesentium, minus non ut officia obcaecati sint perferendis. Odit
-        quia blanditiis enim deleniti praesentium repellendus dolor delectus
-        fugit quibusdam molestias doloremque voluptates error, natus accusamus,
-        voluptatum nostrum quasi. Impedit provident quos nihil perspiciatis
-        itaque illum. Quibusdam enim ullam itaque nisi officia voluptate fugiat
-        recusandae sunt reprehenderit assumenda! Obcaecati nesciunt rem
-        cupiditate. Inventore, similique iure optio quas numquam, facere id at
-        laborum delectus in dolorum nisi molestiae enim quisquam suscipit.
-        Repellat, itaque? Lorem ipsum dolor sit amet consectetur, adipisicing
-        elit. Eum doloremque iste dolores corporis error natus blanditiis
-        molestiae sapiente alias at accusamus cupiditate nemo perspiciatis quasi
-        est repellendus accusantium modi praesentium, minus non ut officia
-        obcaecati sint perferendis. Odit quia blanditiis enim deleniti
-        praesentium repellendus dolor delectus fugit quibusdam molestias
-        doloremque voluptates error, natus accusamus, voluptatum nostrum quasi.
-        Impedit provident quos nihil perspiciatis itaque illum. Quibusdam enim
-        ullam itaque nisi officia voluptate fugiat recusandae sunt reprehenderit
-        assumenda! Obcaecati nesciunt rem cupiditate. Inventore, similique iure
-        optio quas numquam, facere id at laborum delectus in dolorum nisi
-        molestiae enim quisquam suscipit. Repellat, itaque? Lorem ipsum dolor
-        sit amet consectetur, adipisicing elit. Eum doloremque iste dolores
-        corporis error natus blanditiis molestiae sapiente alias at accusamus
-        cupiditate nemo perspiciatis quasi est repellendus accusantium modi
-        praesentium, minus non ut officia obcaecati sint perferendis. Odit quia
-        Repellat, itaque?
-      </p>
-      {noticias && (
-        <SubSectionBasic title="Últimas Noticias">
+      <ContainerSchoolInformation>
+        <section></section>
+        <section></section>
+      </ContainerSchoolInformation>
+      {noticias && noticias.length >= 3 && (
+        <SubSectionBasic
+          title="Últimas Noticias"
+          titleStyle={{
+            fontSize: "var(--font-size-xxl)",
+            textAlign: "center",
+          }}
+        >
           <ContainerNoticias>
-            {noticias.map((e, i) => (
+            {noticias.slice(0, 3).map((e, i) => (
               <CardNoticia key={i} {...e} />
             ))}
           </ContainerNoticias>

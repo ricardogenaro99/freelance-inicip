@@ -6,11 +6,12 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: var(--gap-xl);
+  gap: var(--gap-l);
   max-width: 290px;
 
   h4 {
-    font-size: var(--font-size-l);
+    font-size: 18px;
+    text-align: center;
   }
 
   .children {

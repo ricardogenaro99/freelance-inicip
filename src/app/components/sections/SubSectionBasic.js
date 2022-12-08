@@ -5,6 +5,7 @@ import { ContainerSubSectionStyle } from "./styles";
 const Title = styled.h5`
   font-size: var(--font-size-xl);
   color: ${(props) => props.color};
+  font-family: "Roboto";
 `;
 
 function SubSectionBasic({
@@ -14,11 +15,12 @@ function SubSectionBasic({
   isMainContent = false,
   colorTitle = "var(--color-primary)",
   maxWidth,
+  titleStyle,
 }) {
   const renderContent = () => (
     <>
       {title && (
-        <Title as="h5" color={colorTitle}>
+        <Title as="h5" color={colorTitle} style={titleStyle}>
           {title}
         </Title>
       )}

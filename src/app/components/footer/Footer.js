@@ -21,7 +21,11 @@ const Container = styled.footer`
   }
 
   .footer-content {
-    background-color: var(--color-secondary);
+    background: #ddd;
+
+    * {
+      color: #000;
+    }
   }
 
   .sections {

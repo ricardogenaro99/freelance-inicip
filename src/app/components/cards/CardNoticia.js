@@ -14,6 +14,9 @@ const Container = styled.div`
   overflow: hidden;
   outline: 1.5px solid #67847740;
 
+  /* max-width: 500px;
+  margin: auto; */
+
   cursor: pointer;
   * {
     text-align: left;
@@ -32,8 +35,7 @@ const Container = styled.div`
     width: 100%;
     h3 {
       font-weight: 700;
-      font-size: var(--font-size-xl);
-      line-height: 33px;
+      font-size: 18px;
       color: var(--color-primary);
     }
 
