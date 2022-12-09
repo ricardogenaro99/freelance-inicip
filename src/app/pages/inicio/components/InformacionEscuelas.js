@@ -6,19 +6,21 @@ import portadaNoticia_2 from "../../../../assets/tmp/noticia (2).png";
 const ContainerSchoolInformation = styled.div`
   display: grid;
   > section {
-    padding: 30px 0 ;
+    padding: 30px 0;
     display: grid;
     gap: var(--gap-xl);
 
     &:nth-child(1) {
-      grid-template-columns: 1.5fr 2fr;
+      grid-template-columns: 1.7fr 2fr;
     }
 
     &:nth-child(2) {
-      grid-template-columns: 2fr 1.5fr;
+      grid-template-columns: 2fr 1.7fr;
     }
 
     .image-container {
+      border-radius: 20px;
+      overflow: hidden;
       img {
         object-fit: cover;
         width: 100%;
