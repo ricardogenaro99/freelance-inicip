@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import portadaNoticia_1 from "../../../../assets/tmp/noticia (1).png";
 import portadaNoticia_2 from "../../../../assets/tmp/noticia (2).png";
+import { ButtonRectangle } from "../../../components";
 
 const ContainerSchoolInformation = styled.div`
   display: grid;
@@ -72,6 +73,9 @@ function InformacionEscuelas() {
             ipsam laboriosam dolorem eaque. Sit hic, incidunt ex ea facilis
             voluptates explicabo?
           </p>
+          <ButtonRectangle style={{ margin: "0 auto" , padding: '20px 30px'}}>
+            Conoce más
+          </ButtonRectangle>
         </SectionInfo>
       </section>
       <section>
@@ -88,6 +92,9 @@ function InformacionEscuelas() {
             ipsam laboriosam dolorem eaque. Sit hic, incidunt ex ea facilis
             voluptates explicabo?
           </p>
+          <ButtonRectangle style={{ margin: "0 auto" , padding: '20px 30px'}}>
+            Conoce más
+          </ButtonRectangle>
         </SectionInfo>
         <div className="image-container">
           <img src={portadaNoticia_2} alt="" />
