@@ -1,3 +1,2 @@
-import TemplateLayout from "./TemplateLayout";
-
-export { TemplateLayout };
+export * from "./TemplateLayout";
+export * from "./TwoSectionsMenu";
