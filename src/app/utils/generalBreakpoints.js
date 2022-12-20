@@ -11,7 +11,8 @@ export const valuePx = {
   desktopS: 1920,
   desktopM: 2560,
   desktopL: 3840,
-  headerRD: 1230,
+  // headerRD: 1230,
+  headerRD: 1150,
 };
 
 export const size = {

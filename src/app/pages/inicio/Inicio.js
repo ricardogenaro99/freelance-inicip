@@ -6,7 +6,7 @@ import {
   carousel_3,
   carousel_4,
   carousel_5,
-  carousel_6
+  carousel_6,
 } from "../../../assets/carousel";
 import { SectionWithCarousel } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";

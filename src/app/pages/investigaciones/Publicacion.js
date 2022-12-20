@@ -1,15 +1,13 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaFileDownload } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import image from "../../../assets/tmp/images.png";
-import urlPdf from "../../../assets/tmp/pdf-prueba.pdf";
 import { ButtonRectangle, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";
-import { API_ENDPOINT, PROPS_SECTION } from "../../utils/generalConst";
-import { parseHtml } from "../../utils/generalFunctions";
+import { PROPS_SECTION } from "../../utils/generalConst";
+import { getPostById, parseHtml } from "../../utils/generalFunctions";
+import NotFound from "../NotFound";
 
 const Container = styled.div`
   display: grid;
@@ -18,6 +16,7 @@ const Container = styled.div`
   grid-auto-rows: auto;
   grid-auto-flow: column;
   gap: var(--gap-xl);
+  align-items: start;
   .section-info {
     display: grid;
     gap: var(--gap-m);
@@ -40,6 +39,12 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: var(--gap-xl);
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
   }
 
   @media ${device.tabletS} {
@@ -85,67 +90,71 @@ const ContainerMeta = styled.div`
   }
 `;
 
-function Publicacion() {
+function Publicacion({ type = "" }) {
   const params = useParams();
   const { resetTheme } = useThemeHeader();
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     resetTheme();
   }, [resetTheme]);
 
   useEffect(() => {
-    loadData(params.id);
-  }, [params]);
+    const init = async () => {
+      const res = await getPostById(params.id, type);
+      setData(res);
+    };
 
-  const loadData = async (id) => {
-    try {
-      const response = await axios(`${API_ENDPOINT}/posts/${id}`);
-      setData(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    init();
+  }, [params, type]);
 
   return (
     <>
-      {data ? (
-        <SectionBasic title={data?.title} {...PROPS_SECTION}>
-          <Container>
-            <section className="section-info">
-              <div className="image-container">
-                <img src={data?.image || image} alt="cover" />
-              </div>
-              <div className="meta-container">
-                <ButtonRectangle
-                  as="a"
-                  href={data?.urlPdf || urlPdf}
-                  target="_blank"
-                  rel="noreferrer"
-                  background="var(--color-brown)"
-                >
-                  Descargar
-                  <FaFileDownload color="white" />
-                </ButtonRectangle>
-              </div>
-            </section>
-            <section className="section-text">
-              <div className="content-post">{parseHtml(data?.content)}</div>
-              <ContainerMeta>
-                <div className="wrapper">
-                  <span className="wrapper-label">Autor(es): </span>
-                  <span className="wrapper-value">{data?.authors}</span>
+      {data !== null ? (
+        data === undefined ? (
+          <NotFound />
+        ) : (
+          <SectionBasic title={data?.title} {...PROPS_SECTION}>
+            <Container>
+              <section className="section-info">
+                <div className="image-container">
+                  <img src={data?.image} alt="cover" />
                 </div>
-                <div className="wrapper">
-                  <span className="wrapper-label">Fecha de publicación: </span>
-                  <span className="wrapper-value">
-                    {data?.createdAt || new Date().toDateString()}
-                  </span>
+                <div className="meta-container">
+                  {data?.urlPdf && (
+                    <ButtonRectangle
+                      as="a"
+                      href={data?.urlPdf}
+                      target="_blank"
+                      rel="noreferrer"
+                      background="var(--color-brown)"
+                    >
+                      Descargar
+                      <FaFileDownload color="white" />
+                    </ButtonRectangle>
+                  )}
                 </div>
-              </ContainerMeta>
-            </section>
-          </Container>
-        </SectionBasic>
+              </section>
+              <section className="section-text">
+                <div className="content-post">{parseHtml(data?.content)}</div>
+                <ContainerMeta>
+                  <div className="wrapper">
+                    <span className="wrapper-label">Autor(es): </span>
+                    <span className="wrapper-value">{data?.authors}</span>
+                  </div>
+                  <div className="wrapper">
+                    <span className="wrapper-label">
+                      Fecha de publicación:{" "}
+                    </span>
+                    <span className="wrapper-value">
+                      {new Date(data?.createdAt).toLocaleString()}
+                    </span>
+                  </div>
+                </ContainerMeta>
+              </section>
+            </Container>
+          </SectionBasic>
+        )
       ) : (
         <Spinner />
       )}

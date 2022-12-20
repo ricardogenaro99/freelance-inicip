@@ -23,3 +23,15 @@ export const PROPS_SECTION_CENTER_TITLE = {
   ...PROPS_SECTION,
   textAlign: "center",
 };
+
+export const DATA_INIT = {
+  id: "",
+  author: "",
+  type: "",
+  content: "",
+  title: "",
+  image: "",
+  createdAt: "",
+  updateAt: "",
+  featured_media: "",
+};

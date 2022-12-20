@@ -8,7 +8,7 @@ import {
   InputLabel,
   SectionBasic,
   SubSectionBasic,
-  TextareaLabel
+  TextareaLabel,
 } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
 import { device } from "../../utils/generalBreakpoints";

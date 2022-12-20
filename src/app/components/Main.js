@@ -19,7 +19,7 @@ import {
   Publicacion,
   RevistaCientifica,
   RevistaEscpogra,
-  SeriesTrabajo
+  SeriesTrabajo,
 } from "../pages";
 import { PATHS } from "../routes";
 import { windowScroll } from "../utils/generalFunctions";
@@ -91,15 +91,21 @@ function Main() {
           <Route path={PATHS.investigaciones.path}>
             <Route path={PATHS.investigaciones.children.proyectos.path}>
               <Route index element={<Proyectos />} />
-              <Route path=":id" element={<Publicacion />} />
+              <Route path=":id" element={<Publicacion type="proyectos" />} />
             </Route>
             <Route path={PATHS.investigaciones.children.documentosTrabajo.path}>
               <Route index element={<DocumentosTrabajo />} />
-              <Route path=":id" element={<Publicacion />} />
+              <Route
+                path=":id"
+                element={<Publicacion type="documentosTrabajo" />}
+              />
             </Route>
             <Route path={PATHS.investigaciones.children.seriesTrabajo.path}>
               <Route index element={<SeriesTrabajo />} />
-              <Route path=":id" element={<Publicacion />} />
+              <Route
+                path=":id"
+                element={<Publicacion type="seriesTrabajo" />}
+              />
             </Route>
           </Route>
           {/* Noticias */}

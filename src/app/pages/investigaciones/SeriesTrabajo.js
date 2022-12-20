@@ -1,12 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { CardList, SectionBasic, Spinner } from "../../components";
 import { useThemeHeader } from "../../contexts/ThemeHeaderProvider";
-import {
-  API_ENDPOINT,
-  PROPS_SECTION_CENTER_TITLE,
-} from "../../utils/generalConst";
+import { PROPS_SECTION_CENTER_TITLE } from "../../utils/generalConst";
+import { getPosts } from "../../utils/generalFunctions";
 
 const Container = styled.div`
   max-width: 900px;
@@ -25,18 +22,13 @@ function SeriesTrabajo() {
   }, [resetTheme]);
 
   useEffect(() => {
-    loadData();
-  }, []);
+    const init = async () => {
+      const res = await getPosts("seriesTrabajo");
+      setData(res);
+    };
 
-  const loadData = async () => {
-    try {
-      const response = await axios(`${API_ENDPOINT}/posts`);
-      setData(Array.isArray(response.data) ? response.data : []);
-    } catch (error) {
-      setData([]);
-      console.log(error);
-    }
-  };
+    init();
+  }, []);
 
   return (
     <SectionBasic title="Series de Trabajo" {...PROPS_SECTION_CENTER_TITLE}>

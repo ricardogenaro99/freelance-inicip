@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
-import image from "../../../assets/tmp/images.png";
 import { device } from "../../utils/generalBreakpoints";
-import { windowScroll } from "../../utils/generalFunctions";
+import { parseHtml, windowScroll } from "../../utils/generalFunctions";
 import { SeparatorBasic } from "../Separator";
 import CardBasic from "./CardBasic";
 import Paginate from "./Paginate";
@@ -39,7 +38,7 @@ function Items({
         <Fragment key={i}>
           <CardBasic
             title={e.title}
-            image={e.image || image}
+            image={e.image || "https://via.placeholder.com/800?text=Sin+Imagen"}
             controlButtons={controlButtons && controlButtons(e)}
             redirect={redirect && String(e.id)}
             maxHeight={maxHeightItem}
@@ -47,7 +46,7 @@ function Items({
             height={heightItem}
             heightImageText={heightImageText}
           >
-            {e.content}
+            {parseHtml(e.excerpt)}
           </CardBasic>
           {columns === 1 && items.length - 1 !== i && (
             <SeparatorBasic position="-top" />
