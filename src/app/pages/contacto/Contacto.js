@@ -108,10 +108,12 @@ const ContainerInfo = styled.div`
     display: grid;
     grid-template-columns: 30px 1fr;
 
-    > {
-      &:nth-child(1) {
-        margin-top: 4px;
-        transform: scale(1.6);
+    .icon {
+      margin-top: 4px;
+      transform: scale(1.6);
+
+      &.icon-map {
+        margin-top: 12px;
       }
     }
   }
@@ -194,7 +196,10 @@ function Contacto() {
           <ContainerInfo>
             <SubSectionBasic title="Ubicación" gap="var(--gap-l)">
               <div className="item-info">
-                <BsGeoAlt color="var(--color-sub-secondary)" />
+                <BsGeoAlt
+                  className="icon icon-map"
+                  color="var(--color-sub-secondary)"
+                />
                 <p>
                   Av. Guardia Civil Sur 800 - Chorrillos (Lima, Perú)
                   <br />
@@ -204,13 +209,19 @@ function Contacto() {
             </SubSectionBasic>
             <SubSectionBasic title="Contacto" gap="var(--gap-l)">
               <div className="item-info">
-                <BsEnvelope color="var(--color-sub-secondary)" />
+                <BsEnvelope
+                  className="icon"
+                  color="var(--color-sub-secondary)"
+                />
                 <a href="mailto:inicip@escpograpnp.com">
                   inicip@escpograpnp.com
                 </a>
               </div>
               <div className="item-info">
-                <BsTelephone color="var(--color-sub-secondary)" />
+                <BsTelephone
+                  className="icon"
+                  color="var(--color-sub-secondary)"
+                />
                 <span>+51 - 965305887</span>
               </div>
             </SubSectionBasic>

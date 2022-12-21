@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import portadaNoticia_1 from "../../../../assets/tmp/noticia (1).png";
 import portadaNoticia_2 from "../../../../assets/tmp/noticia (2).png";
-import { ButtonRectangle } from "../../../components";
+import { ButtonRectangle, CarouselItem } from "../../../components";
 import { device } from "../../../utils/generalBreakpoints";
 
 const ContainerSchoolInformation = styled.div`
@@ -70,6 +71,11 @@ const SectionInfo = ({ title, children }) => {
 };
 
 function InformacionEscuelas() {
+  const [images, setImages] = useState([
+    { image: portadaNoticia_1, legend: "" },
+    { image: portadaNoticia_2, legend: "" },
+  ]);
+
   return (
     <ContainerSchoolInformation>
       <section>
@@ -113,7 +119,19 @@ function InformacionEscuelas() {
           </ButtonRectangle>
         </SectionInfo>
         <div className="image-container">
-          <img src={portadaNoticia_2} alt="" />
+          <Carousel
+            dynamicHeight
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            showArrows={false}
+            showIndicators={false}
+          >
+            {images.map((e, i) => (
+              <CarouselItem key={i} image={e.image} legend={e.legend} />
+            ))}
+          </Carousel>
         </div>
       </section>
     </ContainerSchoolInformation>

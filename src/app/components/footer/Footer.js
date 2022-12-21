@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsEnvelope, BsGeoAlt, BsTelephone } from "react-icons/bs";
 import styled from "styled-components";
-import { device } from "../../utils/generalBreakpoints";
+import { useWindowDimensions } from "../../hooks";
+import { device, valuePx } from "../../utils/generalBreakpoints";
 import SectionFooter from "./SectionFooter";
 
 const Container = styled.footer`
@@ -29,8 +30,6 @@ const Container = styled.footer`
   }
 
   .sections {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
     display: flex;
     justify-content: space-evenly;
     gap: var(--gap-big);
@@ -59,46 +58,81 @@ const ItemInfo = styled.div`
   display: grid;
   grid-template-columns: 30px 1fr;
 
-  > {
-    &:nth-child(1) {
-      margin-top: 4px;
-      transform: scale(1.6);
+  @media ${device.tabletM} {
+    grid-template-columns: 1fr;
+  }
+
+  .icon {
+    margin-top: 4px;
+    transform: scale(1.6);
+
+    &.icon-map {
+      margin-top: 24px;
     }
   }
 `;
 
 function Footer() {
+  const { widthWindow } = useWindowDimensions();
+  const [watchIcons, setWatchIcons] = useState(true);
+
+  useEffect(() => {
+    setWatchIcons(widthWindow > valuePx.tabletM);
+  }, [widthWindow]);
+
   return (
     <Container>
       <div className="footer-content">
         <div className="sections">
           <SectionFooter title="Enlaces externos">
-            <p>Enlace 1</p>
-            <p>Enlace 2</p>
+            <a
+              href="https://www.escueladeposgradopnp.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Escuela de Posgrado - PNP
+            </a>
+            <a
+              href="https://www.revistachapaq.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Revista Chapaq
+            </a>
           </SectionFooter>
           <SectionFooter title="Ubicación">
             <ItemInfo>
-              <BsGeoAlt color="var(--color-white)" />
+              {watchIcons && (
+                <BsGeoAlt
+                  className="icon icon-map"
+                  color="var(--color-white)"
+                />
+              )}
               <p>
-                Av. Guardia Civil Sur 800 - Chorrillos (Lima, Perú)
-                <br />
-                2° Piso - Biblioteca de la ESCPOGRA PNP
+                Av. Guardia Civil Sur 800 - Chorrillos (Lima, Perú) 2° Piso -
+                Biblioteca de la ESCPOGRA PNP
               </p>
             </ItemInfo>
           </SectionFooter>
           <SectionFooter title="Contacto">
             <ItemInfo>
-              <BsEnvelope color="var(--color-white)" />
+              {watchIcons && (
+                <BsEnvelope className="icon" color="var(--color-white)" />
+              )}
               <a href="mailto:inicip@escpograpnp.com">inicip@escpograpnp.com</a>
             </ItemInfo>
             <ItemInfo>
-              <BsTelephone color="var(--color-white)" />
+              {watchIcons && (
+                <BsTelephone className="icon" color="var(--color-white)" />
+              )}
               <span>+51 - 965305887</span>
             </ItemInfo>
           </SectionFooter>
         </div>
       </div>
-      <div className="copys">© 2022 INICIP – All rights reserved.</div>
+      <div className="copys">
+        © 2022 INICIP - Todos los derechos reservados.
+      </div>
     </Container>
   );
 }

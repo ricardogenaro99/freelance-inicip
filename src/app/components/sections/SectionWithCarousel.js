@@ -37,6 +37,7 @@ function SectionWithCarousel({
           showThumbs={false}
           showStatus={false}
           showArrows={false}
+          showIndicators={false}
         >
           {images.map((e, i) => (
             <CarouselItem
