@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactPlayer from "react-player";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import portadaNoticia_1 from "../../../../assets/tmp/noticia (1).png";
@@ -80,7 +81,13 @@ function InformacionEscuelas() {
     <ContainerSchoolInformation>
       <section>
         <div className="image-container">
-          <img src={portadaNoticia_1} alt="" />
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=tzaM4VmjbZY"
+            playing
+            loop
+            height="100%"
+            width="100%"
+          />
         </div>
         <SectionInfo title="Conócenos">
           <p>
